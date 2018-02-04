@@ -7,8 +7,8 @@ export const ToolTipArrow = () => {
             viewBox='0 0 9.167 9.328'>
                 <linearGradient id='SVGID_1_' gradientUnits='userSpaceOnUse' y1='4.664'
                 x2='9.167' y2='4.664'>
-                    <stop offset='0' stopColor='#7e00a9' />
-                    <stop offset='1' stopColor='#d4145a' />
+                    <stop offset='0' stopColor='#333333' />
+                    <stop offset='1' stopColor='#333333' />
                 </linearGradient>
                 <polyline fill='#FFF' stroke='url(#SVGID_1_)' strokeLinecap='round' strokeLinejoin='round'
                 strokeMiterlimit='10' points='8.667,0.5 0.5,5.153 8.667,8.828' />

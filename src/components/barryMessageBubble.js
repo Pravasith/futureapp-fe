@@ -11,7 +11,12 @@ export const MessageBubble = () => {
                 </div>
                 <div className="rectInnerWrapper">
                     <div id="bubble">
-                        <p>I will be your assistant</p>
+                        <div className="bubbleText">
+                            <p className="barrySays">Barry says:</p>
+                            <p className="barryText">Hello, I will be your assistant!</p>
+                        </div>
+                        
+                        <button className="whiteBtn">Next</button>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ import {TweenMax, Power2, TimelineLite} from "gsap";
 import Draggable from "gsap/Draggable";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 
-import '../../assets/cssFiles/common.css'
+
 import {Boy} from "../../assets/images/boy"
 import {NextArrow} from "../../assets/images/nextArrow"
 import {Previous, PreviousArrow} from "../../assets/images/previousArrow"

@@ -59,7 +59,7 @@
     left: 127%;
     top: -7%;
     cursor: default;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .bubbleBindToBarry{
@@ -68,12 +68,13 @@
 
 .rectangleWrapper{
     position: relative;
+    min-width: 10em;
     width: 9em;
     height: fit-content;
-    padding: 0.3em 0.8em 0.5em 0.8em;
+    padding: 0.3em 0.8em 0.3em 0.8em;
     border-width: 0.09em;
     border-style: solid;
-    border: 0.09em solid #7E00A9;
+    border: 0.09em solid #333333;
     border-radius: 0.5em;
     background: #ffffff;
 }
@@ -82,4 +83,19 @@
     position: absolute;
     right: 99%;
     top: 14%;
+}
+
+#bubble{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.barrySays{
+    margin: 0.25em 0em;
+}
+
+.barryText{
+    margin: 0.25em 0em;
 }

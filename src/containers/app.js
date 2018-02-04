@@ -2,7 +2,7 @@ import React from "react"
 import { Switch, Route } from 'react-router-dom'
 import Hello from "./helloScreen/hello"
 import Start from "./startPage/start"
-
+import '../assets/cssFiles/common.css'
 
 class App extends React.Component{
 
