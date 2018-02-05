@@ -1,13 +1,24 @@
+.screenWrapper{
+    display: flex;
+}
+
 
 .navbarWrapper{
     min-width: 4em;
     display: flex;
-    height: 100%;
+    height: 100vh;
     width: 6%;
-    position: fixed;
     justify-content: center;
     align-items: center;
     background: rgb(255, 255, 255);
+}
+
+.mainStatusBarWrapper{
+    width: 94%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
 }
 
 .navbarInnerWrapper{
@@ -77,6 +88,7 @@
     border: 0.09em solid #333333;
     border-radius: 0.5em;
     background: #ffffff;
+    box-shadow: #d199ff9e 0.1em 0.1em 0.5em 0.005em;
 }
 
 .toolTipArrow{
@@ -98,4 +110,20 @@
 
 .barryText{
     margin: 0.25em 0em;
+}
+
+.mainStatusBarBgd{
+    width: 97%;
+    background: #EDE6FF;
+    height: 0.5em;
+    position: relative;
+    margin: 0.5em 0 0.5em 0;
+    border-radius: 2em;
+}
+
+.statusBarFill{
+    width: 5em;
+    background: linear-gradient(to right, #CF94FF , #FF7FB4);
+    height: 0.5em;
+    border-radius: 2em;
 }

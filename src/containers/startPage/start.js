@@ -1,14 +1,16 @@
 import React from "react"
  
 import { Navbar } from "../../components/navbar"
+import MainStatusBar from "./mainStatusBar"
 
 require("../../assets/cssFiles/navbar.css")
 
 export default class Start extends React.Component{
     render(){
         return(
-            <div>
+            <div className="screenWrapper" >
                 <Navbar/>
+                <MainStatusBar/>
             </div>
         )
     }
