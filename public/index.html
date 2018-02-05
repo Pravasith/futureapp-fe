@@ -28,7 +28,7 @@
         .circleWrapper{width:4em;height:1em;display:flex;justify-content:center;position:relative;}
         .circleLoader{width: 1em;height: 1em;background: linear-gradient(to right, #CF94FF , #FF7FB4);border-radius: 1em;position: absolute;animation: bounce 1s infinite;}
         .preloaderWrapper{display: flex;flex-direction: column;justify-content: center;align-items: center;height: 100%;position: absolute;width: 100%;}
-        path, ellipse {stroke-dasharray: 1000;stroke-dashoffset: 1000;animation: dash 1s linear forwards;}
+        #man path,#man ellipse {stroke-dasharray: 1000;stroke-dashoffset: 1000;animation: dash 1s linear forwards;}
         @keyframes dash {to {stroke-dashoffset: 0;}}
         @keyframes bounce {0%{left: -0.5em;}50%{left: 3.5em;}100%{left: -0.5em;}}
 

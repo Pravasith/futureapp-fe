@@ -131,3 +131,10 @@
     /* box-shadow: rgb(126, 0, 169) 0.1em 0.1em 0.2em 0.01em; */
 
 }
+
+.closeButton{
+    position: absolute;
+    left: 90%;
+    top: 4%;
+    cursor: pointer;
+}
