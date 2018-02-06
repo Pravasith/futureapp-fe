@@ -1,35 +1,35 @@
 
 const circles = [
     {
-        id : 1,
+        id : "circle1",
         name : "Framing an idea"
     },
     {
-        id : 2,
+        id : "circle2",
         name : "Finding advisor"
     },
     {
-        id : 3,
+        id : "circle3",
         name : "Team building"
     },
     {
-        id : 4,
+        id : "circle4",
         name : "Remote working"
     },
     {
-        id : 5,
+        id : "circle5",
         name : "Reaching milestones"
     },
     {
-        id : 6,
+        id : "circle6",
         name : "Initial investment"
     },
     {
-        id : 7,
+        id : "circle7",
         name : "Launch production"
     },
     {
-        id : 8,
+        id : "circle8",
         name : "More investment"
     }
 ]

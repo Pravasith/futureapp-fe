@@ -1,13 +1,39 @@
 import React from "react"
 import {connect} from "react-redux"
+//typical import of gsap methods
+import {TimelineLite} from "gsap";
  
 class MainStatusBar extends React.Component{
 
+    fillStatusBar(statusLevel){
+        // Status bar animations
+        const fillSBar = new TimelineLite()
+        fillSBar
+        .to(".statusBarContainer", 0.5, {opacity:1})
+        .to(".statusBarFill", 1, {width:statusLevel*11.1111+"%"})
+        let c = 0
+        while( c < statusLevel ){
+            fillSBar.to("#circle" + c + " .circleStatus", 0.3, {background:"#FFF", transformOrigin:"50% 50%", scale: 0.5})
+            c++
+        }
+        fillSBar.to("#circle" + statusLevel + " .circleStatus" , 0.8, {background:"#FF7FB4"} )
+        .to("#circle" + statusLevel + " p", 0.5 , {color: "#FF7FB4"})
+    }
+
+    componentDidMount(){
+        this.fillStatusBar(
+            // Put in the level in the next line to animate 
+            // the status bar according to that ex. 5 or 4 or 8 etc.
+            this.props.userDetails.statusBarLevel
+        )
+    }
+
     createCircles(){
+
         return this.props.circles.map((item) => (
-            <div  className="circleWrapper">
-                <div className="circleStatus"></div>
-                <p className="circleText">{item.name}</p>
+            <div key={item.id} id={item.id} className="circleWrapper">
+                <div  className="circleStatus"></div>
+                <p  className="circleText">{item.name}</p>
             </div>
         ))
     }
