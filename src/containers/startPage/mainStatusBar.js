@@ -1,7 +1,11 @@
 import React from "react"
 import {connect} from "react-redux"
+import {bindActionCreators} from "redux"
+
 //typical import of gsap methods
 import {TimelineLite} from "gsap";
+
+import {statusAction} from "../../actions/statusLevelActions"
  
 class MainStatusBar extends React.Component{
 
@@ -31,7 +35,12 @@ class MainStatusBar extends React.Component{
     createCircles(){
 
         return this.props.circles.map((item) => (
-            <div key={item.id} id={item.id} className="circleWrapper">
+            <div key={item.id} id={item.id} className="circleWrapper"
+            
+            // Passing onClick function to the Action STATUS_CLICKED
+            onClick = {() => this.props.statusAction(this.props.userDetails.statusBarLevel, item.name)}
+
+            >
                 <div  className="circleStatus"></div>
                 <p  className="circleText">{item.name}</p>
             </div>
@@ -64,4 +73,13 @@ function mapStateToProps(state){
     )
 }
 
-export default connect(mapStateToProps)(MainStatusBar)
+function matchDispatchToProps(dispatch){
+    return bindActionCreators(
+        {
+            statusAction: statusAction
+        },
+        dispatch
+    )
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(MainStatusBar)

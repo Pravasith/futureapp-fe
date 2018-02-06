@@ -16,7 +16,6 @@ import registerServiceWorker from './registerServiceWorker';
 const store = new createStore(allReducers)
 
 const history = createBrowserHistory()
-console.log(history)
 
 ReactDOM.render(
     <Provider store={store}>

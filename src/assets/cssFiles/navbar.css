@@ -135,7 +135,7 @@
 }
 
 .statusBarFill{
-    width: 5em;
+    width: 0em;
     background: linear-gradient(to right, #CF94FF , #FF7FB4);
     height: 0.5em;
     border-radius: 2em;

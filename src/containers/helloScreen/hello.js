@@ -2,15 +2,13 @@ import React from "react"
 import {connect} from "react-redux"
 
 //typical import of gsap methods
-import {TweenMax, Power2, TimelineLite} from "gsap";
-//or get to the parts that aren't included inside TweenMax (works as of 1.19.1):
-import Draggable from "gsap/Draggable";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
+import {TimelineLite} from "gsap";
+
 
 
 import {Boy} from "../../assets/images/boy"
 import {NextArrow} from "../../assets/images/nextArrow"
-import {Previous, PreviousArrow} from "../../assets/images/previousArrow"
+import {PreviousArrow} from "../../assets/images/previousArrow"
 import {selectIntroText} from "../../actions/introActions"
 
 
@@ -239,15 +237,13 @@ class Hello extends React.Component{
 
                     const fallingToPieces = () => {
                         let randomNumberArray1 = getArrayWithRandomNumbers(1,11)
-                        
-                        // console.log(randomNumberArray1, randomNumberArray2, randomNumberArray3)
 
                         randomNumberArray1.map((item) => {
-                            barryAnimationTl.set(".heart"+item, {y:0}  )
+                            return barryAnimationTl.set(".heart"+item, {y:0}  )
                         })
 
                         randomNumberArray1.map((item) => {
-                            barryAnimationTl.to(".heart"+item, 0.05, {y:400}  )
+                            return barryAnimationTl.to(".heart"+item, 0.05, {y:400}  )
                         })
                        
                     }

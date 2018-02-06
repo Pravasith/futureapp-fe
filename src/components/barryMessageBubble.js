@@ -7,6 +7,7 @@ import {WissenWhite} from '../assets/images/wissenWhite'
 import {CourageWhite} from '../assets/images/courageWhite'
 import {NectarBlack} from '../assets/images/nectarBlack'
 import {NectarWhite} from '../assets/images/nectarWhite'
+import BarryBubbleText from '../containers/startPage/barryBubbleText';
 
 
 export const MessageBubble = () => {
@@ -23,14 +24,19 @@ export const MessageBubble = () => {
                     <div id="bubble">
                         <div className="bubbleText">
                             <p className="barrySays">Barry says:</p>
-                            <p className="barryText">Hello, I will be your personal assistant!</p>
+                            <div className="barryText"><BarryBubbleText/></div>
                         </div>
                         <button className="whiteBtn">Next</button>
                     </div>
                     <div className="closeButton">
                         <CloseButton/>
                     </div>
-                    
+                    <WissenBlack/>
+                    <CourageBlack/>
+                    <WissenWhite/>
+                    <CourageWhite/>
+                    <NectarBlack/>
+                    <NectarWhite/>
                 </div>
                 
             </div>
