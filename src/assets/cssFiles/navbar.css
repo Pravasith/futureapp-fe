@@ -13,13 +13,7 @@
     background: rgb(255, 255, 255);
 }
 
-.mainStatusBarWrapper{
-    width: 94%;
-    height: 100%;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: center;
-}
+
 
 .navbarInnerWrapper{
     min-height: 18em;
@@ -112,12 +106,30 @@
     margin: 0.25em 0em;
 }
 
-.mainStatusBarBgd{
+.statusBarContainer{
+    margin: 0.2em 0 0.2em 0;
+    width: 94%;
+    height: 1em;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+}
+
+.mainStatusBarWrapper{
     width: 97%;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+}
+
+.mainStatusBarBgd{
+    width: 100%;
     background: #EDE6FF;
     height: 0.5em;
     position: relative;
-    margin: 0.5em 0 0.5em 0;
     border-radius: 2em;
 }
 
@@ -126,4 +138,32 @@
     background: linear-gradient(to right, #CF94FF , #FF7FB4);
     height: 0.5em;
     border-radius: 2em;
+}
+
+.circlesStatusBar{
+    display: flex;
+    z-index: 1;
+    justify-content: space-evenly;
+    width: 97%;
+    position: absolute;
+}
+
+.circleWrapper{
+    align-items: center;
+    width: 0.75em;
+}
+
+.circleStatus{
+    width: 0.75em;
+    height: 0.75em;
+    background: #E0D7FF;
+    border-radius: 1em;
+}
+
+.circleText{
+    color: #a5a5a5;
+    font-size: 0.75em;
+    top: 1.5em;
+    position: absolute;
+    text-align: center;
 }
