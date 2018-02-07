@@ -1,0 +1,48 @@
+/// border-gradient mixin: ///
+
+@mixin border-gradient($from, $to, $weight: 0) {
+    $mix-main: mix($from, $to);
+    $mix-sub-from: mix($mix-main, $from);
+    $mix-sub-to: mix($mix-main, $to);
+    
+    box-shadow: 0 0.05em 0 $weight rgba($mix-sub-to, .25),
+                0 -0.05em 0 $weight rgba($mix-sub-from, .25),
+                0.05em 0 0 $weight rgba($mix-sub-to, .25),
+                -0.05em 0 0 $weight  rgba($mix-sub-from, .25),
+                0.05em -0.05em 0 $weight rgba($mix-main, .5),
+                -0.05em 0.05em 0 $weight rgba($mix-main, .5),
+                0.05em 0.05em 0 $weight rgba($to, .75),
+                -0.05em -0.05em 0 $weight rgba($from, .75);
+  }
+
+  /// size mixin: ///
+
+  @mixin size($list...){
+      @if length($list) == 1{
+        width: nth($list,1);
+        height: nth($list,1);
+        animation: rotateThis 1s linear infinite;
+      }
+      @if length($list) == 2{
+        width: nth($list,1);
+        height: nth($list,2);
+      }
+  }
+
+  // flex-row -centre mixin:
+
+  @mixin flexCentreRow{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+  }
+
+    // flex-column -centre mixin:
+
+  @mixin flexCentreCol{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+  }

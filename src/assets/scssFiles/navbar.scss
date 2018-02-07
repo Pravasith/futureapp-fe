@@ -1,0 +1,189 @@
+@import "configVariables";
+@import "configMixins";
+
+@keyframes rotateThis {
+    from {
+      transform: rotate(0deg) scale(1);
+    }
+    
+    to {
+      transform: rotate(360deg) scale(1);
+    }
+}
+  
+
+.screenWrapper{
+    display: flex;
+}
+
+
+.navbarWrapper{
+    @include flexCentreRow;
+    min-width: 4em;
+    height: 100vh;
+    width: 6%;
+    background: $white;
+}
+
+.navbarInnerWrapper{
+    min-height: 18em;
+    width: 100%;
+    height: 97%;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    border-right: 0.1em solid $lightGrey;
+}
+
+.prof-pic-wrapper {
+    @include size(2.1em 2.1em);
+    border-radius: 100%;
+    @include border-gradient($primaryViolet, $primaryMagenta);
+    margin: 0.1em 0 0.1em 0;
+}
+
+
+
+.iconWrapper{
+    @include flexCentreCol;
+    cursor: pointer;
+    margin: 0.7em 0 1em 0;
+}
+
+.pp{
+    width: 2em;
+    height: 2em;
+    background: #ffffff;
+    border-radius: 4.5em;
+}
+.empty{
+    width: 100%;
+    height: 1.2em;
+}
+
+.messageBubbleWrapper{
+    position: absolute;
+    left: 127%;
+    top: -7%;
+    cursor: default;
+    /* visibility: hidden; */
+}
+
+.bubbleBindToBarry{
+    position: relative;
+}
+
+.rectangleWrapper{
+    position: relative;
+    min-width: 10em;
+    width: 9em;
+    height: fit-content;
+    padding: 0.3em 0.8em 0.3em 0.8em;
+    border-width: 0.09em;
+    border-style: solid;
+    border: 0.09em solid $darkGrey;
+    border-radius: 0.5em;
+    background: $white;
+    box-shadow: #d199ff9e 0.1em 0.1em 0.5em 0.005em;
+}
+
+.toolTipArrow{
+    position: absolute;
+    right: 99%;
+    top: 14%;
+}
+
+#bubble{
+    @include flexCentreCol;
+}
+
+.barrySays, .barryText{
+    margin: 0.25em 0em;
+}
+
+.statusBarContainer{
+    opacity: 0;
+    width: 94%;
+}
+
+.statusBarContainer .insideComponent{
+    opacity: 1;
+    /* opacity: 0; */
+    margin: 0.2em 0 0.2em 0;
+    width: 100%;
+    height: 1em;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+}
+
+.mainStatusBarWrapper{
+    width: 97%;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+}
+
+.mainStatusBarBgd{
+    width: 100%;
+    background: #EDE6FF;
+    height: 0.5em;
+    position: relative;
+    border-radius: 2em;
+}
+
+.statusBarFill{
+    width: 0em;
+    background: linear-gradient(to right, $lightViolet , $lightMagenta);
+    height: 0.5em;
+    border-radius: 2em;
+}
+
+.circlesStatusBar{
+    display: flex;
+    z-index: 1;
+    justify-content: space-evenly;
+    width: 97%;
+    position: absolute;
+}
+
+.circleWrapper{
+    align-items: center;
+    width: 0.75em;
+    transition: 0.5s;
+}
+
+.circleStatus{
+    width: 0.75em;
+    height: 0.75em;
+    background: #E0D7FF;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+.circleText{
+    color: $mediumGrey;
+    font-size: 0.75em;
+    top: 1.5em;
+    position: absolute;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.circleWrapper:hover .circleText{
+    color: $darkGrey;
+}
+
+.circleWrapper:hover .circleStatus{
+    background: $lightViolet;
+}
+
+
+

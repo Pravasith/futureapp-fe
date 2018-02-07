@@ -49,7 +49,7 @@ class MainStatusBar extends React.Component{
 
     render(){
         return(
-            <div className="statusBarContainer">
+            <div className="insideComponent" >
                 <div className="circlesStatusBar">
                    {this.createCircles()}
                 </div>

@@ -4,13 +4,12 @@ import {connect} from "react-redux"
 //typical import of gsap methods
 import {TimelineLite} from "gsap";
 
-
-
 import {Boy} from "../../assets/images/boy"
 import {NextArrow} from "../../assets/images/nextArrow"
 import {PreviousArrow} from "../../assets/images/previousArrow"
 import {selectIntroText} from "../../actions/introActions"
 
+require("../../assets/cssFiles/introAnimation.css")
 
 class Hello extends React.Component{
 

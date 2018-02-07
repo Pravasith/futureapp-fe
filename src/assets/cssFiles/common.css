@@ -1,139 +1,27 @@
-.background-gradient{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #00123F; /* For browsers that do not support gradients */
-    background: linear-gradient(to right, #00123F , #3F0038); /* Standard */
-}
+.whiteBtn {
+  background: #ffffff;
+  border: 0.05em solid #333333;
+  border-radius: 2em;
+  padding: 0.4em 0.5em 0.6em 0.5em;
+  outline: none;
+  min-width: 6em;
+  margin: 0.5em;
+  color: #333333;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
 
-.background-gradient:focus{
-    outline: none;
-}
+.whiteBtn:hover {
+  /* background: linear-gradient(to left, #D4145A , #D4145A); */
+  background: #22B573;
+  color: #FFFFFF;
+  border: 0.05em solid #22B573;
+  /* box-shadow: rgb(126, 0, 169) 0.1em 0.1em 0.2em 0.01em; */ }
 
-.infoText{
-    max-width: 20em;
-    text-align: center;
-    padding: 0.5em;
-    height: 5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.introText{
-    color: #FFF;
-    font-family: "Arial";
-    font-weight: 100;
-    font-size: 1em;
-    
-}
-
-.hello{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.sliderBigContainer{
-    display: flex;
-}
-
-.slider{
-    width: 0em;
-    background: linear-gradient(to right, #7E00A9 , #D4145A);
-    height: 0.75em;
-
-    border-radius: 2em;
-}
-
-.slider-background{
-    width: 10em;
-    background: #3F0038;
-    height: 0.75em;
-    position: relative;
-    top: 0.58em;
-    border-radius: 2em;
-}
-
-.previousArrow{
-    cursor: pointer;
-    display: none;
-}
-
-.nextArrow{
-    cursor: pointer;
-}
-
-.prev{
-    width: 2em;
-    height: 2em;
-    position: relative;
-    left: -0.25em;
-}
-
-.next{
-    width: 2em;
-    height: 2em;
-    position: relative;
-    left: 0.25em;
-}
-
-.startYourJourney{
-    width: 15em;
-    height: 2.5em;
-    /* background: linear-gradient(to right, #3F0038 , #3d0038); */
-    background: #250d42;
-    border-radius: 2em;
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5em;
-    align-items: center;
-    font-family: helvetica neue,aktiv-grotesk-std,helvetica,arial,freesans,liberation sans,numbus sans l,sans-serif;;
-    color: #800071;
-    font-weight: 700;
-    font-size: 0.9em;
-    cursor: pointer;
-    transition: 0.2s;
-    
-}
-
-.startYourJourney:hover{
-    color: #7E00A9;
-    box-shadow: rgb(126, 0, 169) 0.1em 0.1em 2.5em 0.01em;
-   
-}
-
-.whiteBtn{
-
-    background: #FFFFFF;
-    border: 0.05em solid #333333;
-    border-radius: 2em;
-    padding: 0.4em 0.5em 0.6em 0.5em;
-    outline: none;
-    min-width: 6em;
-    margin: 0.5em;
-    color: #333333;
-    cursor: pointer;
-    transition:  0.2s;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.whiteBtn:hover{
-    /* background: linear-gradient(to left, #D4145A , #D4145A); */
-    background: #22B573;
-    color: #FFFFFF;
-    border: 0.05em solid #22B573;
-    /* box-shadow: rgb(126, 0, 169) 0.1em 0.1em 0.2em 0.01em; */
-
-}
-
-.closeButton{
-    position: absolute;
-    left: 90%;
-    top: 4%;
-    cursor: pointer;
-}
+.closeButton {
+  position: absolute;
+  left: 90%;
+  top: 4%;
+  cursor: pointer; }

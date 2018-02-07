@@ -10,7 +10,12 @@ export default class Start extends React.Component{
         return(
             <div className="screenWrapper" >
                 <Navbar/>
+                <div className="statusBarContainer" >
                 <MainStatusBar/>
+                </div>
+                <div className="focusScreen">
+                </div>
+                
             </div>
         )
     }
