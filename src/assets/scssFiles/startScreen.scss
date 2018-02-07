@@ -1,0 +1,67 @@
+@import "configVariables";
+@import "configMixins";
+
+.screenWrapper{
+    display: flex;
+    height: 100vh;
+}
+
+.rightScreenContainer{
+    width: 94%;
+    @include flexCentreCol;
+    justify-content: flex-start;
+
+    .focusScreen{
+        width: 100%;
+        overflow-y: auto;
+    }
+}
+
+.statusBarContainer{
+    opacity: 0;
+    width: 100%;
+    min-height: 3.5em;
+    height: 9vh;
+    background: #ffffff;
+}
+
+.insideComponent{
+    opacity: 1;
+    /* opacity: 0; */
+    margin: 0.2em 0 2.5em 0;
+    width: 100%;
+    height: 1em;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+}
+
+.ideaInputWrapper{
+
+    width: 100%;
+    min-height: min-content;
+
+    @include flexCentreRow;
+    justify-content: space-evenly;
+
+    .greenBgd{
+        width: 42%;
+        min-width: 52vh;
+        height: 55vh;
+        border-radius: 0.5em;
+        background: linear-gradient(to right, $strongDarkGreen , $darkGreen);
+    }
+
+    .someText{
+        width: 42%;
+        min-width: 52vh;
+        height: 55vh;
+        border-radius: 0.5em;
+        background: $lightGrey;
+    }
+    
+}
