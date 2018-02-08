@@ -49,6 +49,8 @@
     justify-content: space-evenly;
 
     .greenBgd{
+        
+        @include flexCentreCol;
         width: 42%;
         min-width: 52vh;
         height: 55vh;
