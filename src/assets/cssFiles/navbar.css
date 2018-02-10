@@ -234,12 +234,14 @@
   background: #CF94FF; }
 
 @media screen and (max-width: 1024px) {
-  .circleText {
-    visibility: hidden; }
   button {
     font-size: 1.2em; }
   .messageBubbleWrapper {
     top: -23%; } }
+
+@media screen and (max-width: 650px) {
+  .circleText {
+    visibility: hidden; } }
 
 @media screen and (max-width: 520px) {
   .circleText {

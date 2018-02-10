@@ -162,9 +162,7 @@
 // ipad
 
 @media screen and (max-width: 1024px){
-    .circleText{
-        visibility: hidden;
-    }
+    
     
     button{
         font-size: 1.2em;
@@ -174,6 +172,15 @@
         top: -23%;
     }
 
+}
+
+@media screen and (max-width: 650px){
+    
+    
+    .circleText{
+        visibility: hidden;
+    }
+    
 }
 
 
