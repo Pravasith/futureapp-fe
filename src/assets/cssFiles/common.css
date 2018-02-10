@@ -20,11 +20,24 @@ html body {
   font-family: sans-serif; }
 
 html p {
+  line-height: 1.2;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
 
 html a, html u {
   text-decoration: none; }
+
+html br {
+  line-height: 0.5em; }
+
+html button {
+  line-height: 1.2;
+  font-size: 0.9em;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+
+html button:active {
+  outline: none; }
 
 html h1 {
   font-weight: 100;
@@ -51,8 +64,37 @@ html h1 {
   /* background: linear-gradient(to left, #D4145A , #D4145A); */
   background: #22B573;
   color: #FFFFFF;
-  border: 0.05em solid #22B573;
-  /* box-shadow: rgb(126, 0, 169) 0.1em 0.1em 0.2em 0.01em; */ }
+  border: 0.05em solid #22B573; }
+
+.whiteBtnBig {
+  background: #ffffff;
+  -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+  box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+  border: none;
+  border-radius: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  outline: none;
+  height: 2.8em;
+  width: 15em;
+  margin: 0.5em;
+  color: #333333;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
 
 .closeButton {
   position: absolute;

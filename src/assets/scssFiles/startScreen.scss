@@ -52,12 +52,22 @@
     
 }
 
+
+.greenWrapper{
+    @include flexCentreRow;
+    justify-content: flex-end;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 40%;
+}
+
 .greenBgd{
         
     @include flexCentreCol;
-    width: 42%;
-    margin: 3em 0 2em 0;
-    height: 55vh;
+    width: 100%;
+    margin: 1em;
+    padding: 1em;
+    height: 32em;
     border-radius: 0.5em;
     background: linear-gradient(to right, $strongDarkGreen , $darkGreen);
 
@@ -66,18 +76,48 @@
     }
 }
 
+
+
 .someText{
-    width: 42%;
-    min-width: 52vh;
-    height: 55vh;
-    border-radius: 0.5em;
-    background: $lightGrey;
+    margin: 1em;
+    padding: 1em 0.2em;
+    width: 30%;
+
+    p{
+        color: #B3B3B3;
+    }
+
+    span{
+        height: 0.5em;
+        display: block;
+    }
 }
 
-.row{
-    padding: 0.5em 0.2em;
-    background: pink;
-    
+.writeHead{
+    @include flexCentreRow;
+    width: 100%;
+    justify-content: space-around;
+} 
+
+.courageIcon{
+    @include flexCentreRow;
+    padding: 0.5em;
+}
+
+.courageIcon{
+    span{
+        width: 0.3em;
+    }
+    p{
+        color: #ffffff;
+    }
+}
+
+
+
+br{
+    display: block;
+    line-height: 0.5em;
 }
 
 .shinobi{
@@ -88,6 +128,26 @@
     text-align: center;
 }
 
+.textInputWrapper{
+    width: 100%;
+    form{
+        width: 100%;
+        
+        @include flexCentreCol;
+        justify-content: space-between;
+        textarea{
+            width: 100%;
+            font-size: 0.9em;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding: 0.5em 1em;
+            height: 6em;
+            border-radius: 0.5em;
+            border: none;
+            overflow-wrap:break-word;
+        }
+    }
+}
+
 
 // media queries
 
@@ -95,33 +155,65 @@
 
 @media screen and (max-width: 1024px){
 
-    .greenBgd{
-        width: 78%;
+    .greenWrapper{
+        width: 50%;
     }
 
-    .ideaInputWrapper{
-
-        @include flexCentreCol;
-        
+    .someText{
+        p{
+            font-size: 1em;
         }
+    }
+
 
     .statusBarContainer{
-        min-height: 1.5em;
-        height: 4vh;
+        min-height: 3.8em;
     }
 
 }
 
-@media screen and (max-width: 520px){
-   .greenBgd{
-       width: 92%;
-   }
 
-   .ideaInputWrapper{
+@media screen and (max-width: 768px){
 
-    @include flexCentreCol;
-    
+    .ideaInputWrapper{
+        flex-direction: column;
     }
+
+    .writeHead{
+        @include flexCentreCol;
+        p{
+            font-size: 1em;
+        }
+    }
+    
+    .greenWrapper{
+        width: 98%;
+    }
+    
+    .someText{
+        width: 98%;
+        padding: 1em;
+    }
+}
+
+
+
+
+@media screen and (max-width: 520px){
+
+    .ideaInputWrapper{
+        flex-direction: column;
+    }
+
+    .greenWrapper{
+        width: 98%;
+    }
+
+    .someText{
+        width: 98%;
+        padding: 1em;
+    }
+
 
     .statusBarContainer{
         min-height: 1.5em;

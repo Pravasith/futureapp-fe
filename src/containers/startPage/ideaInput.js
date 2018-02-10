@@ -4,6 +4,7 @@ import { Meditator } from "../../assets/images/meditator";
 
 //typical import of gsap methods
 import { TimelineLite} from "gsap";
+import { CourageWhite } from "../../assets/images/courageWhite";
 
 
 
@@ -22,7 +23,7 @@ export default class IdeaInput extends React.Component{
         const levitateBody = new TimelineLite()
 
         const bodyUpDown = () => {
-            console.log("heello")
+            
             levitateBody
             .to(".wholeBody", 0.5, {y:-4.5})
             .to(".wholeBody", 0.1, {y:-4.5})
@@ -60,19 +61,70 @@ export default class IdeaInput extends React.Component{
 
     render(){
         return(
+            
+
+
             <div className="ideaInputWrapper">
-                <div className="greenBgd">
-                    <div className="bulbWrapper">
-                        <Bulb/>
+
+                <div className="greenWrapper">
+                    <div className="greenBgd">
+                        <div className="bulbWrapper">
+                            <Bulb/>
+                        </div>
+                        <div>
+                            <Meditator/>
+                        </div>
+                        <div className="writeHead">
+                            <h1>Write your idea in short...</h1>
+                            <div className="courageIcon">
+                                <p> +  </p>
+                                <span></span>
+                                <CourageWhite/>
+                                <span></span>
+                                <p>  Courage </p>
+                                
+                            </div>
+                            
+                        </div>
+                        <div className="textInputWrapper">
+                            <form action="/">
+                                    
+                                    <textarea name="idea" placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."></textarea>
+                                    <br/>
+
+                                    <button className="whiteBtnBig">Next</button>
+                            </form>
+                        </div>
                     </div>
-                    <div>
-                        <Meditator/>
-                    </div>
-                    <h1>Write your idea in short</h1>
                 </div>
+                
+                
                 <div className="someText">
+                    <p>
+                    Some info for you if you’d like to acknowledge:
+                    </p><span ></span>
+                    <p>
+                    1. Dont worry about others stealing your ideas only you know the unique plan of action to achieve them.
+                    </p><span ></span>
+                    <p>
+                    2. Your ideas will be not be shared with anyone until you choose to.
+                    </p><span ></span>
+                    <p>
+                    3. In the next stage, you will have to share your ideas among the related professionals and target audience to know the feasibility of your idea.
+                    </p><span ></span>
+                    <p>
+                    4. After that, interested professionals will start working with you. Just sign the digital contract, get people working and float it for investment.
+                    </p><span ></span>
+                    <p>
+                    5. As Tyler Durden would say, if this is your first time here, you have to post an idea!
+                    </p><span ></span>
+
                 </div>
             </div>
+
+
+           
+            
         )
     }
 }
