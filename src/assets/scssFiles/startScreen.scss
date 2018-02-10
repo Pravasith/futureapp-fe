@@ -11,10 +11,12 @@
     @include flexCentreCol;
     justify-content: flex-start;
 
-    .focusScreen{
-        width: 100%;
-        overflow-y: auto;
-    }
+}
+
+.focusScreen{
+    width: 100%;
+    overflow-y: auto;
+    
 }
 
 .statusBarContainer{
@@ -47,23 +49,58 @@
 
     @include flexCentreRow;
     justify-content: space-evenly;
+    
+}
+
+.greenBgd{
+        
+    @include flexCentreCol;
+    width: 42%;
+    margin: 3em 0 2em 0;
+    height: 55vh;
+    border-radius: 0.5em;
+    background: linear-gradient(to right, $strongDarkGreen , $darkGreen);
+
+    h1{
+        color: #ffffff; 
+    }
+}
+
+.someText{
+    width: 42%;
+    min-width: 52vh;
+    height: 55vh;
+    border-radius: 0.5em;
+    background: $lightGrey;
+}
+
+
+// media queries
+
+// ipad
+
+@media screen and (max-width: 1024px){
 
     .greenBgd{
-        
-        @include flexCentreCol;
-        width: 42%;
-        min-width: 52vh;
-        height: 55vh;
-        border-radius: 0.5em;
-        background: linear-gradient(to right, $strongDarkGreen , $darkGreen);
+        width: 78%;
     }
 
-    .someText{
-        width: 42%;
-        min-width: 52vh;
-        height: 55vh;
-        border-radius: 0.5em;
-        background: $lightGrey;
-    }
+    .ideaInputWrapper{
+
+        @include flexCentreCol;
+        
+        }
+
+}
+
+@media screen and (max-width: 520px){
+   .greenBgd{
+       width: 92%;
+   }
+
+   .ideaInputWrapper{
+
+    @include flexCentreCol;
     
+    }
 }

@@ -46,6 +46,7 @@
 }
 
 .messageBubbleWrapper{
+    z-index: 1;
     position: absolute;
     left: 127%;
     top: -7%;
@@ -68,7 +69,6 @@
     border: 0.09em solid $darkGrey;
     border-radius: 0.5em;
     background: $white;
-    box-shadow: #d199ff9e 0.1em 0.1em 0.5em 0.005em;
 }
 
 .toolTipArrow{
@@ -151,5 +151,38 @@
     background: $lightViolet;
 }
 
+// ipad
+
+@media screen and (max-width: 1024px){
+    .circleText{
+        visibility: hidden;
+    }
+    
+    button{
+        font-size: 1.2em;
+    }
+
+    .messageBubbleWrapper{
+        top: -23%;
+    }
 
 
+}
+
+
+// mobiles
+
+@media screen and (max-width: 520px){
+    .circleText{
+        visibility: hidden;
+    }
+    
+    button{
+        font-size: 1.1em;
+    }
+
+    .messageBubbleWrapper{
+        top: -23%;
+    }
+    
+}

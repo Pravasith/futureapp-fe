@@ -38,9 +38,10 @@
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start; }
-  .rightScreenContainer .focusScreen {
-    width: 100%;
-    overflow-y: auto; }
+
+.focusScreen {
+  width: 100%;
+  overflow-y: auto; }
 
 .statusBarContainer {
   opacity: 0;
@@ -87,7 +88,43 @@
   -webkit-box-pack: space-evenly;
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly; }
-  .ideaInputWrapper .greenBgd {
+
+.greenBgd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 42%;
+  margin: 3em 0 2em 0;
+  height: 55vh;
+  border-radius: 0.5em;
+  background: -webkit-gradient(linear, left top, right top, from(#00A99D), to(#22B573));
+  background: -webkit-linear-gradient(left, #00A99D, #22B573);
+  background: -o-linear-gradient(left, #00A99D, #22B573);
+  background: linear-gradient(to right, #00A99D, #22B573); }
+  .greenBgd h1 {
+    color: #ffffff; }
+
+.someText {
+  width: 42%;
+  min-width: 52vh;
+  height: 55vh;
+  border-radius: 0.5em;
+  background: #e4e4e4; }
+
+@media screen and (max-width: 1024px) {
+  .greenBgd {
+    width: 78%; }
+  .ideaInputWrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -100,18 +137,22 @@
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
-    width: 42%;
-    min-width: 52vh;
-    height: 55vh;
-    border-radius: 0.5em;
-    background: -webkit-gradient(linear, left top, right top, from(#00A99D), to(#22B573));
-    background: -webkit-linear-gradient(left, #00A99D, #22B573);
-    background: -o-linear-gradient(left, #00A99D, #22B573);
-    background: linear-gradient(to right, #00A99D, #22B573); }
-  .ideaInputWrapper .someText {
-    width: 42%;
-    min-width: 52vh;
-    height: 55vh;
-    border-radius: 0.5em;
-    background: #e4e4e4; }
+    align-items: center; } }
+
+@media screen and (max-width: 520px) {
+  .greenBgd {
+    width: 92%; }
+  .ideaInputWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; } }

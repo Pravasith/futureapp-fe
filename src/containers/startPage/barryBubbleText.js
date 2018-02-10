@@ -9,7 +9,9 @@ class BarryBubbleText extends React.Component{
     componentWillUpdate(){
         const textAnimation = new TimelineLite()
         textAnimation
+        .to(".messageBubbleWrapper", 0.1, {transformOrigin:"0% 20%", scale: 1})
         .from(".barryBubbleText", 0.5, {opacity:0})
+        
     }
 
     render(){

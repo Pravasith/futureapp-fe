@@ -1,4 +1,8 @@
 import React from 'react'
+
+//typical import of gsap methods
+import {TimelineLite} from "gsap";
+
 import {ToolTipArrow} from '../assets/images/tooltipArrow'
 import {CloseButton} from '../assets/images/closeButton'
 import {WissenBlack} from '../assets/images/wissenBlack'
@@ -12,10 +16,15 @@ import BarryBubbleText from '../containers/startPage/barryBubbleText';
 
 export const MessageBubble = () => {
 
+    const closeBubble = () => {
 
+        const popInOut = new TimelineLite()
+        popInOut.to(".messageBubbleWrapper", 0.1, {transformOrigin:"0% 20%", scale: 0})
+
+    }
 
     return (
-        <div className="messageBubbleWrapper">
+        <div onClick = {() => closeBubble()} className="messageBubbleWrapper">
             <div className="rectangleWrapper">
                 <div className="toolTipArrow">
                     <ToolTipArrow/>
@@ -28,7 +37,7 @@ export const MessageBubble = () => {
                         </div>
                         <button className="whiteBtn">Next</button>
                     </div>
-                    <div className="closeButton">
+                    <div  className="closeButton">
                         <CloseButton/>
                     </div>
                     <WissenBlack/>

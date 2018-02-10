@@ -86,6 +86,7 @@
   height: 1.2em; }
 
 .messageBubbleWrapper {
+  z-index: 1;
   position: absolute;
   left: 127%;
   top: -7%;
@@ -107,9 +108,7 @@
   border-style: solid;
   border: 0.09em solid #333333;
   border-radius: 0.5em;
-  background: #ffffff;
-  -webkit-box-shadow: #d199ff9e 0.1em 0.1em 0.5em 0.005em;
-  box-shadow: #d199ff9e 0.1em 0.1em 0.5em 0.005em; }
+  background: #ffffff; }
 
 .toolTipArrow {
   position: absolute;
@@ -205,3 +204,19 @@
 
 .circleWrapper:hover .circleStatus {
   background: #CF94FF; }
+
+@media screen and (max-width: 1024px) {
+  .circleText {
+    visibility: hidden; }
+  button {
+    font-size: 1.2em; }
+  .messageBubbleWrapper {
+    top: -23%; } }
+
+@media screen and (max-width: 520px) {
+  .circleText {
+    visibility: hidden; }
+  button {
+    font-size: 1.1em; }
+  .messageBubbleWrapper {
+    top: -23%; } }
