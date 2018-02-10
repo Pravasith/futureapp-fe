@@ -22,9 +22,22 @@ export default class Start extends React.Component{
                     <div className="statusBarContainer" >
                     <MainStatusBar/>
                     </div>
-                    <div className="focusScreen">
+                    <div className="container focusScreen">
                     <IdeaInput/>
+
+                    <div className="container" >
+                        <div className="row justify-content-md-center" >
+                            <div className="col-md-2 shinobi">Hello</div>
+                            <div className="col-md-2 shinobi">Hello</div>
+                            <div className="col-md-2 shinobi">Hello</div>
+                            
+                        </div>
                     </div>
+
+                    </div>
+
+                    
+                    
                 </div>
 
             </div>

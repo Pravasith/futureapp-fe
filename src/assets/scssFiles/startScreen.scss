@@ -48,7 +48,7 @@
     min-height: min-content;
 
     @include flexCentreRow;
-    justify-content: space-evenly;
+    
     
 }
 
@@ -74,6 +74,20 @@
     background: $lightGrey;
 }
 
+.row{
+    padding: 0.5em 0.2em;
+    background: pink;
+    
+}
+
+.shinobi{
+    color: #ffffff;
+    padding: 0.2em 0.2em;
+    margin: 0.2em 0.2em;
+    background: blueviolet;
+    text-align: center;
+}
+
 
 // media queries
 
@@ -91,6 +105,11 @@
         
         }
 
+    .statusBarContainer{
+        min-height: 1.5em;
+        height: 4vh;
+    }
+
 }
 
 @media screen and (max-width: 520px){
@@ -102,5 +121,10 @@
 
     @include flexCentreCol;
     
+    }
+
+    .statusBarContainer{
+        min-height: 1.5em;
+        height: 4vh;
     }
 }

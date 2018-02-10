@@ -42,7 +42,10 @@ class MainStatusBar extends React.Component{
 
             >
                 <div  className="circleStatus"></div>
-                <p  className="circleText">{item.name}</p>
+                <div className="flexSet" >
+                    <p  className="circleText">{item.name}</p>
+                </div>
+                
             </div>
         ))
     }
@@ -51,7 +54,9 @@ class MainStatusBar extends React.Component{
         return(
             <div className="insideComponent" >
                 <div className="circlesStatusBar">
-                   {this.createCircles()}
+                    <div></div>
+                    {this.createCircles()}
+                    <div></div>
                 </div>
                 <div className="mainStatusBarWrapper">
                     <div className="mainStatusBarBgd">

@@ -163,13 +163,24 @@
   display: -ms-flexbox;
   display: flex;
   z-index: 1;
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
-  justify-content: space-evenly;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   width: 97%;
+  top: 0em;
   position: absolute; }
 
 .circleWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -188,11 +199,28 @@
   -o-transition: 0.5s;
   transition: 0.5s; }
 
+.flexSet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  top: 1.25em;
+  height: 0px; }
+
 .circleText {
   color: #a5a5a5;
   font-size: 0.75em;
-  top: 1.5em;
-  position: absolute;
+  position: relative;
   text-align: center;
   cursor: pointer;
   -webkit-transition: 0.5s;

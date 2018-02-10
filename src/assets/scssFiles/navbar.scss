@@ -112,13 +112,14 @@
 .circlesStatusBar{
     display: flex;
     z-index: 1;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 97%;
+    top: 0em;
     position: absolute;
 }
 
 .circleWrapper{
-    align-items: center;
+    @include flexCentreCol;
     width: 0.75em;
     transition: 0.5s;
 }
@@ -132,12 +133,19 @@
     transition: 0.5s;
 }
 
+.flexSet{
+    @include flexCentreCol;
+    position: relative;
+    top: 1.25em;
+    height: 0px;
+}
+
 
 .circleText{
     color: $mediumGrey;
     font-size: 0.75em;
-    top: 1.5em;
-    position: absolute;
+    
+    position: relative;
     text-align: center;
     cursor: pointer;
     transition: 0.5s;
@@ -165,7 +173,6 @@
     .messageBubbleWrapper{
         top: -23%;
     }
-
 
 }
 

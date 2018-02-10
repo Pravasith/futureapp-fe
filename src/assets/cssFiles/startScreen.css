@@ -84,10 +84,7 @@
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
-  justify-content: space-evenly; }
+  align-items: center; }
 
 .greenBgd {
   display: -webkit-box;
@@ -121,6 +118,17 @@
   border-radius: 0.5em;
   background: #e4e4e4; }
 
+.row {
+  padding: 0.5em 0.2em;
+  background: pink; }
+
+.shinobi {
+  color: #ffffff;
+  padding: 0.2em 0.2em;
+  margin: 0.2em 0.2em;
+  background: blueviolet;
+  text-align: center; }
+
 @media screen and (max-width: 1024px) {
   .greenBgd {
     width: 78%; }
@@ -137,7 +145,10 @@
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; } }
+    align-items: center; }
+  .statusBarContainer {
+    min-height: 1.5em;
+    height: 4vh; } }
 
 @media screen and (max-width: 520px) {
   .greenBgd {
@@ -155,4 +166,7 @@
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; } }
+    align-items: center; }
+  .statusBarContainer {
+    min-height: 1.5em;
+    height: 4vh; } }
