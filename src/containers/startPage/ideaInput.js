@@ -5,22 +5,31 @@ import { Meditator } from "../../assets/images/meditator";
 //typical import of gsap methods
 import { TimelineLite} from "gsap";
 import { CourageWhite } from "../../assets/images/courageWhite";
+import { Slide1 } from "../../components/slide1";
+import { Slide2 } from './../../components/slide2';
 
 
 
 export default class IdeaInput extends React.Component{
 
     componentDidMount(){
-        
         this.introAnim()
     }
-    
 
-////// animation function start /////////////////////////////////////////////////////////
+    componentDidUpdate(){
+        this.introAnim()
+    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////// intro animation function start //////////////////////////////
 
     introAnim(){
+        const formLoad = new TimelineLite()
         const meditate = new TimelineLite()
         const levitateBody = new TimelineLite()
+
+        formLoad.from('.greenBgd', 0.5, {transformOrigin:"50% 50%", scale:0, opacity:0})
 
         const bodyUpDown = () => {
             
@@ -55,50 +64,47 @@ export default class IdeaInput extends React.Component{
 
     }
 
+////////////////////////////// intro animation function end //////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 
-////// animation function end /////////////////////////////////////////////////////////
+
+
+
+    nextSlide(e){
+        e.preventDefault()
+        const slideAnim = new TimelineLite()
+        slideAnim.to('.slide1', 0.2, {transformOrigin:"0% 50%", scaleX:0, opacity:0})
+    }
+
+    slideContentHTML(slide){
+
+        if(slide === 1){
+            return(
+                <Slide1/>
+            )
+
+        }
+
+        else if(slide === 2){
+            return(
+               <Slide2/>
+            )
+        }
+        
+    }
 
 
     render(){
         return(
             
-
-
             <div className="ideaInputWrapper">
 
                 <div className="greenWrapper">
-                    <div className="greenBgd">
-                        <div className="bulbWrapper">
-                            <Bulb/>
-                        </div>
-                        <div>
-                            <Meditator/>
-                        </div>
-                        <div className="writeHead">
-                            <h1>Write your idea in short...</h1>
-                            <div className="courageIcon">
-                                <p> +  </p>
-                                <span></span>
-                                <CourageWhite/>
-                                <span></span>
-                                <p>  Courage </p>
-                                
-                            </div>
-                            
-                        </div>
-                        <div className="textInputWrapper">
-                            <form action="/">
-                                    
-                                    <textarea name="idea" placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."></textarea>
-                                    <br/>
+                    
+                    {this.slideContentHTML(2)}
 
-                                    <button className="whiteBtnBig">Next</button>
-                            </form>
-                        </div>
-                    </div>
                 </div>
-                
-                
+
                 <div className="someText">
                     <p>
                     Some info for you if you’d like to acknowledge:

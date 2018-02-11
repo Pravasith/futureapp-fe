@@ -151,10 +151,10 @@
 
 .statusBarFill {
   width: 0em;
-  background: -webkit-gradient(linear, left top, right top, from(#CF94FF), to(#FF7FB4));
-  background: -webkit-linear-gradient(left, #CF94FF, #FF7FB4);
-  background: -o-linear-gradient(left, #CF94FF, #FF7FB4);
-  background: linear-gradient(to right, #CF94FF, #FF7FB4);
+  background: -webkit-gradient(linear, left top, right top, from(#94E8FF), to(#FF94F3));
+  background: -webkit-linear-gradient(left, #94E8FF, #FF94F3);
+  background: -o-linear-gradient(left, #94E8FF, #FF94F3);
+  background: linear-gradient(to right, #94E8FF, #FF94F3);
   height: 0.5em;
   border-radius: 2em; }
 
