@@ -57,12 +57,17 @@ export class Slide2 extends React.Component{
                     <span ></span>
 
                     <div className="uploadContent">
-                    <h1>Upload a rough sketch (optional)</h1>
+                        <h1>Upload a rough sketch (optional)</h1>
                         <div className="uploadContainer">
-                            <div><ImgIcon/></div>
+                            <div className="imgIcon" ><ImgIcon/></div>
                             <div>
                                 <p>Click here to upload a rough hand drawn sketch or a photo for giving a better idea.</p>
                             </div>
+                        </div>
+                        <span></span>
+                        <div>
+                            <p>For example, here’s a sketch for the pedalling washing machine :</p>
+                            <img src="https://78.media.tumblr.com/tumblr_maevq98CDH1ruztjzo1_500.gif" alt=""/>
                         </div>
                     </div>
                 </div>
