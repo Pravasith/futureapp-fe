@@ -68,6 +68,8 @@ export class Slide2 extends React.Component{
                         <div>
                             <p>For example, here’s a sketch for the pedalling washing machine :</p>
                             <img src="https://78.media.tumblr.com/tumblr_maevq98CDH1ruztjzo1_500.gif" alt=""/>
+                            <span></span>
+                            <button className="whiteBtnBig">Next</button>
                         </div>
                     </div>
                 </div>
