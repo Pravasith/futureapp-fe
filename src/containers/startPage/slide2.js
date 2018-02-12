@@ -1,11 +1,27 @@
 import React from 'react'
-import { Tick } from './../assets/images/tick';
+import { Tick } from './../../assets/images/tick';
 
 
+//typical import of gsap methods
+import { TimelineLite} from "gsap";
+import { ImgIcon } from './../../assets/images/imgIcon';
 
-export const Slide2 = () => {
 
-    return (
+export class Slide2 extends React.Component{
+
+    componentDidMount(){
+        const introAnim = new TimelineLite()
+        introAnim
+        .from(".idea", 0.5, {transformOrigin: "50% 50%", scale:0, opacity:0})
+        .from(".sketch", 0.5, {transformOrigin: "50% 50%", scale:0, opacity:0})
+        .from(".elaborate", 0.5, {transformOrigin: "50% 50%", scale:0, opacity:0})
+
+        .to(".idea .aCircle", 0.1, {background:"#8CC63F"})
+        .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8})
+    }
+
+    render(){
+        return(
                 /* ************************************************************************** */
                 /* *********************** Upload image form html start *********************** */
 
@@ -37,9 +53,22 @@ export const Slide2 = () => {
                             <p>Elaborate</p>
                         </div>
                     </div>
+
+                    <span ></span>
+
+                    <div className="uploadContent">
+                    <h1>Upload a rough sketch (optional)</h1>
+                        <div className="uploadContainer">
+                            <div><ImgIcon/></div>
+                            <div>
+                                <p>Click here to upload a rough hand drawn sketch or a photo for giving a better idea.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 /* ************************ Upload image form html end ************************ */
                 /* ************************************************************************** */
     )
+}
 }

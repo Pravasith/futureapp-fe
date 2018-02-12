@@ -1,14 +1,18 @@
 import React from 'react'
-import { Bulb } from '../assets/images/bulb';
-import { Meditator } from './../assets/images/meditator';
-import { CourageWhite } from '../assets/images/courageWhite';
+import { Bulb } from './../../assets/images/bulb';
+import { CourageWhite } from './../../assets/images/courageWhite';
+import { Meditator } from './../../assets/images/meditator';
 
 
-export const Slide1 = () => {
+export  class Slide1 extends React.Component{
 
-    return (
+
+
+
+    render(){
+        return(
         /* ************************************************************************** */
-                /* *********************** enter idea form html start *********************** */
+        /* *********************** enter idea form html start *********************** */
     
                 <div className="ideaElementWrapper slide1">
                 <div className="bulbWrapper">
@@ -21,7 +25,7 @@ export const Slide1 = () => {
                 <div className="writeHead">
                     <h1>Write your idea in short...</h1>
                     <div className="courageIcon">
-                        <p> +  </p>
+                        <p> + </p>
                         <span></span>
                         <CourageWhite/>
                         <span></span>
@@ -31,7 +35,7 @@ export const Slide1 = () => {
                 </div>
                 <div className="textInputWrapper">
                     <form 
-                    // onSubmit={(e) => this.nextSlide(e)}
+                    onSubmit={(e) => this.nextSlide(e)}
                     >
                             <textarea name="idea" placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."></textarea>
                             <span></span>
@@ -43,4 +47,5 @@ export const Slide1 = () => {
     /* ************************ enter idea form html end ************************ */
     /* ************************************************************************** */
     )
+}
 }

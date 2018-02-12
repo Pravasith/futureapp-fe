@@ -107,6 +107,28 @@
     justify-content: space-around;
 } 
 
+.uploadContent{
+    @include flexCentreCol;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.uploadContainer{
+    @include flexCentreRow;
+    width: 95%;
+    background: $white;
+    border-radius: 2.4em;
+    padding: 0.6em 1.2em 0.6em 1.2em;
+    box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+    cursor: pointer;
+    
+    div{
+        @include flexCentreRow;
+        padding: 0.6em;
+        
+    }
+}
+
 .courageIcon{
     @include flexCentreRow;
     padding: 0.5em;

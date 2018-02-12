@@ -1,12 +1,12 @@
 import React from "react"
-import { Bulb } from "../../assets/images/bulb"
-import { Meditator } from "../../assets/images/meditator";
+
 
 //typical import of gsap methods
 import { TimelineLite} from "gsap";
-import { CourageWhite } from "../../assets/images/courageWhite";
-import { Slide1 } from "../../components/slide1";
-import { Slide2 } from './../../components/slide2';
+import { Slide1 } from "./slide1";
+import { Slide2 } from "./slide2";
+
+
 
 
 
