@@ -54,6 +54,7 @@ export class Slide4 extends React.Component{
                     </div>
 
                     <span></span>
+                    <span></span>
 
                     <div className="uploadContainer">
                             <div className="imgIcon" ><ImgIcon/></div>
@@ -62,6 +63,7 @@ export class Slide4 extends React.Component{
                             </div>
                     </div>
 
+                    <span></span>
                     <span></span>
 
                     <div className="flexRowDiv">
@@ -112,6 +114,13 @@ export class Slide4 extends React.Component{
                         
                         </div>
                             
+                    </div>
+                    <span></span>
+                    <span></span>
+
+                    <div className="buttonWrapper">
+                            <button className="brownBtnBig">Back</button>
+                            <button className="whiteBtnBig">Next</button>
                     </div>
 
                     

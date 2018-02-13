@@ -218,6 +218,21 @@
   .slide3 .flexRowDiv form {
     width: 64%; }
 
+.slide4 .buttonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
 .slide4 .flexRowDiv {
   width: 94%;
   -webkit-box-pack: justify;
@@ -279,15 +294,16 @@
       -ms-transform-origin: 50% 50%;
       transform-origin: 50% 50%; }
       .slide4 .flexRowDiv .imagesHolder div:hover {
-        height: 6em;
-        width: 6em;
+        height: 5.6em;
+        width: 5.6em;
         -webkit-transform-origin: 50% 50%;
         -ms-transform-origin: 50% 50%;
         transform-origin: 50% 50%; }
       .slide4 .flexRowDiv .imagesHolder div .trippyCloseBtn {
         position: absolute;
         right: 0.2em;
-        top: 0.2em; }
+        top: 0.2em;
+        cursor: pointer; }
       .slide4 .flexRowDiv .imagesHolder div img {
         width: auto;
         height: auto;
