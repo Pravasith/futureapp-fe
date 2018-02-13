@@ -70,7 +70,7 @@ export class Slide2 extends React.Component{
 
                         <div className = "flexColDiv">
                             <p>For example, here’s a sketch for the pedalling washing machine :</p>
-                            <img src="https://78.media.tumblr.com/tumblr_maevq98CDH1ruztjzo1_500.gif" alt=""/>
+                            <img src="https://78.media.tumblr.com/5075118bf023a5b0f599a949e3813734/tumblr_n19uvekTEO1tsgjavo1_250.gif" alt=""/>
                             <span></span>
 
                             <div className="flexRowDiv">

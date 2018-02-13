@@ -4,7 +4,7 @@ export const CloseButton = () => {
 
     return (
 
-            <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="10.192" height="10.192"
+            <svg id="closeButton" xmlns="http://www.w3.org/2000/svg" width="10.192" height="10.192"
             viewBox="0 0 10.192 10.192">
                 <linearGradient id="SVGID_1_CloseBtn" gradientUnits="userSpaceOnUse" x1="102.677"
                 y1="-388.541" x2="116.676" y2="-388.541" gradientTransform="rotate(45.001 -417.776 -317.957)">
