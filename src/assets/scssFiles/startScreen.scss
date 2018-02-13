@@ -190,6 +190,14 @@
                 border-radius: 0.5em;
                 box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
                 position: relative;
+                transition:0.1s;
+                transform-origin: 50% 50%;
+
+                &:hover{
+                    height: 6em;
+                    width: 6em;
+                    transform-origin: 50% 50%;
+                }
 
                 .trippyCloseBtn{
                     position: absolute;

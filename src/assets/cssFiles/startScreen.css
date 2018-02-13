@@ -271,7 +271,19 @@
       border-radius: 0.5em;
       -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
       box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
-      position: relative; }
+      position: relative;
+      -webkit-transition: 0.1s;
+      -o-transition: 0.1s;
+      transition: 0.1s;
+      -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+      transform-origin: 50% 50%; }
+      .slide4 .flexRowDiv .imagesHolder div:hover {
+        height: 6em;
+        width: 6em;
+        -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        transform-origin: 50% 50%; }
       .slide4 .flexRowDiv .imagesHolder div .trippyCloseBtn {
         position: absolute;
         right: 0.2em;
