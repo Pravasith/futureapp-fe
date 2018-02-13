@@ -1,13 +1,10 @@
 import React from 'react'
-import { Tick } from './../../assets/images/tick';
-
 
 //typical import of gsap methods
-import { TimelineLite} from "gsap";
-import { ImgIcon } from './../../assets/images/imgIcon';
+import { TimelineLite} from "gsap"
+import { Tick } from './../../assets/images/tick';
 
-
-export class Slide2 extends React.Component{
+export class Slide4 extends React.Component{
 
     componentDidMount(){
         const introAnim = new TimelineLite()
@@ -20,12 +17,14 @@ export class Slide2 extends React.Component{
         .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8})
     }
 
+   
+
     render(){
         return(
                 /* ************************************************************************** */
                 /* *********************** Upload image form html start *********************** */
 
-                <div className="ideaElementWrapper slide2">
+                <div className="ideaElementWrapper slide3">
                     <div className="topStatusCircles">
                         <div className="sCircle idea">
                             <div className="aCircle">
@@ -54,32 +53,7 @@ export class Slide2 extends React.Component{
                         </div>
                     </div>
 
-                    <span ></span>
-
-                    <div className="uploadContent">
-                        <h1>Upload a rough sketch (optional)</h1>
-
-                        <div className="uploadContainer">
-                            <div className="imgIcon" ><ImgIcon/></div>
-                            <div>
-                                <p>Click here to upload a rough hand drawn sketch or a photo for giving a better idea.</p>
-                            </div>
-                        </div>
-
-                        <span></span>
-
-                        <div className = "flexColDiv">
-                            <p>For example, here’s a sketch for the pedalling washing machine :</p>
-                            <img src="https://78.media.tumblr.com/tumblr_maevq98CDH1ruztjzo1_500.gif" alt=""/>
-                            <span></span>
-
-                            <div className="flexRowDiv">
-                                <button className="brownBtnBig">Back</button>
-                                <button className="whiteBtnBig">Skip</button>
-                            </div>
-                            
-                        </div>
-                    </div>
+                    
                 </div>
 
                 /* ************************ Upload image form html end ************************ */

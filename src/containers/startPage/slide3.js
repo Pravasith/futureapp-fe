@@ -1,13 +1,10 @@
 import React from 'react'
-import { Tick } from './../../assets/images/tick';
-
 
 //typical import of gsap methods
-import { TimelineLite} from "gsap";
-import { ImgIcon } from './../../assets/images/imgIcon';
+import { TimelineLite} from "gsap"
+import { Tick } from './../../assets/images/tick';
 
-
-export class Slide2 extends React.Component{
+export class Slide3 extends React.Component{
 
     componentDidMount(){
         const introAnim = new TimelineLite()
@@ -20,12 +17,14 @@ export class Slide2 extends React.Component{
         .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8})
     }
 
+   
+
     render(){
         return(
                 /* ************************************************************************** */
-                /* *********************** Upload image form html start *********************** */
+                /* *********************** Image description form html start *********************** */
 
-                <div className="ideaElementWrapper slide2">
+                <div className="ideaElementWrapper slide3">
                     <div className="topStatusCircles">
                         <div className="sCircle idea">
                             <div className="aCircle">
@@ -55,34 +54,31 @@ export class Slide2 extends React.Component{
                     </div>
 
                     <span ></span>
+                    <span ></span>
 
                     <div className="uploadContent">
-                        <h1>Upload a rough sketch (optional)</h1>
-
-                        <div className="uploadContainer">
-                            <div className="imgIcon" ><ImgIcon/></div>
-                            <div>
-                                <p>Click here to upload a rough hand drawn sketch or a photo for giving a better idea.</p>
-                            </div>
-                        </div>
-
+                        <h1>Give a short description to this image.(optional)</h1>
                         <span></span>
-
-                        <div className = "flexColDiv">
-                            <p>For example, here’s a sketch for the pedalling washing machine :</p>
-                            <img src="https://78.media.tumblr.com/tumblr_maevq98CDH1ruztjzo1_500.gif" alt=""/>
-                            <span></span>
-
-                            <div className="flexRowDiv">
-                                <button className="brownBtnBig">Back</button>
-                                <button className="whiteBtnBig">Skip</button>
+                        <div className="flexRowDiv">
+                            <div>
+                                <img id="imageA" src="https://78.media.tumblr.com/tumblr_maevq98CDH1ruztjzo1_500.gif" alt=""/>
                             </div>
+                            <span></span>
+                            <form >
+                                <textarea name="imageDesc" id="" placeholder="Click to start typing here...&#10;For example : This picture shows how the machines work."></textarea>
+                            </form>
                             
+                        </div>
+                        <span></span>
+                        <span></span>
+                        <div className="flexRowDiv">
+                                <button className="brownBtnBig">Back</button>
+                                <button className="whiteBtnBig">Next</button>
                         </div>
                     </div>
                 </div>
 
-                /* ************************ Upload image form html end ************************ */
+                /* ************************ Image description form html end ************************ */
                 /* ************************************************************************** */
     )
 }

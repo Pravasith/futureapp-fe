@@ -5,6 +5,8 @@ import React from "react"
 import { TimelineLite} from "gsap";
 import { Slide1 } from "./slide1";
 import { Slide2 } from "./slide2";
+import { Slide3 } from './slide3';
+import { Slide4 } from './slide4';
 
 
 
@@ -61,6 +63,7 @@ export default class IdeaInput extends React.Component{
 
         .to("#meyes", 0.7, {transformOrigin:"50% 50%", scaleY:0.2 , onComplete: bodyUpDown}, "eyeClose")
         .from(".bulbWrapper", 0.5, { transformOrigin:"50% 50%", scale:0 , opacity: 0})
+        
 
     }
 
@@ -76,13 +79,16 @@ export default class IdeaInput extends React.Component{
         slideAnim.to('.slide1', 0.2, {transformOrigin:"0% 50%", scaleX:0, opacity:0})
     }
 
-    slideContentHTML(slide){
 
+    slideContentHTML(slide){ // this function inserts slide content
+        const slideAnim = new TimelineLite()
         if(slide === 1){
+
+        // see if this works on click event   
+        slideAnim.to('.slide1', 0.2, {transformOrigin:"0% 50%", scaleX:0.5})
             return(
                 <Slide1/>
             )
-
         }
 
         else if(slide === 2){
@@ -90,8 +96,22 @@ export default class IdeaInput extends React.Component{
                <Slide2/>
             )
         }
+
+        else if(slide === 3){
+            return(
+               <Slide3/>
+            )
+        }
+
+        else if(slide === 4){
+            return(
+               <Slide4/>
+            )
+        }
         
     }
+
+
 
 
     render(){
@@ -101,7 +121,7 @@ export default class IdeaInput extends React.Component{
 
                 <div className="greenWrapper">
                     
-                    {this.slideContentHTML(2)}
+                    {this.slideContentHTML(4)}
 
                 </div>
 

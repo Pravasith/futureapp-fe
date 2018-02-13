@@ -105,11 +105,7 @@
   -ms-flex-align: center;
   align-items: center;
   width: 40%;
-  margin: 1em;
-  padding: 1em;
-  min-height: 32em;
-  border-radius: 0.5em;
-  background: #8CC63F; }
+  margin: 1em; }
 
 .ideaElementWrapper {
   display: -webkit-box;
@@ -125,11 +121,18 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 100%; }
+  width: 100%;
+  padding: 1em;
+  min-height: 32em;
+  border-radius: 0.5em;
+  background: #8CC63F; }
   .ideaElementWrapper span {
     height: 1em;
+    width: 1em;
     display: block; }
   .ideaElementWrapper h1 {
+    max-width: 100%;
+    text-align: center;
     color: #ffffff; }
 
 .someText {
@@ -179,23 +182,41 @@
   -ms-flex-pack: start;
   justify-content: flex-start; }
   .uploadContent div:nth-child(4) {
-    color: #ffffff;
+    color: #ffffff; }
+  .uploadContent img {
+    width: 65%;
+    margin: 1em; }
+
+.slide3 .flexRowDiv {
+  height: 5.5em;
+  width: 100%; }
+  .slide3 .flexRowDiv div {
+    height: 5.5em;
+    width: 5.5em;
+    background: #ffffff;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; }
-  .uploadContent img {
-    width: 65%;
-    margin: 1em; }
+    align-items: center;
+    border-radius: 0.5em;
+    -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+    box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em; }
+    .slide3 .flexRowDiv div img {
+      max-width: 100%;
+      max-height: 100%;
+      margin: 0em;
+      width: 100%; }
+  .slide3 .flexRowDiv form {
+    width: 64%; }
 
 .uploadContainer {
   display: -webkit-box;
@@ -259,13 +280,6 @@
 .courageIcon p {
   color: #ffffff; }
 
-.shinobi {
-  color: #ffffff;
-  padding: 0.2em 0.2em;
-  margin: 0.2em 0.2em;
-  background: blueviolet;
-  text-align: center; }
-
 .textInputWrapper {
   width: 100%; }
   .textInputWrapper form {
@@ -287,17 +301,7 @@
     -ms-flex-pack: justify;
     justify-content: space-between; }
     .textInputWrapper form textarea {
-      width: 100%;
-      font-size: 0.9em;
-      line-height: 1.2;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      padding: 0.5em 1em;
-      height: 6em;
-      border-radius: 0.5em;
-      border: none;
-      overflow-wrap: break-word;
-      -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
-      box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em; }
+      width: 100%; }
 
 .topStatusCircles {
   width: 90%;

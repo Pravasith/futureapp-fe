@@ -24,7 +24,7 @@ export const MessageBubble = () => {
     }
 
     return (
-        <div onClick = {() => closeBubble()} className="messageBubbleWrapper">
+        <div  className="messageBubbleWrapper">
             <div className="rectangleWrapper">
                 <div className="toolTipArrow">
                     <ToolTipArrow/>
@@ -37,7 +37,7 @@ export const MessageBubble = () => {
                         </div>
                         <button className="whiteBtn">Next</button>
                     </div>
-                    <div  className="closeButton">
+                    <div onClick = {() => closeBubble()}  className="closeButton">
                         <CloseButton/>
                     </div>
                     <WissenBlack/>

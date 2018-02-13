@@ -59,25 +59,30 @@
     -ms-flex-align: center;
     align-items: center;
     width: 40%;
-
     margin: 1em;
-    padding: 1em;
-    min-height: 32em;
-    border-radius: 0.5em;
+    
     // background: linear-gradient(to right, $strongDarkGreen , $darkGreen);
-    background: $primaryGreen;
+    
 }
 
 .ideaElementWrapper{
     @include flexCentreCol;
     width: 100%;
+    
+    padding: 1em;
+    min-height: 32em;
+    border-radius: 0.5em;
+    background: $primaryGreen;
 
     span{
         height: 1em;
+        width: 1em;
         display: block;
     }
    
     h1{
+        max-width: 100%;
+        text-align: center;
         color: #ffffff; 
     }
 }
@@ -114,7 +119,7 @@
 
     div:nth-child(4) {
         color: $white;
-        @include flexCentreCol;
+        
     }
 
     img{
@@ -124,6 +129,37 @@
 
 
 }
+
+.slide3{
+
+    .flexRowDiv{
+        height: 5.5em;
+        width: 100%;
+
+        div{
+            height: 5.5em;
+            width: 5.5em;
+            background: $white;
+            @include flexCentreRow;
+            border-radius: 0.5em;
+            box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+
+            img{
+                max-width:100%;
+                max-height:100%;
+                margin: 0em;
+                width: 100%;
+            }
+            
+        }
+        
+        form{
+            width: 64%;
+
+        }
+    }
+}
+
 
 .uploadContainer{
     @include flexCentreRow;
@@ -140,6 +176,7 @@
         
     }
 }
+
 
 .imgIcon{
     width: 4em;
@@ -161,13 +198,6 @@
 
 
 
-.shinobi{
-    color: #ffffff;
-    padding: 0.2em 0.2em;
-    margin: 0.2em 0.2em;
-    background: blueviolet;
-    text-align: center;
-}
 
 .textInputWrapper{
     width: 100%;
@@ -178,15 +208,7 @@
         justify-content: space-between;
         textarea{
             width: 100%;
-            font-size: 0.9em;
-            line-height: 1.2;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            padding: 0.5em 1em;
-            height: 6em;
-            border-radius: 0.5em;
-            border: none;
-            overflow-wrap:break-word;
-            box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+            
         }
     }
 }
