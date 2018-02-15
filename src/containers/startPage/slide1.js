@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 //typical import of gsap methods
 import { TimelineLite } from "gsap";
 
@@ -7,8 +10,12 @@ import { Bulb } from './../../assets/images/bulb';
 import { CourageWhite } from './../../assets/images/courageWhite';
 import { Meditator } from './../../assets/images/meditator';
 
+// import actions
+import { ideaInput } from "../../actions/ideaInputAction";
 
-export  class Slide1 extends React.Component{
+
+
+class Slide1 extends React.Component{
 
 
     constructor(props, context) {
@@ -26,6 +33,8 @@ export  class Slide1 extends React.Component{
         this.setState({name: "ideaText"})
     }
 
+
+
     
 
     nextSlide(e){
@@ -33,7 +42,6 @@ export  class Slide1 extends React.Component{
         const slide = 2
 
         if(!this.refs.ideaText.value){
-
             this.setState({
                 name: "ideaText warning"
             })
@@ -42,9 +50,20 @@ export  class Slide1 extends React.Component{
         }
 
         else{
-            console.log('====================================');
-            console.log(this.refs.ideaText.value, slide);
-            console.log('====================================');
+
+            const moveSlide = new TimelineLite()
+            moveSlide
+            .to(".bulbWrapper", 0.3, {opacity:0, transformOrigin:"50% 50%", scale:0 })
+            .to(".meditator", 0.3, {opacity:0, transformOrigin:"50% 50%", scale:0})
+            .to(".writeHead", 0.3, {opacity:0, y:+30 })
+            .to(".textInputWrapper", 0.3, {opacity:0, transformOrigin:"50% 50%", y:+40})
+            .to(".slide1", 0.3, {opacity:0, transformOrigin:"50% 50%", scaleY:0, onComplete: passPropsToAction.bind(this) })
+          
+            // console.log(this.refs.ideaText.value, slide, this.props.userDetails)
+
+            function passPropsToAction(){
+                this.props.idea(this.refs.ideaText.value, slide)
+            }
         }
     }
 
@@ -85,7 +104,7 @@ export  class Slide1 extends React.Component{
                         <Bulb/>
                     </div>
 
-                    <div>
+                    <div className="meditator">
                         <Meditator/>
                     </div>
 
@@ -121,5 +140,15 @@ export  class Slide1 extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-
+    return {
+        userDetails: state.userDetails
+    }
 }
+
+const matchDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        idea: ideaInput
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Slide1)

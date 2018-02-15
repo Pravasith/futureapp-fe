@@ -3,17 +3,18 @@ import React from "react"
 
 //typical import of gsap methods
 import { TimelineLite } from "gsap";
-import { Slide1 } from "./slide1";
+import  Slide1  from "./slide1";
 import { Slide2 } from "./slide2";
 import { Slide3 } from './slide3';
 import { Slide4 } from './slide4';
 import { Slide5 } from "./slide5";
+import { connect } from "react-redux";
 
 
 
 
 
-export default class IdeaInput extends React.Component{
+class IdeaInput extends React.Component{
 
     componentDidMount(){
         this.introAnim()
@@ -129,7 +130,7 @@ export default class IdeaInput extends React.Component{
 
                 <div className="greenWrapper">
                     
-                    {this.slideContentHTML(1)}
+                    {this.slideContentHTML(this.props.idea.slideNo)}
 
                 </div>
 
@@ -162,3 +163,11 @@ export default class IdeaInput extends React.Component{
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        idea: state.theIdeaNSlide
+    }
+}
+
+export default connect (mapStateToProps)(IdeaInput)

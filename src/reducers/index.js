@@ -4,6 +4,7 @@ import introActiveText from './introTextActive'
 import userDetailReducer from './userDetailReducer'
 import circles from './circlesReducer'
 import userStatusLevelText from './reducerBarryBubbleText'
+import theIdeaNSlide from './ideaReducer'
 
 
 const allReducers = combineReducers({
@@ -11,7 +12,8 @@ const allReducers = combineReducers({
     activeText: introActiveText,
     userDetails: userDetailReducer,
     circles,
-    userStatusLevelText
+    userStatusLevelText,
+    theIdeaNSlide
 })
 
 export default allReducers
