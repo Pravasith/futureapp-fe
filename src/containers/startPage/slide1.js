@@ -53,11 +53,11 @@ class Slide1 extends React.Component{
 
             const moveSlide = new TimelineLite()
             moveSlide
-            .to(".bulbWrapper", 0.3, {opacity:0, transformOrigin:"50% 50%", scale:0 })
-            .to(".meditator", 0.3, {opacity:0, transformOrigin:"50% 50%", scale:0})
-            .to(".writeHead", 0.3, {opacity:0, y:+30 })
-            .to(".textInputWrapper", 0.3, {opacity:0, transformOrigin:"50% 50%", y:+40})
-            .to(".slide1", 0.3, {opacity:0, transformOrigin:"50% 50%", scaleY:0, onComplete: passPropsToAction.bind(this) })
+            .to(".bulbWrapper", 0.2, {opacity:0, transformOrigin:"50% 50%", scale:0 })
+            .to(".meditator", 0.2, {opacity:0, transformOrigin:"50% 50%", scale:0})
+            .to(".writeHead", 0.2, {opacity:0, y:+30 })
+            .to(".textInputWrapper", 0.2, {opacity:0, transformOrigin:"50% 50%", y:+40})
+            .to(".slide1", 0.2, { transformOrigin:"50% 50%", scaleY:0, onComplete: passPropsToAction.bind(this) })
           
             // console.log(this.refs.ideaText.value, slide, this.props.userDetails)
 

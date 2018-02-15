@@ -12,6 +12,9 @@ export class Slide2 extends React.Component{
     componentDidMount(){
         const introAnim = new TimelineLite()
         introAnim
+        .set('.ideaElementWrapper', {background: "#C69C6D"} )
+        .from('.slide2', 0.2, { transformOrigin:"50% 50%", scaleY:0,})
+
         .from(".idea", 0.5, {transformOrigin: "50% 50%", scale:0, opacity:0})
         .from(".sketch", 0.5, {transformOrigin: "50% 50%", scale:0, opacity:0})
         .from(".elaborate", 0.5, {transformOrigin: "50% 50%", scale:0, opacity:0})
