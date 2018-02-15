@@ -187,6 +187,69 @@
     width: 65%;
     margin: 1em; }
 
+.buttonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.warning::-webkit-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #FF6C6C;
+  opacity: 1;
+  /* Firefox */ }
+
+.warning:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #FF6C6C;
+  opacity: 1;
+  /* Firefox */ }
+
+.warning::-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #FF6C6C;
+  opacity: 1;
+  /* Firefox */ }
+
+.warning::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #FF6C6C;
+  opacity: 1;
+  /* Firefox */ }
+
+.slide1 .textInputWrapper {
+  width: 100%; }
+  .slide1 .textInputWrapper form {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    .slide1 .textInputWrapper form textarea {
+      width: 100%;
+      border: 0.3em solid #ffffff; }
+
 .slide3 .flexRowDiv {
   height: 5.5em;
   width: 100%; }
@@ -217,21 +280,6 @@
       width: 100%; }
   .slide3 .flexRowDiv form {
     width: 64%; }
-
-.slide4 .buttonWrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center; }
 
 .slide4 .flexRowDiv {
   width: 94%;
@@ -294,8 +342,9 @@
       -ms-transform-origin: 50% 50%;
       transform-origin: 50% 50%; }
       .slide4 .flexRowDiv .imagesHolder div:hover {
-        height: 5.6em;
-        width: 5.6em;
+        -webkit-transform: translateY(-0.2em);
+        -ms-transform: translateY(-0.2em);
+        transform: translateY(-0.2em);
         -webkit-transform-origin: 50% 50%;
         -ms-transform-origin: 50% 50%;
         transform-origin: 50% 50%; }
@@ -324,6 +373,13 @@
   border-radius: 0.5em;
   height: 0.5em;
   background-color: #FF94F3; }
+
+.slide5 .flexColDiv {
+  width: 95%; }
+  .slide5 .flexColDiv form {
+    width: 100%; }
+    .slide5 .flexColDiv form textarea {
+      min-height: 10em; }
 
 .uploadContainer {
   display: -webkit-box;
@@ -386,29 +442,6 @@
 
 .courageIcon p {
   color: #ffffff; }
-
-.textInputWrapper {
-  width: 100%; }
-  .textInputWrapper form {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between; }
-    .textInputWrapper form textarea {
-      width: 100%; }
 
 .topStatusCircles {
   width: 90%;

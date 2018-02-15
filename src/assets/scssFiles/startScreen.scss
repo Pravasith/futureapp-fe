@@ -130,6 +130,34 @@
 
 }
 
+.buttonWrapper{
+    @include flexCentreRow;
+}
+
+.warning::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #FF6C6C;
+        opacity: 1; /* Firefox */
+    }
+
+.slide1{
+
+    .textInputWrapper{
+        width: 100%;
+        form{
+            width: 100%;
+            
+            @include flexCentreCol;
+            justify-content: space-between;
+            textarea{
+                width: 100%;
+                border: 0.3em solid $white;
+            }
+        }
+    }
+
+
+}
+
 .slide3{
 
     .flexRowDiv{
@@ -162,9 +190,7 @@
 
 .slide4{
 
-    .buttonWrapper{
-        @include flexCentreRow;
-    }
+    
 
     .flexRowDiv{
         width: 94%;
@@ -198,8 +224,7 @@
                 transform-origin: 50% 50%;
 
                 &:hover{
-                    height: 5.6em;
-                    width: 5.6em;
+                    transform:translateY(-.2em);
                     transform-origin: 50% 50%;
                 }
 
@@ -255,6 +280,19 @@
         
 }
 
+.slide5{
+    .flexColDiv{
+        
+        width: 95%;
+        form{
+            width: 100%;
+            textarea{
+                min-height: 10em;
+            }
+        }
+    }
+}
+
 
 
 
@@ -298,19 +336,7 @@
 
 
 
-.textInputWrapper{
-    width: 100%;
-    form{
-        width: 100%;
-        
-        @include flexCentreCol;
-        justify-content: space-between;
-        textarea{
-            width: 100%;
-            
-        }
-    }
-}
+
 
 
 .topStatusCircles{
