@@ -1,17 +1,17 @@
 import React from 'react'
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 //typical import of gsap methods
-import { TimelineLite } from "gsap";
+import { TimelineLite } from "gsap"
 
-import { Bulb } from './../../assets/images/bulb';
-import { CourageWhite } from './../../assets/images/courageWhite';
-import { Meditator } from './../../assets/images/meditator';
+import { Bulb } from './../../assets/images/bulb'
+import { CourageWhite } from './../../assets/images/courageWhite'
+import { Meditator } from './../../assets/images/meditator'
 
 // import actions
-import { ideaInput } from "../../actions/ideaInputAction";
+import { ideaInput } from "../../actions/ideaInputAction"
 
 
 
@@ -22,9 +22,11 @@ class Slide1 extends React.Component{
         super(props, context)
     
         this.state = {
-            name: "ideaText blink"
+            name: "ideaText blink",
+            value: this.props.ideaText.text
         }
 
+        this.handleChange = this.handleChange.bind(this)
         this.toggleClassName = this.toggleClassName.bind(this)
     }
     
@@ -33,8 +35,9 @@ class Slide1 extends React.Component{
         this.setState({name: "ideaText"})
     }
 
-
-
+    handleChange(event) {
+        this.setState({value: event.target.value})
+    }
     
 
     nextSlide(e){
@@ -92,8 +95,19 @@ class Slide1 extends React.Component{
             blink()
         }
 
-        
-        
+        const returnTextArea = () => {
+            if(!this.props.ideaText.text){
+                return (
+                    <textarea ref="ideaText" name="idea" className={this.state.name} onFocus={this.toggleClassName} placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."></textarea>
+                )
+            }
+    
+            else{
+                return (
+                    <textarea ref="ideaText" name="idea" className={this.state.name} onFocus={this.toggleClassName} value={this.state.value} onChange={this.handleChange}></textarea>
+                )
+            }
+        }
 
         return(
         /* ************************************************************************** */
@@ -126,7 +140,7 @@ class Slide1 extends React.Component{
                         <form 
                         onSubmit={(e) => this.nextSlide(e)}
                         >
-                                <textarea ref="ideaText" name="idea" className={this.state.name} onFocus={this.toggleClassName} placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."></textarea>
+                                {returnTextArea()}
                                 <span></span>
                                 <button className="whiteBtnBig">Next</button>
                         </form>
@@ -141,7 +155,8 @@ class Slide1 extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        userDetails: state.userDetails
+        userDetails: state.userDetails,
+        ideaText : state.theIdeaNSlide
     }
 }
 

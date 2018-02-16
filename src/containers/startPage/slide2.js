@@ -1,26 +1,42 @@
 import React from 'react'
-import { Tick } from './../../assets/images/tick';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { Tick } from './../../assets/images/tick';
 
 //typical import of gsap methods
 import { TimelineLite} from "gsap";
 import { ImgIcon } from './../../assets/images/imgIcon';
 
+// import actions
+import { ideaInput } from "../../actions/ideaInputAction";
 
-export class Slide2 extends React.Component{
+class Slide2 extends React.Component{
 
     componentDidMount(){
-        const introAnim = new TimelineLite()
-        introAnim
+        const introAnim2 = new TimelineLite()
+        introAnim2
         .set('.ideaElementWrapper', {background: "#C69C6D"} )
-        .from('.slide2', 0.2, { transformOrigin:"50% 50%", scaleY:0,})
+        .set('.slide2',  { transformOrigin:"50% 50%", scaleY:0,})
+        .set(".idea",  {transformOrigin: "50% 50%", scale:0, opacity:0})
+        .set(".sketch",  {transformOrigin: "50% 50%", scale:0, opacity:0})
+        .set(".elaborate",  {transformOrigin: "50% 50%", scale:0, opacity:0})
+        .set(".idea .aCircle",  {background:"#8CC63F",rotation:0.01})
 
-        .from(".idea", 0.5, {transformOrigin: "50% 50%", scale:0, opacity:0})
-        .from(".sketch", 0.5, {transformOrigin: "50% 50%", scale:0, opacity:0})
-        .from(".elaborate", 0.5, {transformOrigin: "50% 50%", scale:0, opacity:0})
+        .to('.slide2', 0.2, { transformOrigin:"50% 50%", scaleY:1,rotation:0.01})
+        
+        .to(".idea", 0.5, {transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
+        .to(".sketch", 0.5, {transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
+        .to(".elaborate", 0.5, {transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
+        
 
-        .to(".idea .aCircle", 0.2, {background:"#8CC63F"})
-        .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8})
+        
+        .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8,rotation:0.01})
+    }
+
+    nextSlide(e){
+        this.props.idea(this.props.ideaText.text, 1)
     }
 
     render(){
@@ -77,7 +93,9 @@ export class Slide2 extends React.Component{
                             <span></span>
 
                             <div className="flexRowDiv">
-                                <button className="brownBtnBig">Back</button>
+                                <button 
+                                onClick={() => this.nextSlide()} 
+                                className="brownBtnBig">Back</button>
                                 <button className="whiteBtnBig">Skip</button>
                             </div>
                             
@@ -90,3 +108,18 @@ export class Slide2 extends React.Component{
     )
 }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        userDetails: state.userDetails,
+        ideaText : state.theIdeaNSlide
+    }
+}
+
+const matchDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        idea: ideaInput
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Slide2)
