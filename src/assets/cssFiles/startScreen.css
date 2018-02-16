@@ -14,6 +14,32 @@
     -webkit-transform: rotate(360deg) scale(1);
     transform: rotate(360deg) scale(1); } }
 
+.wholeBody {
+  -webkit-animation: fontbulger 2s infinite;
+  animation: fontbulger 2s infinite; }
+
+@-webkit-keyframes fontbulger {
+  0% {
+    -webkit-transform: translateY(0em);
+    transform: translateY(0em); }
+  50% {
+    -webkit-transform: translateY(-0.3em);
+    transform: translateY(-0.3em); }
+  100% {
+    -webkit-transform: translateY(0em);
+    transform: translateY(0em); } }
+
+@keyframes fontbulger {
+  0% {
+    -webkit-transform: translateY(0em);
+    transform: translateY(0em); }
+  50% {
+    -webkit-transform: translateY(-0.3em);
+    transform: translateY(-0.3em); }
+  100% {
+    -webkit-transform: translateY(0em);
+    transform: translateY(0em); } }
+
 .screenWrapper {
   display: -webkit-box;
   display: -ms-flexbox;

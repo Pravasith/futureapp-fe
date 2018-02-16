@@ -1,6 +1,25 @@
 @import "configVariables";
 @import "configMixins";
 
+
+// animating meditation
+
+.wholeBody{
+    animation: fontbulger 2s infinite;
+}
+
+@keyframes fontbulger {
+    0% {
+        transform: translateY(0em)
+    }
+    50%{
+        transform: translateY(-0.3em)
+    }
+    100% {
+        transform: translateY(0em)
+    }
+  }
+
 .screenWrapper{
     display: flex;
     height: 100vh;

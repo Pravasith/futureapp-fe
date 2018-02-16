@@ -17,11 +17,11 @@ class Slide2 extends React.Component{
     componentDidMount(){
         const introAnim2 = new TimelineLite()
         introAnim2
-        .set('.ideaElementWrapper', {background: "#C69C6D"} )
-        .set('.slide2',  { transformOrigin:"50% 50%", scaleY:0,})
-        .set(".idea",  {transformOrigin: "50% 50%", scale:0, opacity:0})
-        .set(".sketch",  {transformOrigin: "50% 50%", scale:0, opacity:0})
-        .set(".elaborate",  {transformOrigin: "50% 50%", scale:0, opacity:0})
+        .set('.ideaElementWrapper', {backgroundColor: "#C69C6D"} )
+        .set('.slide2',  { transformOrigin:"50% 50%", scaleY:0,rotation:0.01,})
+        .set(".idea",  {transformOrigin: "50% 50%", scale:0, opacity:0,rotation:0.01})
+        .set(".sketch",  {transformOrigin: "50% 50%", scale:0, opacity:0,rotation:0.01})
+        .set(".elaborate",  {transformOrigin: "50% 50%", scale:0, opacity:0,rotation:0.01})
         .set(".idea .aCircle",  {background:"#8CC63F",rotation:0.01})
 
         .to('.slide2', 0.2, { transformOrigin:"50% 50%", scaleY:1,rotation:0.01})
