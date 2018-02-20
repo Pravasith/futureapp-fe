@@ -15,7 +15,7 @@ import { ideaInput } from "../../actions/ideaInputAction";
 class Slide2 extends React.Component{
 
     state = {
-        fileName : "Click here to upload a rough hand drawn sketch or a photo for giving a better idea."
+        fileName : ["Click here to upload a rough hand drawn sketch or a photo for giving a better idea."]
     }
 
     componentDidMount(){
@@ -47,7 +47,7 @@ class Slide2 extends React.Component{
 
         if(event.target.files[0]){
             console.log(event.target.files[0].name)
-            this.setState({fileName: "You've selected " + event.target.files[0].name + ". Click again if you want to change this."})
+            this.setState({fileName: ["You've selected ",<strong key="unique">{event.target.files[0].name}</strong> , ". Click again if you want to change this."]})
             console.log(this.state.fileName)
         }
             
