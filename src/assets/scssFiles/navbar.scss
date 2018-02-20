@@ -88,10 +88,12 @@
 
 
 .mainStatusBarWrapper{
+    height: 0.75em;
     width: 97%;
     display: -ms-flexbox;
     display: flex;
     justify-content: center;
+    align-items: center
 }
 
 .mainStatusBarBgd{
@@ -112,9 +114,10 @@
 .circlesStatusBar{
     display: flex;
     z-index: 1;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     width: 97%;
-    top: 0em;
+    /* top: 10%; */
     position: absolute;
 }
 

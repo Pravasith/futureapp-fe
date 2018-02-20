@@ -79,6 +79,7 @@ class IdeaInput extends React.Component{
                 <div className="greenWrapper">
                     
                     {this.slideContentHTML(this.props.idea.slideNo)}
+                    {/* {this.slideContentHTML(2)} */}
 
                 </div>
 

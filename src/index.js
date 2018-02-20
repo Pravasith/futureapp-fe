@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import { Router } from 'react-router-dom'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import createBrowserHistory  from 'history/createBrowserHistory'
 import {Provider} from 'react-redux'
+import thunk from 'redux-thunk'
 
 import allReducers from './reducers/index'
 import App from "./containers/app"
@@ -13,12 +14,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import registerServiceWorker from './registerServiceWorker'
 
-const store = new createStore(allReducers)
+
+const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore)(allReducers)
+// const store = new createStore(allReducers)
 
 const history = createBrowserHistory()
 
 ReactDOM.render(
-    <Provider store={store}>
+    <Provider store={createStoreWithMiddleware}>
             <Router history={history} >
                 <App/>
             </Router>

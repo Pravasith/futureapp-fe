@@ -6,9 +6,11 @@ import {bindActionCreators} from "redux"
 import {TimelineLite} from "gsap";
 
 import {statusAction} from "../../actions/statusLevelActions"
+import { fetchUserData } from "../../actions/fetchUserData"
  
 class MainStatusBar extends React.Component{
 
+    
     fillStatusBar(statusLevel){
         // Status bar animations
         const fillSBar = new TimelineLite()
@@ -25,12 +27,18 @@ class MainStatusBar extends React.Component{
     }
 
     componentDidMount(){
-        this.fillStatusBar(
-            // Put in the level in the next line to animate 
-            // the status bar according to that ex. 5 or 4 or 8 etc.
-            this.props.userDetails.statusBarLevel
-        )
+
+        this.props.fetchUserData() // gets user data from backend
+        .then(() => {
+            this.fillStatusBar(
+                // Put in the level in the next line to animate 
+                // the status bar according to that ex. 5 or 4 or 8 etc.
+                this.props.userDetails.statusBarLevel 
+            )
+        })
+
     }
+
 
     createCircles(){
 
@@ -81,7 +89,8 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
-            statusAction: statusAction
+            statusAction: statusAction,
+            fetchUserData
         },
         dispatch
     )

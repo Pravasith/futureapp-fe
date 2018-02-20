@@ -14,29 +14,44 @@ import { ideaInput } from "../../actions/ideaInputAction";
 
 class Slide2 extends React.Component{
 
+    state = {
+        fileName : "Click here to upload a rough hand drawn sketch or a photo for giving a better idea."
+    }
+
     componentDidMount(){
         const introAnim2 = new TimelineLite()
         introAnim2
-        .set('.ideaElementWrapper', {backgroundColor: "#C69C6D"} )
-        .set('.slide2',  { transformOrigin:"50% 50%", scaleY:0,rotation:0.01,})
-        .set(".idea",  {transformOrigin: "50% 50%", scale:0, opacity:0,rotation:0.01})
-        .set(".sketch",  {transformOrigin: "50% 50%", scale:0, opacity:0,rotation:0.01})
-        .set(".elaborate",  {transformOrigin: "50% 50%", scale:0, opacity:0,rotation:0.01})
-        .set(".idea .aCircle",  {background:"#8CC63F",rotation:0.01})
+        .set('.ideaElementWrapper', {smoothOrigin:true,backgroundColor: "#C69C6D"} )
+        .set('.slide2',  {smoothOrigin:true, transformOrigin:"50% 50%", scaleY:0,rotation:0.01,})
+        .set(".idea",  {smoothOrigin:true,transformOrigin: "50% 50%", scale:0, opacity:0,rotation:0.01})
+        .set(".sketch",  {smoothOrigin:true,transformOrigin: "50% 50%", scale:0, opacity:0,rotation:0.01})
+        .set(".elaborate",  {smoothOrigin:true,transformOrigin: "50% 50%", scale:0, opacity:0,rotation:0.01})
+        .set(".idea .aCircle",  {smoothOrigin:true,background:"#8CC63F",rotation:0.01})
 
-        .to('.slide2', 0.2, { transformOrigin:"50% 50%", scaleY:1,rotation:0.01})
+        .to('.slide2', 0.2, {smoothOrigin:true, transformOrigin:"50% 50%", scaleY:1,rotation:0.01})
         
-        .to(".idea", 0.5, {transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
-        .to(".sketch", 0.5, {transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
-        .to(".elaborate", 0.5, {transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
+        .to(".idea", 0.5, {smoothOrigin:true,transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
+        .to(".sketch", 0.5, {smoothOrigin:true,transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
+        .to(".elaborate", 0.5, {smoothOrigin:true,transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
         
 
         
-        .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8,rotation:0.01})
+        .to(".elaborate .aCircle", 0.2, {smoothOrigin:true, transformOrigin: "50% 50%", scale:0.8,rotation:0.01})
     }
 
     nextSlide(e){
         this.props.idea(this.props.ideaText.text, 1)
+    }
+
+    uploadHandler = (event) => {
+
+        if(event.target.files[0]){
+            console.log(event.target.files[0].name)
+            this.setState({fileName: "You've selected " + event.target.files[0].name + ". Click again if you want to change this."})
+            console.log(this.state.fileName)
+        }
+            
+        
     }
 
     render(){
@@ -78,12 +93,17 @@ class Slide2 extends React.Component{
                     <div className="uploadContent">
                         <h1>Upload a rough sketch (optional)</h1>
 
-                        <div className="uploadContainer">
+                        
+                        
+                        <input onChange={this.uploadHandler} ref="uploadLabel" style={{display:"none"}} type="file" name="uploadSketch" id="upload-sketch" accept="image/*"/>
+
+                        <label className="uploadContainer" htmlFor="upload-sketch">
                             <div className="imgIcon" ><ImgIcon/></div>
                             <div>
-                                <p>Click here to upload a rough hand drawn sketch or a photo for giving a better idea.</p>
+                                <p>{this.state.fileName}</p>
                             </div>
-                        </div>
+                        </label>
+                        {/* {console.log(this.refs.uploadLabel)} */}
 
                         <span></span>
 

@@ -134,13 +134,17 @@
   margin: 0.25em 0em; }
 
 .mainStatusBarWrapper {
+  height: 0.75em;
   width: 97%;
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
 
 .mainStatusBarBgd {
   width: 100%;
@@ -163,11 +167,11 @@
   display: -ms-flexbox;
   display: flex;
   z-index: 1;
-  -webkit-box-pack: justify;
   -ms-flex-pack: justify;
+  -webkit-box-pack: justify;
   justify-content: space-between;
   width: 97%;
-  top: 0em;
+  /* top: 10%; */
   position: absolute; }
 
 .circleWrapper {
