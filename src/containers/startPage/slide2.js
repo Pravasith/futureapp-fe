@@ -10,12 +10,15 @@ import { TimelineLite} from "gsap";
 import { ImgIcon } from './../../assets/images/imgIcon';
 
 // import actions
-import { ideaInput } from "../../actions/ideaInputAction";
+import { ideaInput, sketchUploaded } from "../../actions/ideaInputAction";
+
 
 class Slide2 extends React.Component{
 
     state = {
-        fileName : ["Click here to upload a rough hand drawn sketch or a photo for giving a better idea."]
+        fileName : ["Click here to upload a rough hand drawn sketch or a photo for giving a better idea."],
+        realFile : null || this.props.theSlideData.imageData,
+        inCount : 0 
     }
 
     componentDidMount(){
@@ -34,37 +37,93 @@ class Slide2 extends React.Component{
         .to(".sketch", 0.5, {smoothOrigin:true,transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
         .to(".elaborate", 0.5, {smoothOrigin:true,transformOrigin: "50% 50%", scale:1, opacity:1,rotation:0.01})
         
-
-        
         .to(".elaborate .aCircle", 0.2, {smoothOrigin:true, transformOrigin: "50% 50%", scale:0.8,rotation:0.01})
+
+        if(this.props.theSlideData.imageData){
+            this.uploadHandler(this.props.theSlideData.imageData)
+        }
     }
 
     nextSlide(e){
-        this.props.idea(this.props.ideaText.text, 1)
+
+        // the next line changes the state by triggering an action IDEA_ENTERED
+        // containing the function ideaInputAction which takes in parameters:
+        // 1st: the idea text, 2nd: the slide number to be displayed.
+        this.props.idea(this.props.theSlideData.text, 1)
+        
+
+        // Passing file data(image) to the action so that it is available
+        // as props via the reducer 'ideaReducer'
+        this.props.passSketchData(this.state.realFile)
+   
     }
 
-    uploadHandler = (event) => {
-        if(event.target.files[0]){
+    changeHandler = (event) => {
+        
+        console.log("theFile: " + event.target.files[0].name)
+        this.uploadHandler(event.target.files[0])
+    }
 
-            const theFile = event.target.files[0]
+    uploadHandler = (theFile) => {
+        if(theFile){
 
+            // const theFile = theFile
             const reader = new FileReader()
-            const theResult = null
 
             reader.onloadend = () => {
+                
                 this.refs.sketch.src = reader.result
                 this.refs.sketchText.innerHTML = "Here's your image"
                 this.refs.nextButton.innerHTML = "Next"
             }
 
-            reader.readAsDataURL(theFile)
+           let tempArr = []
+           
 
-            console.log(event.target.files[0])
-            this.setState({fileName: ["You've selected ",<strong key="unique">{event.target.files[0].name}</strong> , ". Click again if you want to change this."]})
-            console.log(this.state.fileName)
-        }
+            if(this.props.theSlideData.imageData && this.state.inCount < 1){
+                // reader.readAsDataURL(this.props.theSlideData.imageData)
+                reader.readAsDataURL(this.state.realFile)
+                // tempArr = this.props.theSlideData.imageData.name.split('')
+                tempArr = this.state.realFile.name.split('')
+
+                this.setState({
+                    inCount : 1
+                })
+            }
+
+            else{
+                 reader.readAsDataURL(theFile)
+                 tempArr = theFile.name.split('')
+            }
+
             
-        
+            let fileNameArr = []
+            if(tempArr.length > 16){
+                for (let index = 0; index < 5; index++) {
+                 fileNameArr.push(tempArr[index])
+                }
+
+                for (let index = 0; index < 4; index++) {
+                 fileNameArr.push('.') 
+                }
+
+                for (let index = tempArr.length-6 ; index < tempArr.length; index++) {
+                 fileNameArr.push(tempArr[index])
+                }
+
+                
+            }
+
+            else{
+                fileNameArr = tempArr
+                
+            }
+
+            this.setState({
+                fileName: ["You've selected ",<strong key="unique">{fileNameArr}</strong> , ". Click again if you want to change this."],
+                realFile: theFile
+            })
+        }  
     }
 
     render(){
@@ -108,7 +167,7 @@ class Slide2 extends React.Component{
 
                         
                         
-                        <input onChange={this.uploadHandler} ref="uploadLabel" style={{display:"none"}} type="file" name="uploadSketch" id="upload-sketch" accept="image/*"/>
+                        <input onChange={this.changeHandler} ref="uploadLabel" style={{display:"none"}} type="file" name="uploadSketch" id="upload-sketch" accept="image/*"/>
 
                         <label className="uploadContainer" htmlFor="upload-sketch">
                             <div className="imgIcon" ><ImgIcon/></div>
@@ -145,13 +204,14 @@ class Slide2 extends React.Component{
 const mapStateToProps = (state) => {
     return {
         userDetails: state.userDetails,
-        ideaText : state.theIdeaNSlide
+        theSlideData : state.theSlideData
     }
 }
 
 const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        idea: ideaInput
+        idea: ideaInput,
+        passSketchData: sketchUploaded
     }, dispatch)
 }
 

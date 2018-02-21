@@ -136,7 +136,7 @@ class Slide1 extends React.Component{
                     <textarea ref="ideaText" name="idea" className={this.state.name} onFocus={this.toggleClassName} placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."></textarea>
                 )
             }
-    
+
             else{
                 return (
                     <textarea ref="ideaText" name="idea" className={this.state.name} onFocus={this.toggleClassName} value={this.state.value} onChange={this.handleChange}></textarea>
@@ -182,16 +182,16 @@ class Slide1 extends React.Component{
                     </div>
             </div>
 
-    /* ************************ enter idea form html end ************************ */
-    /* ************************************************************************** */
-    )
+        /* ************************ enter idea form html end ************************ */
+        /* ************************************************************************** */
+        )
 }
 }
 
 const mapStateToProps = (state) => {
     return {
         userDetails: state.userDetails,
-        ideaText : state.theIdeaNSlide
+        ideaText : state.theSlideData
     }
 }
 

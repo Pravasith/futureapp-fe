@@ -115,7 +115,7 @@ class IdeaInput extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        idea: state.theIdeaNSlide
+        idea: state.theSlideData
     }
 }
 

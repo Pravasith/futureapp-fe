@@ -3,8 +3,20 @@ export default function(state = {
 }, action){
 
     switch(action.type){
-        case "IDEA_ENTERED":
-        return action.payload
+        case "IDEA_ENTERED":{
+            return {
+                ...state,
+                slideNo: action.payload.slideNo,
+                text: action.payload.text
+            }
+        }
+
+        case "SKETCH_UPLOADED":{
+            return {
+                ...state,
+                imageData: action.payload
+            }
+        }
     }
     return state
 }
