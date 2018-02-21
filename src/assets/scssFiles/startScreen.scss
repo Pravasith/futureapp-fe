@@ -48,7 +48,6 @@
 
 .insideComponent{
     opacity: 1;
-    /* opacity: 0; */
     margin: 0.2em 0 2.5em 0;
     width: 100%;
     height: 1em;
@@ -71,17 +70,13 @@
     
 }
 
-
 .greenWrapper{
     @include flexCentreRow;
     justify-content: flex-end;
     -ms-flex-align: center;
     align-items: center;
     width: 40%;
-    margin: 1em;
-    
-    // background: linear-gradient(to right, $strongDarkGreen , $darkGreen);
-    
+    margin: 1em;    
 }
 
 .ideaElementWrapper{
@@ -307,10 +302,8 @@
 
     .flexRowDiv::-webkit-scrollbar-track
         {
-            // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
             border-radius: 1em;
             height: 0.5em;
-
             background-color: $lightGrey;
         }
         
@@ -324,7 +317,6 @@
         {
             border-radius: 0.5em;
             height: 0.5em;
-            // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
             background-color: $secondaryMagenta;
         }
         

@@ -1,10 +1,16 @@
 import React from 'react'
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+// import actions
+import { changeSlide } from "../../actions/ideaInputAction";
+
 //typical import of gsap methods
 import { TimelineLite} from "gsap"
 import { Tick } from './../../assets/images/tick';
 
-export class Slide3 extends React.Component{
+class Slide3 extends React.Component{
 
     componentDidMount(){
         const introAnim = new TimelineLite()
@@ -15,6 +21,21 @@ export class Slide3 extends React.Component{
 
         .to(".idea .aCircle", 0.2, {background:"#8CC63F"})
         .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8})
+
+        // const theFile = theFile
+        const reader = new FileReader()
+
+        reader.onloadend = () => {
+            
+            this.refs.sketch.src = reader.result
+            // this.refs.nextButton.innerHTML = "Next"
+        }
+
+        console.log('====================================');
+        console.log(this.props.theSlideData);
+        console.log('====================================');
+
+        reader.readAsDataURL(this.props.theSlideData.imageData)
     }
 
    
@@ -61,7 +82,7 @@ export class Slide3 extends React.Component{
                         <span></span>
                         <div className="flexRowDiv">
                             <div>
-                                <img id="imageA" src="https://78.media.tumblr.com/tumblr_maevq98CDH1ruztjzo1_500.gif" alt=""/>
+                                <img ref="sketch" id="imageA" src="https://78.media.tumblr.com/tumblr_maevq98CDH1ruztjzo1_500.gif" alt=""/>
                             </div>
                             <span></span>
                             <form >
@@ -83,3 +104,17 @@ export class Slide3 extends React.Component{
     )
 }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        theSlideData : state.theSlideData
+    }
+}
+
+const matchDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        changeSlide: changeSlide,
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Slide3)

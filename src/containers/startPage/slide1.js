@@ -11,7 +11,7 @@ import { CourageWhite } from './../../assets/images/courageWhite'
 import { Meditator } from './../../assets/images/meditator'
 
 // import actions
-import { ideaInput } from "../../actions/ideaInputAction"
+import { ideaInput, changeSlide } from "../../actions/ideaInputAction"
 
 
 class Slide1 extends React.Component{
@@ -22,7 +22,7 @@ class Slide1 extends React.Component{
     
         this.state = {
             name: "ideaText blink",
-            value: this.props.ideaText.text
+            value: this.props.slideData.text
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -100,7 +100,8 @@ class Slide1 extends React.Component{
             // console.log(this.refs.ideaText.value, slide, this.props.userDetails)
 
             function passPropsToAction(){
-                this.props.idea(this.refs.ideaText.value, slide)
+                this.props.idea(this.refs.ideaText.value)
+                this.props.changeSlide(slide)
             }
         }
     }
@@ -131,7 +132,7 @@ class Slide1 extends React.Component{
         }
 
         const returnTextArea = () => {
-            if(!this.props.ideaText.text){
+            if(!this.props.slideData.text){
                 return (
                     <textarea ref="ideaText" name="idea" className={this.state.name} onFocus={this.toggleClassName} placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."></textarea>
                 )
@@ -190,14 +191,14 @@ class Slide1 extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        userDetails: state.userDetails,
-        ideaText : state.theSlideData
+        slideData : state.theSlideData
     }
 }
 
 const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        idea: ideaInput
+        idea: ideaInput,
+        changeSlide: changeSlide
     }, dispatch)
 }
 

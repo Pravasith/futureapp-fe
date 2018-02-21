@@ -10,7 +10,7 @@ import { TimelineLite} from "gsap";
 import { ImgIcon } from './../../assets/images/imgIcon';
 
 // import actions
-import { ideaInput, sketchUploaded } from "../../actions/ideaInputAction";
+import { changeSlide, sketchUploaded } from "../../actions/ideaInputAction";
 
 
 class Slide2 extends React.Component{
@@ -44,18 +44,30 @@ class Slide2 extends React.Component{
         }
     }
 
-    nextSlide(e){
+    prevSlide(e){
 
         // the next line changes the state by triggering an action IDEA_ENTERED
         // containing the function ideaInputAction which takes in parameters:
         // 1st: the idea text, 2nd: the slide number to be displayed.
-        this.props.idea(this.props.theSlideData.text, 1)
+        this.props.changeSlide(1)
         
 
         // Passing file data(image) to the action so that it is available
         // as props via the reducer 'ideaReducer'
         this.props.passSketchData(this.state.realFile)
    
+    }
+
+    nextSlide(e){
+        
+        // the next line changes the state by triggering an action IDEA_ENTERED
+        // containing the function ideaInputAction which takes in parameters:
+        // 1st: the idea text, 2nd: the slide number to be displayed.
+        this.props.changeSlide(3)
+
+        // Passing file data(image) to the action so that it is available
+        // as props via the reducer 'ideaReducer'
+        this.props.passSketchData(this.state.realFile)
     }
 
     changeHandler = (event) => {
@@ -186,9 +198,15 @@ class Slide2 extends React.Component{
 
                             <div className="flexRowDiv">
                                 <button 
-                                onClick={() => this.nextSlide()} 
-                                className="brownBtnBig">Back</button>
-                                <button ref="nextButton" className="whiteBtnBig">Skip</button>
+                                    onClick={() => this.prevSlide()} 
+                                    className="brownBtnBig">
+                                    Back
+                                </button>
+                                <button
+                                    onClick={() => this.nextSlide()}
+                                    ref="nextButton" className="whiteBtnBig">
+                                    Skip
+                                </button>
                             </div>
                             
                         </div>
@@ -203,14 +221,13 @@ class Slide2 extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        userDetails: state.userDetails,
         theSlideData : state.theSlideData
     }
 }
 
 const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        idea: ideaInput,
+        changeSlide: changeSlide,
         passSketchData: sketchUploaded
     }, dispatch)
 }

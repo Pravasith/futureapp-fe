@@ -6,8 +6,14 @@ export default function(state = {
         case "IDEA_ENTERED":{
             return {
                 ...state,
-                slideNo: action.payload.slideNo,
-                text: action.payload.text
+                text: action.payload
+            }
+        }
+
+        case "SLIDE_CHANGE_INITIATED":{
+            return {
+                ...state,
+                slideNo: action.payload
             }
         }
 

@@ -1,12 +1,18 @@
-export const ideaInput = (text, slideNo) => {
+export const ideaInput = (text) => {
 
-    // console.log('User input is : ' + text, slideNo)
+    // console.log('User input is : ' + text)
     return {
         type: "IDEA_ENTERED",
-        payload: {
-            text,
-            slideNo
-        }
+        payload: text
+    }
+}
+
+export const changeSlide = (slideNo) => {
+
+    // console.log('Slide number is : ' + slideNo)
+    return {
+        type: "SLIDE_CHANGE_INITIATED",
+        payload: slideNo
     }
 }
 
