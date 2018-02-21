@@ -131,23 +131,9 @@
     justify-content: space-around;
 } 
 
-.uploadContent{
-    @include flexCentreCol;
-    width: 100%;
-    justify-content: flex-start;
-
-    div:nth-child(4) {
-        color: $white;
-        
-    }
-
-    img{
-        width: 65%;
-        margin: 1em;
-    }
 
 
-}
+
 
 .buttonWrapper{
     @include flexCentreRow;
@@ -157,6 +143,8 @@
         color: #FF6C6C;
         opacity: 1; /* Firefox */
     }
+
+// SLIDE 1 STYLES
 
 .slide1{
 
@@ -176,6 +164,60 @@
 
 
 }
+
+
+// SLIDE 2 STYLES
+
+.slide2{
+    .uploadContent{
+
+        .uploadContainer{
+            @include flexCentreRow;
+            width: 95%;
+            background: $white;
+            border-radius: 2.4em;
+            padding: 0.6em 1.2em 0.6em 1.2em;
+            box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+            cursor: pointer;
+            
+            div{
+                @include flexCentreRow;
+                padding: 0.6em;
+                
+            }
+        }
+
+        .flexColDiv{
+            p{
+                padding: 0em 1em;
+                color: $white;
+            }
+        }
+
+        @include flexCentreCol;
+        width: 100%;
+        justify-content: flex-start;
+    
+        div:nth-child(4) {
+            color: $white;
+            
+        }
+    
+        img{
+            max-width: 12em;
+            max-height: 12em;
+            margin: 1em;
+            border-radius: 1em;
+            background: $white;
+        }
+    
+    
+    }
+
+}
+
+
+// SLIDE 3 STYLES
 
 .slide3{
 
@@ -207,10 +249,10 @@
     }
 }
 
+
+// SLIDE 4 STYLES
+
 .slide4{
-
-    
-
     .flexRowDiv{
         width: 94%;
         justify-content: space-between;
@@ -224,9 +266,6 @@
             height: 8em;
             min-width: min-content;
             justify-content: space-between;
-
-            
-            
         
             div{
                 height: 5.5em;
@@ -261,16 +300,8 @@
                     max-width: 100%;
                     border-radius: 0.5em;
                   }
-
-            }
-
-            
-
-            
+            }  
         }
-
-        
-
     }
 
 
@@ -299,6 +330,8 @@
         
 }
 
+// SLIDE 5 STYLES
+
 .slide5{
     .flexColDiv{
         
@@ -317,21 +350,7 @@
 
 
 
-.uploadContainer{
-    @include flexCentreRow;
-    width: 95%;
-    background: $white;
-    border-radius: 2.4em;
-    padding: 0.6em 1.2em 0.6em 1.2em;
-    box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
-    cursor: pointer;
-    
-    div{
-        @include flexCentreRow;
-        padding: 0.6em;
-        
-    }
-}
+
 
 
 .imgIcon{
@@ -341,9 +360,6 @@
 .courageIcon{
     @include flexCentreRow;
     padding: 0.5em;
-}
-
-.courageIcon{
     span{
         width: 0.3em;
     }
@@ -351,10 +367,6 @@
         color: #ffffff;
     }
 }
-
-
-
-
 
 
 

@@ -44,9 +44,22 @@ class Slide2 extends React.Component{
     }
 
     uploadHandler = (event) => {
-
         if(event.target.files[0]){
-            console.log(event.target.files[0].name)
+
+            const theFile = event.target.files[0]
+
+            const reader = new FileReader()
+            const theResult = null
+
+            reader.onloadend = () => {
+                this.refs.sketch.src = reader.result
+                this.refs.sketchText.innerHTML = "Here's your image"
+                this.refs.nextButton.innerHTML = "Next"
+            }
+
+            reader.readAsDataURL(theFile)
+
+            console.log(event.target.files[0])
             this.setState({fileName: ["You've selected ",<strong key="unique">{event.target.files[0].name}</strong> , ". Click again if you want to change this."]})
             console.log(this.state.fileName)
         }
@@ -108,15 +121,15 @@ class Slide2 extends React.Component{
                         <span></span>
 
                         <div className = "flexColDiv">
-                            <p>For example, here’s a sketch for the pedalling washing machine :</p>
-                            <img src="https://78.media.tumblr.com/5075118bf023a5b0f599a949e3813734/tumblr_n19uvekTEO1tsgjavo1_250.gif" alt=""/>
+                            <p ref="sketchText" >For example, here’s a sketch for the pedalling washing machine :</p>
+                            <img ref="sketch" src="https://78.media.tumblr.com/5075118bf023a5b0f599a949e3813734/tumblr_n19uvekTEO1tsgjavo1_250.gif" alt=""/>
                             <span></span>
 
                             <div className="flexRowDiv">
                                 <button 
                                 onClick={() => this.nextSlide()} 
                                 className="brownBtnBig">Back</button>
-                                <button className="whiteBtnBig">Skip</button>
+                                <button ref="nextButton" className="whiteBtnBig">Skip</button>
                             </div>
                             
                         </div>

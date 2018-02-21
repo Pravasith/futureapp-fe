@@ -189,30 +189,6 @@
   -ms-flex-pack: distribute;
   justify-content: space-around; }
 
-.uploadContent {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start; }
-  .uploadContent div:nth-child(4) {
-    color: #ffffff; }
-  .uploadContent img {
-    width: 65%;
-    margin: 1em; }
-
 .buttonWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -275,6 +251,72 @@
     .slide1 .textInputWrapper form textarea {
       width: 100%;
       border: 0.3em solid #ffffff; }
+
+.slide2 .uploadContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start; }
+  .slide2 .uploadContent .uploadContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 95%;
+    background: #ffffff;
+    border-radius: 2.4em;
+    padding: 0.6em 1.2em 0.6em 1.2em;
+    -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+    box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+    cursor: pointer; }
+    .slide2 .uploadContent .uploadContainer div {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 0.6em; }
+  .slide2 .uploadContent .flexColDiv p {
+    padding: 0em 1em;
+    color: #ffffff; }
+  .slide2 .uploadContent div:nth-child(4) {
+    color: #ffffff; }
+  .slide2 .uploadContent img {
+    max-width: 12em;
+    max-height: 12em;
+    margin: 1em;
+    border-radius: 1em;
+    background: #ffffff; }
 
 .slide3 .flexRowDiv {
   height: 5.5em;
@@ -407,43 +449,6 @@
     .slide5 .flexColDiv form textarea {
       min-height: 10em; }
 
-.uploadContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 95%;
-  background: #ffffff;
-  border-radius: 2.4em;
-  padding: 0.6em 1.2em 0.6em 1.2em;
-  -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
-  box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
-  cursor: pointer; }
-  .uploadContainer div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 0.6em; }
-
 .imgIcon {
   width: 4em; }
 
@@ -462,12 +467,10 @@
   -ms-flex-align: center;
   align-items: center;
   padding: 0.5em; }
-
-.courageIcon span {
-  width: 0.3em; }
-
-.courageIcon p {
-  color: #ffffff; }
+  .courageIcon span {
+    width: 0.3em; }
+  .courageIcon p {
+    color: #ffffff; }
 
 .topStatusCircles {
   width: 90%;
