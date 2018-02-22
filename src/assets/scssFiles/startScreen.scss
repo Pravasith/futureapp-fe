@@ -5,10 +5,10 @@
 // animating meditation
 
 .wholeBody{
-    animation: fontbulger 2s infinite;
+    animation: meditate 2s infinite;
 }
 
-@keyframes fontbulger {
+@keyframes meditate {
     0% {
         transform: translateY(0em)
     }

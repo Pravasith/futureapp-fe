@@ -18,7 +18,7 @@ export const changeSlide = (slideNo) => {
 
 export const sketchUploaded = (imageData) => {
 
-    console.log('User file is : ' + imageData)
+    // console.log('User file is : ' + imageData)
     return {
         type: "SKETCH_UPLOADED",
         payload: imageData

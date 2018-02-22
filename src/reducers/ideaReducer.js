@@ -17,10 +17,19 @@ export default function(state = {
             }
         }
 
+        // case "SKETCH_UPLOADED":{
+        //     return {
+        //         ...state,
+        //         imageData: action.payload
+        //     }
+        // }
+
         case "SKETCH_UPLOADED":{
             return {
                 ...state,
-                imageData: action.payload
+                image: {
+                    fileData: action.payload
+                }
             }
         }
     }

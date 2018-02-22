@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux'
 import introText from './introText'
 import introActiveText from './introTextActive'
 import userDetailReducer from './userDetailReducer'

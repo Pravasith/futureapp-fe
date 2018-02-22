@@ -22,7 +22,7 @@ class Slide3 extends React.Component{
         .to(".idea .aCircle", 0.2, {background:"#8CC63F"})
         .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8})
 
-        // const theFile = theFile
+
         const reader = new FileReader()
 
         reader.onloadend = () => {
@@ -31,14 +31,12 @@ class Slide3 extends React.Component{
             // this.refs.nextButton.innerHTML = "Next"
         }
 
-        console.log('====================================');
-        console.log(this.props.theSlideData);
-        console.log('====================================');
-
-        reader.readAsDataURL(this.props.theSlideData.imageData)
+        reader.readAsDataURL(this.props.theSlideData.image.fileData)
     }
 
-   
+    clickHandler(){
+        console.log(this.refs.imageDesc.value)
+    }
 
     render(){
         return(
@@ -86,14 +84,17 @@ class Slide3 extends React.Component{
                             </div>
                             <span></span>
                             <form >
-                                <textarea name="imageDesc" id="" placeholder="Click to start typing here...&#10;For example : This picture shows how the machines work."></textarea>
+                                <textarea ref="imageDesc" name="imageDesc" id="" placeholder="Click to start typing here...&#10;For example : This picture shows how the machines work."></textarea>
                             </form>
                             
                         </div>
                         <span></span>
                         <span></span>
                         <div className="flexRowDiv">
-                                <button className="brownBtnBig">Back</button>
+                                <button 
+                                    className="brownBtnBig"
+                                    onClick={this.clickHandler.bind(this)}
+                                >Back</button>
                                 <button className="whiteBtnBig">Next</button>
                         </div>
                     </div>

@@ -16,7 +16,6 @@ import { ideaInput, changeSlide } from "../../actions/ideaInputAction"
 
 class Slide1 extends React.Component{
 
-
     constructor(props, context) {
         super(props, context)
     
@@ -84,7 +83,6 @@ class Slide1 extends React.Component{
             this.setState({
                 name: "ideaText warning"
             })
-
             this.refs.ideaText.placeholder = "Come on tiger, enter a random idea from your head. I'm sure you must have many there."
         }
 

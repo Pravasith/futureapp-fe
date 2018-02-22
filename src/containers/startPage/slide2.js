@@ -17,8 +17,9 @@ class Slide2 extends React.Component{
 
     state = {
         fileName : ["Click here to upload a rough hand drawn sketch or a photo for giving a better idea."],
-        realFile : null || this.props.theSlideData.imageData,
-        inCount : 0 
+        realFile : this.props.theSlideData.image ? this.props.theSlideData.image.fileData : null,
+        inCount : 0,
+        isImageUploaded : false
     }
 
     componentDidMount(){
@@ -39,8 +40,8 @@ class Slide2 extends React.Component{
         
         .to(".elaborate .aCircle", 0.2, {smoothOrigin:true, transformOrigin: "50% 50%", scale:0.8,rotation:0.01})
 
-        if(this.props.theSlideData.imageData){
-            this.uploadHandler(this.props.theSlideData.imageData)
+        if(this.props.theSlideData.image){
+            this.uploadHandler(this.props.theSlideData.image.fileData)
         }
     }
 
@@ -51,29 +52,47 @@ class Slide2 extends React.Component{
         // 1st: the idea text, 2nd: the slide number to be displayed.
         this.props.changeSlide(1)
         
+        if(this.state.realFile){
 
-        // Passing file data(image) to the action so that it is available
-        // as props via the reducer 'ideaReducer'
-        this.props.passSketchData(this.state.realFile)
+            // Passing file data(image) to the action so that it is available
+            // as props via the reducer 'ideaReducer'
+            this.props.passSketchData(this.state.realFile)
+        }
+        
    
     }
 
     nextSlide(e){
         
-        // the next line changes the state by triggering an action IDEA_ENTERED
-        // containing the function ideaInputAction which takes in parameters:
-        // 1st: the idea text, 2nd: the slide number to be displayed.
-        this.props.changeSlide(3)
+        
 
-        // Passing file data(image) to the action so that it is available
-        // as props via the reducer 'ideaReducer'
-        this.props.passSketchData(this.state.realFile)
+        if(this.state.isImageUploaded === true){
+            // the next line changes the state by triggering an action IDEA_ENTERED
+            // containing the function ideaInputAction which takes in parameters:
+            // 1st: the idea text, 2nd: the slide number to be displayed.
+            this.props.changeSlide(3)
+
+            // Passing file data(image) to the action so that it is available
+            // as props via the reducer 'ideaReducer'
+            this.props.passSketchData(this.state.realFile)
+        }
+
+        else{
+            // the next line changes the state by triggering an action IDEA_ENTERED
+            // containing the function ideaInputAction which takes in parameters:
+            // 1st: the idea text, 2nd: the slide number to be displayed.
+            this.props.changeSlide(5)
+        }
     }
 
     changeHandler = (event) => {
         
-        console.log("theFile: " + event.target.files[0].name)
+        // console.log("theFile: " + event.target.files[0].name)
         this.uploadHandler(event.target.files[0])
+
+        this.setState({
+            isImageUploaded : true
+        })
     }
 
     uploadHandler = (theFile) => {
@@ -92,14 +111,15 @@ class Slide2 extends React.Component{
            let tempArr = []
            
 
-            if(this.props.theSlideData.imageData && this.state.inCount < 1){
-                // reader.readAsDataURL(this.props.theSlideData.imageData)
+            if(this.props.theSlideData.image && this.state.inCount < 1){
+                // reader.readAsDataURL(this.props.theSlideData.image.fileData)
                 reader.readAsDataURL(this.state.realFile)
-                // tempArr = this.props.theSlideData.imageData.name.split('')
+                // tempArr = this.props.theSlideData.image.fileData.name.split('')
                 tempArr = this.state.realFile.name.split('')
 
                 this.setState({
-                    inCount : 1
+                    inCount : 1,
+                    isImageUploaded : true
                 })
             }
 
