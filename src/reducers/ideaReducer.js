@@ -32,6 +32,17 @@ export default function(state = {
                 }
             }
         }
+
+        case "IMAGE_DESCRIPTION_ADDED":{
+            return {
+                ...state,
+                image: {
+                    ...state.image,
+                    imageDescription: action.payload
+                }
+            }
+        }
+
     }
     return state
 }

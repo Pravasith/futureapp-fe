@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // import actions
-import { changeSlide } from "../../actions/ideaInputAction";
+import { changeSlide, imageDescriptionUpload } from "../../actions/ideaInputAction";
 
 //typical import of gsap methods
 import { TimelineLite} from "gsap"
@@ -35,6 +35,7 @@ class Slide3 extends React.Component{
     }
 
     clickHandler(){
+        this.props.passImageDesc(this.refs.imageDesc.value)
         console.log(this.refs.imageDesc.value)
     }
 
@@ -114,6 +115,7 @@ const mapStateToProps = (state) => {
 
 const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({
+        passImageDesc: imageDescriptionUpload,
         changeSlide: changeSlide,
     }, dispatch)
 }

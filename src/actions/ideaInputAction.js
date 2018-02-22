@@ -24,3 +24,12 @@ export const sketchUploaded = (imageData) => {
         payload: imageData
     }
 }
+
+export const imageDescriptionUpload = (imageDescription) => {
+
+    // console.log('User file is : ' + imageData)
+    return {
+        type: "IMAGE_DESCRIPTION_ADDED",
+        payload: imageDescription
+    }
+}
