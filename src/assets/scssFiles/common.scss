@@ -71,7 +71,7 @@ html{
     // box-shadow: rgba(74, 74, 74, 0.61) 0.2em 0.2em 0.5em 0.01em;
     box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
  
-    border: none;
+    border: 0.1em solid $darkerGrey;
     border-radius: 2em;
     @include flexCentreCol;
     outline: none;
@@ -86,7 +86,7 @@ html{
 }
 
 .brownBtnBig{
-    background: $primaryBrown;
+    background: linear-gradient(to right, #94E8FF, #FF94F3);
     // box-shadow: rgba(74, 74, 74, 0.61) 0.2em 0.2em 0.5em 0.01em;
     box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
  

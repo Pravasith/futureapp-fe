@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux'
 import { TimelineLite } from "gsap"
 
 import { Bulb } from './../../assets/images/bulb'
-import { CourageWhite } from './../../assets/images/courageWhite'
+import { CourageBlack } from './../../assets/images/courageBlack'
 import { Meditator } from './../../assets/images/meditator'
 
 // import actions
@@ -67,7 +67,11 @@ class Slide1 extends React.Component{
     
 
     toggleClassName() {
+        if(this.state.name === "ideaText blink")
         this.setState({name: "ideaText"})
+
+        else
+        this.setState({name: "ideaText blink"})
     }
 
     handleChange(event) {
@@ -92,13 +96,14 @@ class Slide1 extends React.Component{
             .to(".bulbWrapper", 0.2, {opacity:0, transformOrigin:"50% 50%", scale:0 })
             .to(".meditator", 0.2, {opacity:0, transformOrigin:"50% 50%", scale:0})
             .to(".writeHead", 0.2, {opacity:0, y:+30 })
-            .to(".textInputWrapper", 0.2, {opacity:0, transformOrigin:"50% 50%", y:+40})
-            .to(".slide1", 0.2, { transformOrigin:"50% 50%", scaleY:0, onComplete: passPropsToAction.bind(this) })
+            .to(".textInputWrapper", 0.2, {opacity:0, transformOrigin:"50% 50%", y:+40, onComplete: passPropsToAction.bind(this) })
+            // .to(".slide1", 0.2, { transformOrigin:"50% 50%", scaleY:0, onComplete: passPropsToAction.bind(this) })
           
             // console.log(this.refs.ideaText.value, slide, this.props.userDetails)
 
             function passPropsToAction(){
                 this.props.idea(this.refs.ideaText.value)
+                moveSlide.kill()
                 this.props.changeSlide(slide)
             }
         }
@@ -132,13 +137,31 @@ class Slide1 extends React.Component{
         const returnTextArea = () => {
             if(!this.props.slideData.text){
                 return (
-                    <textarea ref="ideaText" name="idea" className={this.state.name} onFocus={this.toggleClassName} placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."></textarea>
+                    <textarea 
+                        ref="ideaText"
+                        name="idea"
+                        className={this.state.name}
+                        onFocus={this.toggleClassName}
+                        // onBlur={this.toggleClassName}
+                        placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."
+                        >
+                    </textarea>
                 )
             }
 
             else{
                 return (
-                    <textarea ref="ideaText" name="idea" className={this.state.name} onFocus={this.toggleClassName} value={this.state.value} onChange={this.handleChange}></textarea>
+                    <textarea 
+                        ref="ideaText"
+                        name="idea"
+                        className={this.state.name}
+                        onFocus={this.toggleClassName}
+                        // onBlur={this.toggleClassName}
+                        placeholder = "Don't give up, you! Actions make things possible. Type the idea. You can choose to be anonymous later if you want."
+                        value={this.state.value}
+                        onChange={this.handleChange}
+                        >
+                    </textarea>
                 )
             }
         }
@@ -163,7 +186,7 @@ class Slide1 extends React.Component{
                         <div className="courageIcon">
                             <p> + </p>
                             <span></span>
-                            <CourageWhite/>
+                            <CourageBlack/>
                             <span></span>
                             <p>  Courage </p>
                         </div>
