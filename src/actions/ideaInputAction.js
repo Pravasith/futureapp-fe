@@ -16,12 +16,12 @@ export const changeSlide = (slideNo) => {
     }
 }
 
-export const sketchUploaded = (imageData) => {
+export const sketchUploaded = (fileData) => {
 
     // console.log('User file is : ' + imageData)
     return {
         type: "SKETCH_UPLOADED",
-        payload: imageData
+        payload: fileData
     }
 }
 
@@ -31,5 +31,17 @@ export const imageDescriptionUpload = (imageDescription) => {
     return {
         type: "IMAGE_DESCRIPTION_ADDED",
         payload: imageDescription
+    }
+}
+
+export const imageArrayUpdate = (imageData, imageNumber) => {
+
+    // console.log('User file is : ' + imageData)
+    return {
+        type: "IMAGE_ARRAY_DATA_UPDATE",
+        payload: {
+            imageNumber,
+            imageData
+        }
     }
 }
