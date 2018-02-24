@@ -13,6 +13,7 @@ import { sketchUploaded, imageDescriptionUpload, changeSlide, imageArrayUpdate, 
 
 class Slide4 extends React.Component{
 
+
     backHandler(){
         // this.props.passImageDesc(undefined)
         // this.props.passSketch(undefined)
@@ -35,24 +36,57 @@ class Slide4 extends React.Component{
         .to(".idea .aCircle", 0.2, {background:"#8CC63F"})
         .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8})
 
+
+        // ACTION to create imageArray or push image data into imageArray
+        this.props.imageArrayUpdate(
+            this.props.theSlideData.image.fileData,
+            this.props.theSlideData.image.imageDescription
+        )
+
+
         // console.log(this.props.overAllData)
 
         // this.refs.tets.innerHTML= this.props.overAllData.imageArray[0].imageDescription
     }
 
-    componentWillMount(){
-        this.props.imageArrayUpdate(
-            this.props.theSlideData.image.fileData,
-            this.props.theSlideData.image.imageDescription
-        )
-    }
-
-    componentWillReceiveProps(){
-        console.log(this.props.overAllData)
-
-    }
 
     render(){
+        
+        // the following check expression in the next imageArray definition
+        // is because components render 2 times before action (in compDidMou)
+        // and after the action changes the state. First time there is no
+        // this.props.overAllData.imageArray
+        const imageArray = this.props.overAllData.imageArray ? this.props.overAllData.imageArray : []
+        // console.log(this.props.overAllData.imageArray)
+
+
+        const makeImagesDivs = () => (
+            
+            imageArray.map((item, index) => (
+                <div key={"div" + index}>
+                    <section className="trippyCloseBtn">
+                        <CloseButtonTrippy/>
+                    </section>
+                    <img ref={"image"+index} key={index} src="https://s-media-cache-ak0.pinimg.com/originals/f8/66/8a/f8668ab07bfc537ec7ff9c08f1bbdab0.gif" alt=""/>
+                </div>
+            ))
+                
+        )
+
+        if(imageArray.length > 0){
+            console.log("in")
+            imageArray.map((item, index) => {
+                const reader = new FileReader()
+                 reader.onloadend = () => {
+                    this.refs.image0.src = reader.result                    
+                }
+                reader.readAsDataURL(
+                    item.imageData
+                )
+            })
+        }
+        
+
         return(
                 /* ************************************************************************** */
                 /* *********************** Upload image form html start *********************** */
@@ -92,7 +126,7 @@ class Slide4 extends React.Component{
                     <div className="uploadContainer">
                             <div className="imgIcon" ><ImgIcon/></div>
                             <div>
-                                <p ref="tets" >Click here to upload more pictures if you’d like to.</p>
+                                <p> Click here to upload more pictures if you’d like to.</p>
                             </div>
                     </div>
 
@@ -101,50 +135,7 @@ class Slide4 extends React.Component{
 
                     <div className="flexRowDiv">
                         <div className="imagesHolder">
-                            <div>
-                                <section className="trippyCloseBtn">
-                                    <CloseButtonTrippy/>
-                                </section>
-                                <img src="https://78.media.tumblr.com/b0232362ec738734c20952e42cd233a7/tumblr_nsiuxw8onI1uns5mzo1_400.gif" alt=""/>
-                            </div>
-                            <div>
-                                <section className="trippyCloseBtn">
-                                    <CloseButtonTrippy/>
-                                </section>
-                                <img id="imageA" src="https://78.media.tumblr.com/tumblr_maevq98CDH1ruztjzo1_500.gif" alt=""/>
-                            </div>
-                            <div>
-                                <section className="trippyCloseBtn">
-                                    <CloseButtonTrippy/>
-                                </section>
-                                <img src="http://instameme.co/content/uploads/images/December2015/hipster-gif-animation.gif" alt=""/>
-                            </div>
-                            <div>
-                                <section className="trippyCloseBtn">
-                                    <CloseButtonTrippy/>
-                                </section>
-                                <img id="imageA" src="http://i.giftrunk.com/c6knzq.gif" alt=""/>
-                            </div>
-                            <div>
-                                <section className="trippyCloseBtn">
-                                    <CloseButtonTrippy/>
-                                </section>
-                                <img src="https://s-media-cache-ak0.pinimg.com/originals/f8/66/8a/f8668ab07bfc537ec7ff9c08f1bbdab0.gif" alt=""/>
-                            </div>
-                            <div>
-                                <section className="trippyCloseBtn">
-                                    <CloseButtonTrippy/>
-                                </section>
-                                <img src="https://78.media.tumblr.com/2adc481fff54ed9e8d7e5efe3086aeee/tumblr_o4kjh68soN1uaundno1_500.gif" alt=""/>
-                            </div>
-                            <div>
-                                <section className="trippyCloseBtn">
-                                    <CloseButtonTrippy/>
-                                </section>
-                                <img src="https://78.media.tumblr.com/5075118bf023a5b0f599a949e3813734/tumblr_n19uvekTEO1tsgjavo1_250.gif" alt=""/>
-                            </div>
-                            
-                        
+                            {makeImagesDivs()}
                         </div>
                             
                     </div>

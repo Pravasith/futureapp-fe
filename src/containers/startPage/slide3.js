@@ -69,6 +69,7 @@ class Slide3 extends React.Component{
 
     nextHandler() {
         this.props.passImageDesc(this.refs.imageDesc.value)
+
         
 
         // the next line changes the state by triggering an action IDEA_ENTERED
