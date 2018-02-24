@@ -360,43 +360,29 @@
       border: 0.3em solid #8CC63F;
       height: 11em; }
 
-.slide4 .flexRowDiv {
-  width: 94%;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  overflow-x: auto;
-  overflow-y: hidden;
-  border-radius: 0.4em; }
-  .slide4 .flexRowDiv .imagesHolder {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    background: #ffffff;
-    height: 8em;
-    min-width: -webkit-min-content;
-    min-width: -moz-min-content;
-    min-width: min-content;
+.slide4 .imagesWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 94%; }
+  .slide4 .imagesWrapper .flexRowDiv {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between; }
-    .slide4 .flexRowDiv .imagesHolder div {
-      height: 5.5em;
-      min-height: 5.5em;
-      width: 5.5em;
-      min-width: 5.5em;
-      margin: 0.5em;
-      background: #ffffff;
+    justify-content: space-between;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 0.4em; }
+    .slide4 .imagesWrapper .flexRowDiv .imagesHolder {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -410,48 +396,73 @@
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      border-radius: 0.5em;
-      -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
-      box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
-      position: relative;
-      -webkit-transition: 0.1s;
-      -o-transition: 0.1s;
-      transition: 0.1s;
-      -webkit-transform-origin: 50% 50%;
-      -ms-transform-origin: 50% 50%;
-      transform-origin: 50% 50%; }
-      .slide4 .flexRowDiv .imagesHolder div:hover {
-        -webkit-transform: translateY(-0.2em);
-        -ms-transform: translateY(-0.2em);
-        transform: translateY(-0.2em);
+      background: #ffffff;
+      height: 8em;
+      min-width: -webkit-min-content;
+      min-width: -moz-min-content;
+      min-width: min-content;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
+      .slide4 .imagesWrapper .flexRowDiv .imagesHolder div {
+        height: 5.5em;
+        min-height: 5.5em;
+        width: 5.5em;
+        min-width: 5.5em;
+        margin: 0.5em;
+        background: #ffffff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border-radius: 0.5em;
+        -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+        box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+        position: relative;
+        -webkit-transition: 0.1s;
+        -o-transition: 0.1s;
+        transition: 0.1s;
         -webkit-transform-origin: 50% 50%;
         -ms-transform-origin: 50% 50%;
         transform-origin: 50% 50%; }
-      .slide4 .flexRowDiv .imagesHolder div .trippyCloseBtn {
-        position: absolute;
-        right: 0.2em;
-        top: 0.2em;
-        cursor: pointer; }
-      .slide4 .flexRowDiv .imagesHolder div img {
-        width: auto;
-        height: auto;
-        max-height: 100%;
-        max-width: 100%;
-        border-radius: 0.5em; }
-
-.slide4 .flexRowDiv::-webkit-scrollbar-track {
-  border-radius: 1em;
-  height: 0.5em;
-  background-color: #e4e4e4; }
-
-.slide4 .flexRowDiv::-webkit-scrollbar {
-  height: 0.6em;
-  background-color: #e4e4e4; }
-
-.slide4 .flexRowDiv::-webkit-scrollbar-thumb {
-  border-radius: 0.5em;
-  height: 0.5em;
-  background-color: #FF94F3; }
+        .slide4 .imagesWrapper .flexRowDiv .imagesHolder div:hover {
+          -webkit-transform: translateY(-0.2em);
+          -ms-transform: translateY(-0.2em);
+          transform: translateY(-0.2em);
+          -webkit-transform-origin: 50% 50%;
+          -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%; }
+        .slide4 .imagesWrapper .flexRowDiv .imagesHolder div .trippyCloseBtn {
+          position: absolute;
+          right: 0.2em;
+          top: 0.2em;
+          cursor: pointer; }
+        .slide4 .imagesWrapper .flexRowDiv .imagesHolder div img {
+          width: auto;
+          height: auto;
+          max-height: 100%;
+          max-width: 100%;
+          border-radius: 0.5em; }
+  .slide4 .imagesWrapper .flexRowDiv::-webkit-scrollbar-track {
+    border-radius: 1em;
+    height: 0.5em;
+    background-color: #e4e4e4; }
+  .slide4 .imagesWrapper .flexRowDiv::-webkit-scrollbar {
+    height: 0.6em;
+    background-color: #e4e4e4; }
+  .slide4 .imagesWrapper .flexRowDiv::-webkit-scrollbar-thumb {
+    border-radius: 0.5em;
+    height: 0.5em;
+    background-color: #FF94F3; }
 
 .slide5 .flexColDiv {
   width: 95%; }

@@ -14,17 +14,6 @@ import { sketchUploaded, imageDescriptionUpload, changeSlide, imageArrayUpdate, 
 class Slide4 extends React.Component{
 
 
-    backHandler(){
-        // this.props.passImageDesc(undefined)
-        // this.props.passSketch(undefined)
-
-        this.props.clearImageTempData()
-
-        // the next line changes the state by triggering an action IDEA_ENTERED
-        // containing the function ideaInputAction which takes in parameters:
-        // 1st: the idea text, 2nd: the slide number to be displayed.
-        this.props.changeSlide(2)
-    }
 
     componentDidMount(){
         const introAnim = new TimelineLite()
@@ -49,6 +38,19 @@ class Slide4 extends React.Component{
         // this.refs.tets.innerHTML= this.props.overAllData.imageArray[0].imageDescription
     }
 
+    
+    backHandler(){
+        // this.props.passImageDesc(undefined)
+        // this.props.passSketch(undefined)
+
+        this.props.clearImageTempData()
+
+        // the next line changes the state by triggering an action IDEA_ENTERED
+        // containing the function ideaInputAction which takes in parameters:
+        // 1st: the idea text, 2nd: the slide number to be displayed.
+        this.props.changeSlide(2)
+    }
+
 
     render(){
         
@@ -63,22 +65,31 @@ class Slide4 extends React.Component{
         const makeImagesDivs = () => (
             
             imageArray.map((item, index) => (
-                <div key={"div" + index}>
-                    <section className="trippyCloseBtn">
+                <div key = { "div" + index }>
+                    <section 
+                        className="trippyCloseBtn"
+                        onClick={() => imageArray.splice(index,1)}
+                        >
                         <CloseButtonTrippy/>
                     </section>
-                    <img ref={"image"+index} key={index} src="https://s-media-cache-ak0.pinimg.com/originals/f8/66/8a/f8668ab07bfc537ec7ff9c08f1bbdab0.gif" alt=""/>
+                    <img 
+                        id = { "image" + index }
+                        key = { index }
+                        src = "https://s-media-cache-ak0.pinimg.com/originals/f8/66/8a/f8668ab07bfc537ec7ff9c08f1bbdab0.gif"
+                        alt = ""
+                    />
                 </div>
             ))
                 
         )
 
+        // next code block puts images inside the divs made above
         if(imageArray.length > 0){
-            console.log("in")
             imageArray.map((item, index) => {
                 const reader = new FileReader()
-                 reader.onloadend = () => {
-                    this.refs.image0.src = reader.result                    
+                reader.onloadend = () => {
+                    // this.refs.image0.src = reader.result
+                    document.getElementById('image' + index).src = reader.result     
                 }
                 reader.readAsDataURL(
                     item.imageData
@@ -133,12 +144,15 @@ class Slide4 extends React.Component{
                     <span></span>
                     <span></span>
 
-                    <div className="flexRowDiv">
-                        <div className="imagesHolder">
-                            {makeImagesDivs()}
+                    <div className="imagesWrapper">
+                        <div className="flexRowDiv">
+                            <div className="imagesHolder">
+                                {makeImagesDivs()}
+                            </div>
                         </div>
-                            
                     </div>
+
+                    
                     <span></span>
                     <span></span>
 
