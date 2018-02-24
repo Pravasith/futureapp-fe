@@ -5,7 +5,7 @@ import userDetailReducer from './userDetailReducer'
 import circles from './circlesReducer'
 import userStatusLevelText from './reducerBarryBubbleText'
 import theSlideData from './ideaReducer'
-import imageArray from './imageArrayReducer'
+import overAllData from './imageArrayReducer'
 
 
 const allReducers = combineReducers({
@@ -15,7 +15,7 @@ const allReducers = combineReducers({
     circles,
     userStatusLevelText,
     theSlideData,
-    imageArray
+    overAllData
 })
 
 export default allReducers

@@ -1,12 +1,29 @@
 import React from 'react'
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 //typical import of gsap methods
 import { TimelineLite} from "gsap"
 import { Tick } from './../../assets/images/tick';
 import { ImgIcon } from './../../assets/images/imgIcon';
 import { CloseButtonTrippy } from './../../assets/images/closeButtonTrippy';
 
-export class Slide4 extends React.Component{
+import { sketchUploaded, imageDescriptionUpload, changeSlide, imageArrayUpdate, clearImageTempData } from '../../actions/ideaInputAction'
+
+class Slide4 extends React.Component{
+
+    backHandler(){
+        // this.props.passImageDesc(undefined)
+        // this.props.passSketch(undefined)
+
+        this.props.clearImageTempData()
+
+        // the next line changes the state by triggering an action IDEA_ENTERED
+        // containing the function ideaInputAction which takes in parameters:
+        // 1st: the idea text, 2nd: the slide number to be displayed.
+        this.props.changeSlide(2)
+    }
 
     componentDidMount(){
         const introAnim = new TimelineLite()
@@ -17,6 +34,22 @@ export class Slide4 extends React.Component{
 
         .to(".idea .aCircle", 0.2, {background:"#8CC63F"})
         .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8})
+
+        // console.log(this.props.overAllData)
+
+        // this.refs.tets.innerHTML= this.props.overAllData.imageArray[0].imageDescription
+    }
+
+    componentWillMount(){
+        this.props.imageArrayUpdate(
+            this.props.theSlideData.image.fileData,
+            this.props.theSlideData.image.imageDescription
+        )
+    }
+
+    componentWillReceiveProps(){
+        console.log(this.props.overAllData)
+
     }
 
     render(){
@@ -59,7 +92,7 @@ export class Slide4 extends React.Component{
                     <div className="uploadContainer">
                             <div className="imgIcon" ><ImgIcon/></div>
                             <div>
-                                <p>Click here to upload more pictures if you’d like to.</p>
+                                <p ref="tets" >Click here to upload more pictures if you’d like to.</p>
                             </div>
                     </div>
 
@@ -119,7 +152,10 @@ export class Slide4 extends React.Component{
                     <span></span>
 
                     <div className="buttonWrapper">
-                            <button className="brownBtnBig">Back</button>
+                            <button 
+                                className="brownBtnBig"
+                                onClick={this.backHandler.bind(this)}
+                            >Back</button>
                             <button className="whiteBtnBig">Next</button>
                     </div>
 
@@ -131,3 +167,22 @@ export class Slide4 extends React.Component{
     )
 }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        theSlideData : state.theSlideData,
+        overAllData : state.overAllData
+    }
+}
+
+const matchDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        passImageDesc: imageDescriptionUpload,
+        passSketch: sketchUploaded,
+        changeSlide: changeSlide,
+        imageArrayUpdate: imageArrayUpdate,
+        clearImageTempData: clearImageTempData
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Slide4)

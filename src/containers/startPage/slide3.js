@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // import actions
-import { changeSlide, imageDescriptionUpload, imageArrayUpdate } from "../../actions/ideaInputAction";
+import { changeSlide, imageDescriptionUpload, imageArrayUpdate, sketchUploaded } from "../../actions/ideaInputAction";
 
 //typical import of gsap methods
 import { TimelineLite} from "gsap"
@@ -58,7 +58,7 @@ class Slide3 extends React.Component{
         this.toggleClassName()
     }
 
-    clickHandler(){
+    backHandler() {
         this.props.passImageDesc(this.refs.imageDesc.value)
         console.log(this.refs.imageDesc.value)
         // the next line changes the state by triggering an action IDEA_ENTERED
@@ -67,13 +67,9 @@ class Slide3 extends React.Component{
         this.props.changeSlide(2)
     }
 
-    nextHandler(){
-
-        this.props.imageArrayUpdate(
-            this.props.theSlideData.image,
-            0
-            
-        )
+    nextHandler() {
+        this.props.passImageDesc(this.refs.imageDesc.value)
+        
 
         // the next line changes the state by triggering an action IDEA_ENTERED
         // containing the function ideaInputAction which takes in parameters:
@@ -165,7 +161,7 @@ class Slide3 extends React.Component{
                     <span ></span>
 
                     <div className="uploadContent">
-                        <h1>Give a short description to this image.(optional)</h1>
+                        <h1 >Give a short description to this image.(optional)</h1>
                         <span></span>
                         <div className="flexRowDiv">
                             <div>
@@ -190,7 +186,7 @@ class Slide3 extends React.Component{
                         <div className="flexRowDiv">
                                 <button 
                                     className="brownBtnBig"
-                                    onClick={this.clickHandler.bind(this)}
+                                    onClick={this.backHandler.bind(this)}
                                 >Back</button>
                                 <button 
                                     className="whiteBtnBig"
@@ -209,7 +205,7 @@ class Slide3 extends React.Component{
 const mapStateToProps = (state) => {
     return {
         theSlideData : state.theSlideData,
-        imageArray : state.imageArray
+        overAllData : state.overAllData
     }
 }
 

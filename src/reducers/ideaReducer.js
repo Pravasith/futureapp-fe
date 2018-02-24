@@ -44,6 +44,13 @@ export default function(state = {
             }
         }
 
+        case "CLEAR_IMAGE_TEMP_DATA":{
+            return{
+                ...state,
+                image: action.payload
+            }
+        }
+
     }
     return state
 }

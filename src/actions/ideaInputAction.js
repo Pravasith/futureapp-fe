@@ -34,14 +34,28 @@ export const imageDescriptionUpload = (imageDescription) => {
     }
 }
 
-export const imageArrayUpdate = (imageData, imageNumber) => {
+let imageNumber = 0
+
+export const imageArrayUpdate = (imageData, imageDescription) => {
+    
+    imageNumber++
 
     // console.log('User file is : ' + imageData)
     return {
         type: "IMAGE_ARRAY_DATA_UPDATE",
         payload: {
+            imageData,
             imageNumber,
-            imageData
+            imageDescription
         }
+    }
+}
+
+export const clearImageTempData = () => {
+
+    // console.log('User file is : ' + imageData)
+    return {
+        type: "CLEAR_IMAGE_TEMP_DATA",
+        payload: undefined
     }
 }

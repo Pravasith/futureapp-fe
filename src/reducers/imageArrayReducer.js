@@ -7,10 +7,13 @@ export default function(state = {
         // Put this in a new reducer
 
         case "IMAGE_ARRAY_DATA_UPDATE":{
-            return [
+            return {
+                ...state,
+                imageArray: [
                     ...state.imageArray,
                     action.payload
                 ]
+            }
             
         }
     }

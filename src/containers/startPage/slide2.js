@@ -17,7 +17,7 @@ class Slide2 extends React.Component{
 
     state = {
         fileName : ["Click here to upload a rough hand drawn sketch or a photo for giving a better idea."],
-        realFile : this.props.theSlideData.image ? this.props.theSlideData.image.fileData : null,
+        realFile : this.props.theSlideData.image ? this.props.theSlideData.image.fileData : undefined,
         inCount : 0,
         isImageUploaded : false
     }
@@ -110,7 +110,7 @@ class Slide2 extends React.Component{
            let tempArr = []
            
 
-            if(this.props.theSlideData.image && this.state.inCount < 1){
+            if( this.props.theSlideData.image && this.state.inCount < 1 ){
                 // reader.readAsDataURL(this.props.theSlideData.image.fileData)
                 reader.readAsDataURL(this.state.realFile)
                 // tempArr = this.props.theSlideData.image.fileData.name.split('')
