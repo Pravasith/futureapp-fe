@@ -38,6 +38,18 @@ class Slide4 extends React.Component{
         // this.refs.tets.innerHTML= this.props.overAllData.imageArray[0].imageDescription
     }
 
+    nextHandler(){
+        // this.props.passImageDesc(undefined)
+        // this.props.passSketch(undefined)
+
+        this.props.clearImageTempData()
+
+        // the next line changes the state by triggering an action IDEA_ENTERED
+        // containing the function ideaInputAction which takes in parameters:
+        // 1st: the idea text, 2nd: the slide number to be displayed.
+        this.props.changeSlide(5)
+    }
+
     
     backHandler(){
         // this.props.passImageDesc(undefined)
@@ -60,21 +72,29 @@ class Slide4 extends React.Component{
         
         burst
         .set('#deleteNo'+ arrayIndexNumber, {display: "none"})
-        .set('#closeBtnNo'+ arrayIndexNumber, {display: "block"})
-        .to('#image'+ arrayIndexNumber, 0.2, {opacity: 1})
+        .set('#closeBtnNo'+ arrayIndexNumber, {display: "flex"})
+        // .to('#image'+ arrayIndexNumber, 0.2, {opacity: 1})
 
         console.log(tempArray)
 
         this.props.deleteImageFromArray(tempArray)
     }
 
+    dontDelete(arrayIndexNumber){
+        const burst = new TimelineLite()
+        
+        burst
+        .set('#deleteNo'+ arrayIndexNumber, {display: "none"})
+        .set('#closeBtnNo'+ arrayIndexNumber, {display: "flex"})
+    }
+
     deleteWarning(arrayIndexNumber){
         const burst = new TimelineLite()
         
         burst
-        .set('#deleteNo'+ arrayIndexNumber, {display: "block", opacity:1})
+        .set('#deleteNo'+ arrayIndexNumber, {display: "flex"})
         .set('#closeBtnNo'+ arrayIndexNumber, {display: "none"})
-        .to('#image'+ arrayIndexNumber, 0.2, {opacity: 0.3})
+        // .to('#image'+ arrayIndexNumber, 0.2, {opacity: 0.3})
     }
 
 
@@ -95,9 +115,17 @@ class Slide4 extends React.Component{
                     <section 
                         className = "deleteWarning"
                         id = { "deleteNo" + index }
-                        onClick = {() => this.deleteImage(index)}
+                        
                         >
                             <p>Delete?</p>
+                            <button
+                                onClick = {() => this.deleteImage(index)}
+                                >Yes
+                            </button>
+                            <button
+                                onClick = {() => this.dontDelete(index)}
+                                >No
+                            </button>
                     </section>
                     <section 
                         className="trippyCloseBtn"
@@ -199,8 +227,14 @@ class Slide4 extends React.Component{
                             <button 
                                 className="brownBtnBig"
                                 onClick={this.backHandler.bind(this)}
-                            >Back</button>
-                            <button className="whiteBtnBig">Next</button>
+                                >Back
+                            </button>
+
+                            <button 
+                                className="whiteBtnBig"
+                                onClick={this.nextHandler.bind(this)}
+                                >Next
+                            </button>
                     </div>
 
                     

@@ -300,14 +300,30 @@
                 div{
 
                     .deleteWarning{
+                        width: 100%;
+                        height: 100%;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
                         position: absolute;
                         padding: 0.3em;
-                        background: #dc3545;
+                        background: rgba(255, 127, 180, 0.7);
                         border-radius: 0.3em;
                         color: $white;
+                        font-weight: 500;
                         display: none;
                         z-index: 1;
-                        cursor: pointer;
+                        
+
+                        button{
+                            margin: 0.2em;
+                            background: white;
+                            border: none;
+                            font-weight: 500;
+                            width: 70%;
+                            cursor: pointer;
+                            border-radius: 1em;
+                        }
                     }
 
                     height: 5.5em;
