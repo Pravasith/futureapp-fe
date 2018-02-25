@@ -134,12 +134,17 @@ class Slide4 extends React.Component{
                     <span></span>
                     <span></span>
 
-                    <div className="uploadContainer">
-                            <div className="imgIcon" ><ImgIcon/></div>
-                            <div>
-                                <p> Click here to upload more pictures if you’d like to.</p>
-                            </div>
-                    </div>
+                    <label 
+                        className="uploadContainer"
+                        htmlFor="upload-sketch"
+                        onClick = { this.backHandler.bind(this) }
+                        >
+                        <div className="imgIcon" ><ImgIcon/></div>
+                        <div>
+                            <p> Click here to go back and upload more pictures if you’d like to.</p>
+                        </div>
+                    </label>
+
 
                     <span></span>
                     <span></span>

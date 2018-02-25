@@ -257,6 +257,25 @@
 // SLIDE 4 STYLES
 
 .slide4{
+
+
+    .uploadContainer{
+        @include flexCentreRow;
+        width: 95%;
+        background: $white;
+        border-radius: 2.4em;
+        padding: 0.6em 1.2em 0.6em 1.2em;
+        box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+        cursor: pointer;
+        
+        div{
+            @include flexCentreRow;
+            padding: 0.6em;
+            
+        }
+    }
+
+
     .imagesWrapper{
         @include flexCentreRow;
         width: 94%;
@@ -435,6 +454,8 @@
 
 @media screen and (max-width: 768px){
 
+
+
     .ideaInputWrapper{
         flex-direction: column;
     }
@@ -461,22 +482,34 @@
 
 @media screen and (max-width: 520px){
 
-    .ideaInputWrapper{
-        flex-direction: column;
+    .screenWrapper{
+        .navbarWrapper{
+            display: none;
+        }
+    
+        .rightScreenContainer{
+            width: 100%;
+        }
+    
+        .ideaInputWrapper{
+            flex-direction: column;
+        }
+    
+        .greenWrapper{
+            width: 98%;
+        }
+    
+        .someText{
+            width: 98%;
+            padding: 1em;
+        }
+    
+    
+        .statusBarContainer{
+            min-height: 1.5em;
+            height: 4vh;
+        }
+        
     }
-
-    .greenWrapper{
-        width: 98%;
-    }
-
-    .someText{
-        width: 98%;
-        padding: 1em;
-    }
-
-
-    .statusBarContainer{
-        min-height: 1.5em;
-        height: 4vh;
-    }
+    
 }
