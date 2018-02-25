@@ -59,3 +59,12 @@ export const clearImageTempData = () => {
         payload: undefined
     }
 }
+
+export const deleteImageDataFromArray = (updatedArray) => {
+
+    // console.log('User file is : ' + imageData)
+    return {
+        type: "IMAGE_ARRAY_ITEM_DELETE",
+        payload: updatedArray
+    }
+}

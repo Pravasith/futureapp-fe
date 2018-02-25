@@ -288,6 +288,9 @@
             border-radius: 0.4em;
     
             .imagesHolder{
+
+
+
                 @include flexCentreRow;
                 background: #ffffff;
                 height: 8em;
@@ -295,6 +298,18 @@
                 justify-content: space-between;
             
                 div{
+
+                    .deleteWarning{
+                        position: absolute;
+                        padding: 0.3em;
+                        background: #dc3545;
+                        border-radius: 0.3em;
+                        color: $white;
+                        display: none;
+                        z-index: 1;
+                        cursor: pointer;
+                    }
+
                     height: 5.5em;
                     min-height: 5.5em;
                     width: 5.5em;
@@ -308,10 +323,10 @@
                     transition:0.1s;
                     transform-origin: 50% 50%;
     
-                    &:hover{
-                        transform:translateY(-.2em);
-                        transform-origin: 50% 50%;
-                    }
+                    // &:hover{
+                    //     transform:translateY(-.2em);
+                    //     transform-origin: 50% 50%;
+                    // }
     
                     .trippyCloseBtn{
                         position: absolute;

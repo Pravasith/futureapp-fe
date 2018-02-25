@@ -471,13 +471,15 @@
         -webkit-transform-origin: 50% 50%;
         -ms-transform-origin: 50% 50%;
         transform-origin: 50% 50%; }
-        .slide4 .imagesWrapper .flexRowDiv .imagesHolder div:hover {
-          -webkit-transform: translateY(-0.2em);
-          -ms-transform: translateY(-0.2em);
-          transform: translateY(-0.2em);
-          -webkit-transform-origin: 50% 50%;
-          -ms-transform-origin: 50% 50%;
-          transform-origin: 50% 50%; }
+        .slide4 .imagesWrapper .flexRowDiv .imagesHolder div .deleteWarning {
+          position: absolute;
+          padding: 0.3em;
+          background: #dc3545;
+          border-radius: 0.3em;
+          color: #ffffff;
+          display: none;
+          z-index: 1;
+          cursor: pointer; }
         .slide4 .imagesWrapper .flexRowDiv .imagesHolder div .trippyCloseBtn {
           position: absolute;
           right: 0.2em;

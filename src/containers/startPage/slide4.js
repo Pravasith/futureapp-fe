@@ -9,7 +9,7 @@ import { Tick } from './../../assets/images/tick';
 import { ImgIcon } from './../../assets/images/imgIcon';
 import { CloseButtonTrippy } from './../../assets/images/closeButtonTrippy';
 
-import { sketchUploaded, imageDescriptionUpload, changeSlide, imageArrayUpdate, clearImageTempData } from '../../actions/ideaInputAction'
+import { sketchUploaded, imageDescriptionUpload, changeSlide, imageArrayUpdate, clearImageTempData, deleteImageDataFromArray } from '../../actions/ideaInputAction'
 
 class Slide4 extends React.Component{
 
@@ -51,6 +51,32 @@ class Slide4 extends React.Component{
         this.props.changeSlide(2)
     }
 
+    deleteImage(arrayIndexNumber){
+        
+        let tempArray = [...this.props.overAllData.imageArray]
+        tempArray.splice(arrayIndexNumber,1)
+
+        const burst = new TimelineLite()
+        
+        burst
+        .set('#deleteNo'+ arrayIndexNumber, {display: "none"})
+        .set('#closeBtnNo'+ arrayIndexNumber, {display: "block"})
+        .to('#image'+ arrayIndexNumber, 0.2, {opacity: 1})
+
+        console.log(tempArray)
+
+        this.props.deleteImageFromArray(tempArray)
+    }
+
+    deleteWarning(arrayIndexNumber){
+        const burst = new TimelineLite()
+        
+        burst
+        .set('#deleteNo'+ arrayIndexNumber, {display: "block", opacity:1})
+        .set('#closeBtnNo'+ arrayIndexNumber, {display: "none"})
+        .to('#image'+ arrayIndexNumber, 0.2, {opacity: 0.3})
+    }
+
 
     render(){
         
@@ -65,10 +91,18 @@ class Slide4 extends React.Component{
         const makeImagesDivs = () => (
             
             imageArray.map((item, index) => (
-                <div key = { "div" + index }>
+                <div key = { "div" + index } >
+                    <section 
+                        className = "deleteWarning"
+                        id = { "deleteNo" + index }
+                        onClick = {() => this.deleteImage(index)}
+                        >
+                            <p>Delete?</p>
+                    </section>
                     <section 
                         className="trippyCloseBtn"
-                        onClick={() => imageArray.splice(index,1)}
+                        id = { "closeBtnNo" + index }
+                        onClick={() => this.deleteWarning(index)}
                         >
                         <CloseButtonTrippy/>
                     </section>
@@ -191,7 +225,8 @@ const matchDispatchToProps = (dispatch) => {
         passSketch: sketchUploaded,
         changeSlide: changeSlide,
         imageArrayUpdate: imageArrayUpdate,
-        clearImageTempData: clearImageTempData
+        clearImageTempData: clearImageTempData,
+        deleteImageFromArray: deleteImageDataFromArray
     }, dispatch)
 }
 

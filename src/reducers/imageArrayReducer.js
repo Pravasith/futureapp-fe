@@ -14,7 +14,15 @@ export default function(state = {
                     action.payload
                 ]
             }
-            
+        }
+
+        case "IMAGE_ARRAY_ITEM_DELETE": {
+            return {
+                ...state,
+                imageArray: [
+                    ...action.payload
+                ]
+            }
         }
     }
     return state
