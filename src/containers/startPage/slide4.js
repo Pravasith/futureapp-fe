@@ -25,12 +25,15 @@ class Slide4 extends React.Component{
         .to(".idea .aCircle", 0.2, {background:"#8CC63F"})
         .to(".elaborate .aCircle", 0.2, {transformOrigin: "50% 50%", scale:0.8})
 
+        if(this.props.theSlideData.image){
+            // ACTION to create imageArray or push image data into imageArray
+            this.props.imageArrayUpdate(
+                this.props.theSlideData.image.fileData,
+                this.props.theSlideData.image.imageDescription
+            )
+        }
 
-        // ACTION to create imageArray or push image data into imageArray
-        this.props.imageArrayUpdate(
-            this.props.theSlideData.image.fileData,
-            this.props.theSlideData.image.imageDescription
-        )
+
 
 
         // console.log(this.props.overAllData)

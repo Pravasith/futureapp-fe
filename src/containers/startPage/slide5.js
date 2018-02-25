@@ -1,12 +1,17 @@
 import React from 'react'
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 //typical import of gsap methods
 import { TimelineLite} from "gsap"
 import { Tick } from './../../assets/images/tick';
 import { ImgIcon } from './../../assets/images/imgIcon';
 import { CloseButtonTrippy } from './../../assets/images/closeButtonTrippy';
 
-export class Slide5 extends React.Component{
+import { changeSlide, imageArrayUpdate } from '../../actions/ideaInputAction'
+
+class Slide5 extends React.Component{
 
     componentDidMount(){
         const introAnim = new TimelineLite()
@@ -18,6 +23,14 @@ export class Slide5 extends React.Component{
         .to(".idea .aCircle", 0.2, {background:"#8CC63F"})
         .to(".sketch .aCircle", 0.2, {background:"#8CC63F"})
         
+    }
+
+    backHandler(){
+
+        // the next line changes the state by triggering an action IDEA_ENTERED
+        // containing the function ideaInputAction which takes in parameters:
+        // 1st: the idea text, 2nd: the slide number to be displayed.
+        this.props.changeSlide(4)
     }
 
     render(){
@@ -71,8 +84,15 @@ export class Slide5 extends React.Component{
                     <span></span>
 
                     <div className="buttonWrapper">
-                            <button className="brownBtnBig">Back</button>
-                            <button className="whiteBtnBig">Done</button>
+                            <button 
+                                className="brownBtnBig"
+                                onClick = { this.backHandler.bind(this) }
+                                >Back
+                            </button>
+                            <button
+                                className="whiteBtnBig"
+                                >Done
+                            </button>
                     </div>
 
                     
@@ -83,3 +103,18 @@ export class Slide5 extends React.Component{
     )
 }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        theSlideData : state.theSlideData,
+    }
+}
+
+const matchDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        changeSlide: changeSlide,
+        imageArrayUpdate: imageArrayUpdate,
+    }, dispatch)
+}
+
+export default connect( mapStateToProps, matchDispatchToProps)(Slide5)
