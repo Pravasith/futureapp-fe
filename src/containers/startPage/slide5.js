@@ -57,15 +57,6 @@ class Slide5 extends React.Component{
     }
 
     backHandler(){
-
-        if(!this.refs.descriptionText.value){
-            this.setState({
-                name: "descriptionText warning"
-            })
-            this.refs.descriptionText.placeholder = "You have to elaborate your idea. Just see a few examples and come back."
-        }
-
-        else{
             this.props.elaborateTextadd(this.refs.descriptionText.value)
 
 ///////////// check if sketch is uploaded start //////////////////////////////////////////////
@@ -84,8 +75,6 @@ class Slide5 extends React.Component{
             else
             this.props.changeSlide(2)
 ///////////// check if sketch is uploaded end //////////////////////////////////////////////
-        }
-
     }
 
     nextHandler(){
@@ -101,6 +90,24 @@ class Slide5 extends React.Component{
             this.props.elaborateTextadd(this.refs.descriptionText.value)
             // adds short idea to overAllData reducer
             this.props.finalIdeaUpdate(this.props.theSlideData.text)
+
+            const endSlide = new TimelineLite()
+            endSlide
+            .to('.headerClass', 0.2, {transformOrigin: "50% 50%", scale: 0})
+            .to('.textAreaClass', 0.2, {transformOrigin: "50% 50%", scale: 0})
+            .to('.buttonWrapper', 0.2, {transformOrigin: "50% 50%", scale: 0})
+
+            
+            .set('.headerClass',  {display: "none"})
+            .set('.textAreaClass',  {display: "none"})
+            .set('.buttonWrapper',  {display: "none"})
+            .set('.topStatusCircles', {y: -86})
+            .to('.topStatusCircles', 0.5, {transformOrigin: "50% 50%", y: 0})
+            .to('.topStatusCircles', 0.5, {})
+           
+            .set(".elaborate .aCircle", {background:"#8CC63F", onComplete: endSlide.kill})
+            
+            
         }
     }
 
@@ -195,16 +202,15 @@ class Slide5 extends React.Component{
 
                     <span></span>
 
-                    <h1>Elaborate your idea. Compare it with real life examples similar to your concept.</h1>
+                    <h1 className="headerClass" >Elaborate your idea. Compare it with real life examples similar to your concept.</h1>
 
                     <span></span>
 
 
 
-                    <div className="flexColDiv">
+                    <div className="flexColDiv textAreaClass">
                             <form >
                                 {this.returnTextArea()}
-                                
                             </form>
                     </div>
 
