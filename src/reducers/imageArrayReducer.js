@@ -24,6 +24,20 @@ export default function(state = {
                 ]
             }
         }
+
+        case "IDEA_ELABORATE_TEXT_ADDED": {
+            return {
+                ...state,
+                elaboratedIdea: action.payload
+            }
+        }
+
+        case "IDEA_UPDATED_FINAL_SLIDE": {
+            return {
+                ...state,
+                shortIdea: action.payload
+            }
+        }
     }
     return state
 }

@@ -24,10 +24,6 @@ class Slide3 extends React.Component{
     }
 
     toggleClassName() {
-        if(this.state.name === "imageText blink")
-        this.setState({name: "imageText"})
-
-        else
         this.setState({name: "imageText blink"})
     }
 

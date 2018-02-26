@@ -18,7 +18,7 @@ export const changeSlide = (slideNo) => {
 
 export const sketchUploaded = (fileData) => {
 
-    // console.log('User file is : ' + imageData)
+    // console.log('User file is : ' + fileData)
     return {
         type: "SKETCH_UPLOADED",
         payload: fileData
@@ -27,7 +27,6 @@ export const sketchUploaded = (fileData) => {
 
 export const imageDescriptionUpload = (imageDescription) => {
 
-    // console.log('User file is : ' + imageData)
     return {
         type: "IMAGE_DESCRIPTION_ADDED",
         payload: imageDescription
@@ -53,7 +52,6 @@ export const imageArrayUpdate = (imageData, imageDescription) => {
 
 export const clearImageTempData = () => {
 
-    // console.log('User file is : ' + imageData)
     return {
         type: "CLEAR_IMAGE_TEMP_DATA",
         payload: undefined
@@ -62,9 +60,24 @@ export const clearImageTempData = () => {
 
 export const deleteImageDataFromArray = (updatedArray) => {
 
-    // console.log('User file is : ' + imageData)
     return {
         type: "IMAGE_ARRAY_ITEM_DELETE",
         payload: updatedArray
+    }
+}
+
+export const elaborateTextadd = (elaboratedIdeaText) => {
+
+    return {
+        type: "IDEA_ELABORATE_TEXT_ADDED",
+        payload: elaboratedIdeaText
+    }
+}
+
+export const finalIdeaUpdate = (shortIdeaText) => {
+
+    return {
+        type: "IDEA_UPDATED_FINAL_SLIDE",
+        payload: shortIdeaText
     }
 }

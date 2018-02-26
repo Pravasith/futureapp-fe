@@ -127,12 +127,12 @@
 } 
 
 
-
-
-
 .buttonWrapper{
     @include flexCentreRow;
 }
+
+
+
 
 .warning::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: #FF6C6C;
@@ -155,7 +155,10 @@
             justify-content: space-between;
             textarea{
                 width: 100%;
-                border: 0.3em solid $primaryGreen;
+                border-radius: 0em;
+                border: none;
+                border-bottom: 0.3em solid #8CC63F;
+                color: #ff28e7;
             }
         }
     }
@@ -245,8 +248,11 @@
         form{
             width: 64%;
             textarea{
-                border: 0.3em solid $primaryGreen;
                 height: 11em;
+                border-radius: 0em;
+                border: none;
+                border-bottom: 0.3em solid #8CC63F;
+                color: #ff28e7;
             }
 
         }
@@ -399,6 +405,10 @@
             width: 100%;
             textarea{
                 min-height: 10em;
+                border-radius: 0em;
+                border: none;
+                border-bottom: 0.3em solid #8CC63F;
+                color: #ff28e7;
             }
         }
     }

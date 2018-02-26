@@ -252,7 +252,10 @@
       justify-content: space-between; }
       .slide1 .textInputWrapper form textarea {
         width: 100%;
-        border: 0.3em solid #8CC63F; }
+        border-radius: 0em;
+        border: none;
+        border-bottom: 0.3em solid #8CC63F;
+        color: #ff28e7; }
 
 .slide2 .uploadContent {
   display: -webkit-box;
@@ -357,8 +360,11 @@
   .slide3 .flexRowDiv form {
     width: 64%; }
     .slide3 .flexRowDiv form textarea {
-      border: 0.3em solid #8CC63F;
-      height: 11em; }
+      height: 11em;
+      border-radius: 0em;
+      border: none;
+      border-bottom: 0.3em solid #8CC63F;
+      color: #ff28e7; }
 
 .slide4 .uploadContainer {
   display: -webkit-box;
@@ -528,7 +534,11 @@
   .slide5 .flexColDiv form {
     width: 100%; }
     .slide5 .flexColDiv form textarea {
-      min-height: 10em; }
+      min-height: 10em;
+      border-radius: 0em;
+      border: none;
+      border-bottom: 0.3em solid #8CC63F;
+      color: #ff28e7; }
 
 .imgIcon {
   width: 4em; }

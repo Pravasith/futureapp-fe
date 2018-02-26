@@ -21,7 +21,7 @@ class Slide1 extends React.Component{
     
         this.state = {
             name: "ideaText blink",
-            value: this.props.slideData.text
+            value: this.props.slideData.text // initially undefined
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -67,10 +67,6 @@ class Slide1 extends React.Component{
     
 
     toggleClassName() {
-        if(this.state.name === "ideaText blink")
-        this.setState({name: "ideaText"})
-
-        else
         this.setState({name: "ideaText blink"})
     }
 
@@ -135,6 +131,7 @@ class Slide1 extends React.Component{
         }
 
         const returnTextArea = () => {
+
             if(!this.props.slideData.text){
                 return (
                     <textarea 
@@ -142,6 +139,7 @@ class Slide1 extends React.Component{
                         name="idea"
                         className={this.state.name}
                         onFocus={this.toggleClassName}
+                        // onFocus = { this.refs.ideaText !== null || undefined ? this.toggleClassName : undefined }
                         // onBlur={this.toggleClassName}
                         placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."
                         >
@@ -156,6 +154,7 @@ class Slide1 extends React.Component{
                         name="idea"
                         className={this.state.name}
                         onFocus={this.toggleClassName}
+                        // onFocus = { this.refs.ideaText !== null || undefined ? this.toggleClassName : undefined }
                         // onBlur={this.toggleClassName}
                         placeholder = "Don't give up, you! Actions make things possible. Type the idea. You can choose to be anonymous later if you want."
                         value={this.state.value}
