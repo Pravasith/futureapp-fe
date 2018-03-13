@@ -116,12 +116,15 @@ class Slide5 extends React.Component{
 
             .to(".idea", 0.2, {x:"100%", opacity:0}, "slideIntoMid")
             .to(".elaborate", 0.2, {x:"-100%", opacity:0}, "slideIntoMid")
-            .set(".sketch .aCircle", {background:"#E6E6E6", borderColor:"#E6E6E6", transformOrigin:"50% 50%"})
-            .to(".sketch .aCircle", 0.3, { transformOrigin:"50% 50%",  scale:"5" })
-            .to(".sketch .aCircle", 0.2, {})
-            .to('.uploadingAnim', 0.1, {display:"flex", transformOrigin:"50% 50%",  scale:"0.2"})
-            .to('.uploadingAnim p', 0.1, {opacity:1})
-            .to("#eyesUpload", 0.2, {y:-7,  onComplete: endSlide.kill})
+            .set(".sketch .aCircle", {background:"#E6E6E6", borderColor:"#E6E6E6", transformOrigin:"50% 50%", onComplete: () => {this.props.changeSlide(6)}})
+            
+            // .to(".sketch .aCircle", 0.3, { transformOrigin:"50% 50%",  scale:"5" })
+            // .to(".sketch .aCircle", 0.2, {})
+            // .to('.uploadingAnim', 0.1, {display:"flex", transformOrigin:"50% 50%",  scale:"0.2"})
+            // .to('.uploadingAnim p', 0.1, {opacity:1})
+            // .to("#eyesUpload", 0.2, {y:-7,  onComplete: () => {this.props.changeSlide(6)}})
+
+            
             
         }
     }

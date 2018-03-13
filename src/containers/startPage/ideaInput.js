@@ -8,7 +8,10 @@ import Slide2 from "./slide2";
 import Slide3 from './slide3';
 import Slide4 from './slide4';
 import Slide5 from "./slide5";
+import Slide6 from "./slide6";
+
 import { connect } from "react-redux";
+
 
 
 
@@ -63,6 +66,12 @@ class IdeaInput extends React.Component{
         else if(slide === 5){
             return(
                <Slide5/>
+            )
+        }
+
+        else if(slide === 6){
+            return(
+               <Slide6/>
             )
         }
         

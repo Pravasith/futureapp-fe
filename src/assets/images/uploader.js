@@ -5,7 +5,9 @@ export const Uploader = () => {
 
     return (
         <svg xmlns='http://www.w3.org/2000/svg' width='146.829' height='150.993'
-        viewBox='0 0 146.829 131.993'>
+        viewBox='0 0 146.829 131.993' 
+        className="wholeBody"
+        >
             <g id='bodyUpload'>
                 <ellipse fill='#FFF' stroke='#00123F' strokeMiterlimit='10' cx='73.32'
                 cy='24.451' rx='14.352' ry='17.52' />

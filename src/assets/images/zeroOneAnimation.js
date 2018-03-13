@@ -13,7 +13,7 @@ export class ZeroOneAnim extends React.Component{
 
     componentDidMount() {
 
-        console.log(this.getRndInteger(-30, +30))
+        // console.log(this.getRndInteger(-30, +30))
 
         const assignRndPos = () => {
 
@@ -29,24 +29,30 @@ export class ZeroOneAnim extends React.Component{
 
         assignRndPos()
 
-        
+        const getRandomSpeed = () => {
+            return this.getRndInteger(5, 10)/10
+        }
 
-        
         function moveUp()  {
             
             let done = 0
             const anim = new TimelineLite()
             const anim2 = new TimelineLite()
 
+            
+
             for (let c = 1; c <= 15; c++) {
 
+                let tempSpeed0 = getRandomSpeed()
+                let tempSpeed1 = getRandomSpeed()
+
                 anim
-                .to('#zero' + c, 0.01, { opacity: 1 }, "-=0.4")
-                .to('#zero' + c, 0.8, { y: -100 }, "-=0.4")
-                .to('#zero' + c, 0.01, { opacity: 0, y:0 }, "-=0.4")
+                .to('#zero' + c, 0.01, { opacity: 1 }, "-=" + tempSpeed0 / 2 )
+                .to('#zero' + c, tempSpeed0, { y: -100 }, "-=" + tempSpeed0 / 2 )
+                .to('#zero' + c, 0.01, { opacity: 0, y:0 }, "-=" + tempSpeed0 / 2 )
                 anim2
-                .to('#one' + c, 0.01, { opacity: 1 }, "-=0.3")
-                .to('#one' + c, 0.6, { y: -100 }, "-=0.3")
+                .to('#one' + c, 0.01, { opacity: 1 }, "-=" + tempSpeed1 / 2 )
+                .to('#one' + c,  tempSpeed1, { y: -100 }, "-=" + tempSpeed1 / 2 )
                 .to('#one' + c, 0.01, { opacity: 0 , y:0, 
                     onComplete: () => {
                         done++
@@ -54,7 +60,7 @@ export class ZeroOneAnim extends React.Component{
                             moveUp()
                         }
                     }
-                }, "-=0.3")
+                }, "-=" + tempSpeed1 / 2 )
             }
         }
         moveUp()
@@ -66,18 +72,20 @@ export class ZeroOneAnim extends React.Component{
         let arrZeros = []
         let arrOnes = []
 
+        
+    
         const gen15ZeroesOnes = () => {
             let c = 1
             while( c <= 15 ){
 
-                arrZeros.push(<path fill="none" stroke="#999" strokeLinecap="round" strokeLinejoin="round"
-                strokeMiterlimit="15" d="M38.375,109.5 c0,1.381-1.302,2.5-2.958,2.5c-1.657,0-2.917-1.119-2.917-2.5v-4.666c0-1.381,1.26-2.5,2.917-2.5c1.656,0,2.917,1.119,2.917,2.5 L38.375,109.5z"
+                arrZeros.push(<path fill='none' stroke='#999' strokeWidth='1.5' strokeLinecap='round'
+                strokeLinejoin='round' strokeMiterlimit='10' d='M38.375,109.5c0,1.381-1.302,2.5-2.958,2.5c-1.657,0-2.917-1.119-2.917-2.5v-4.666c0-1.381,1.26-2.5,2.917-2.5 c1.656,0,2.917,1.119,2.917,2.5L38.375,109.5z'
                 id={"zero" + c}
                 key = {"zero" + c}
                 />)
 
-                arrOnes.push(<polyline fill="none" stroke="#999" strokeLinecap="round" strokeLinejoin="round"
-                strokeMiterlimit="15" points="34.063,104 35.5,102.334 35.5,112"
+                arrOnes.push(<polyline fill='none' stroke='#999' strokeWidth='1.5' strokeLinecap='round'
+                strokeLinejoin='round' strokeMiterlimit='10' points='34.063,104 35.5,102.334 35.5,112'            
                 id={"one" + c}
                 key = {"one" + c}
                 />)
