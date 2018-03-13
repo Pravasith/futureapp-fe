@@ -58,7 +58,7 @@ class Slide1 extends React.Component{
         .to(".rightLeg", 0.5, {transformOrigin:"10% 50%%", rotation:-5, x:1}, "handMove")
 
         .to("#meyes", 0.7, {transformOrigin:"50% 50%", scaleY:0.2 }, "eyeClose")
-        .from(".bulbWrapper", 0.5, { transformOrigin:"50% 50%", scale:0 , opacity: 0})
+        .from(".bulbWrapper", 0.5, { transformOrigin:"50% 50%", scale:0 , opacity: 0, onComplete: () => meditate.kill()})
 
         ////////////////////////////// intro animation function end //////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////
@@ -141,7 +141,7 @@ class Slide1 extends React.Component{
                         onFocus={this.toggleClassName}
                         // onFocus = { this.refs.ideaText !== null || undefined ? this.toggleClassName : undefined }
                         // onBlur={this.toggleClassName}
-                        placeholder="Click here to start typing...&#10;Example: I want to build a washing machine which runs on pedalling power."
+                        placeholder="Click here to start typing...&#10;Example: I want to build a helmet with a heads-up display on the front using Augmented reality technology. The user should be able to use google maps on his helmet's front glass (hologram like projections)."
                         >
                     </textarea>
                 )
@@ -181,7 +181,7 @@ class Slide1 extends React.Component{
                     <span ></span>
 
                     <div className="writeHead">
-                        <h1>Write your idea in short...</h1>
+                        <h1>Write your idea in short... (it can belong to any field of profession)</h1>
                         <div className="courageIcon">
                             <p> + </p>
                             <span></span>

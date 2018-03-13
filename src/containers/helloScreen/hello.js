@@ -86,6 +86,7 @@ class Hello extends React.Component{
             eyesTl2.to("#eyes2", 0.3, {transformOrigin: "50% 50%",  scaleY:0})
             .to("#eyes2", 0.3, {transformOrigin: "50% 50%",  scaleY:1})
             .to("#eyes2", 2.5, {transformOrigin: "50% 50%",  scaleY:1,  onComplete: eyeTween})
+
          }
          eyeTween()
         

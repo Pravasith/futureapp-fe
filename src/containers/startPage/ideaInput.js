@@ -94,13 +94,16 @@ class IdeaInput extends React.Component{
                     2. Your ideas will be not be shared with anyone until you choose to.
                     </p><span ></span>
                     <p>
-                    3. In the next stage, you will have to share your ideas among the related professionals and target audience to know the feasibility of your idea.
+                    3. In the next stage, you can share your ideas among the related professionals to discuss and make them join your team.
                     </p><span ></span>
                     <p>
-                    4. After that, interested professionals will start working with you. Just sign the digital contract, get people working and float it for investment.
+                    4. After that, interested professionals will start working REMOTELY with you (either for money, equity or for passion). Just sign the digital contract, get people working and float it for investment.
                     </p><span ></span>
                     <p>
-                    5. As Tyler Durden would say, if this is your first time here, you have to post an idea!
+                    5. You don't have to be a professional in a field to write ideas or build online companies here. But you need to be smart enough to get professionals work with/for you.
+                    </p><span ></span>
+                    <p>
+                    6. As Tyler Durden would say, if this is your first time here, you have to post an idea!
                     </p><span ></span>
 
                 </div>

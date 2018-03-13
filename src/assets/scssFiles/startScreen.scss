@@ -132,7 +132,7 @@
 }
 
 .blink::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgb(97, 97, 97);
+    color: rgb(143, 143, 143);
     opacity: 1; /* Firefox */
 }
 
@@ -152,10 +152,11 @@
         width: 100%;
         form{
             width: 100%;
-            
+                      
             @include flexCentreCol;
             justify-content: space-between;
             textarea{
+                height: 8em;  
                 width: 100%;
                 border-radius: 0em;
                 border: none;
@@ -468,8 +469,16 @@
     background: $white;
 }
 
-
-
+.uploadingAnim{
+    @include flexCentreCol;
+    position: absolute;
+    display: none;
+    p{
+        opacity: 1;
+        color: $secondaryMagenta;
+        text-align: center;
+    }
+}
 
 // media queries
 

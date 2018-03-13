@@ -10,6 +10,9 @@ import { ImgIcon } from './../../assets/images/imgIcon';
 import { CloseButtonTrippy } from './../../assets/images/closeButtonTrippy';
 
 import { changeSlide, imageArrayUpdate, elaborateTextadd, finalIdeaUpdate } from '../../actions/ideaInputAction'
+import { Uploader } from '../../assets/images/uploader';
+import { UploadAnimation } from '../../assets/images/uploadAnimation';
+
 
 class Slide5 extends React.Component{
 
@@ -105,8 +108,20 @@ class Slide5 extends React.Component{
             .to('.topStatusCircles', 0.5, {transformOrigin: "50% 50%", y: 0})
             .to('.topStatusCircles', 0.5, {})
            
-            .set(".elaborate .aCircle", {background:"#8CC63F", onComplete: endSlide.kill})
-            
+            .set(".elaborate .aCircle", {background:"#8CC63F"})
+            .to(".elaborate p", 0.2, {opacity:0})
+            .to(".sketch p", 0.2, {opacity:0})
+            .to(".idea p", 0.2, {opacity:0})
+            .to(".aCircle .tick", 0.2, {opacity:0})
+
+            .to(".idea", 0.2, {x:"100%", opacity:0}, "slideIntoMid")
+            .to(".elaborate", 0.2, {x:"-100%", opacity:0}, "slideIntoMid")
+            .set(".sketch .aCircle", {background:"#E6E6E6", borderColor:"#E6E6E6", transformOrigin:"50% 50%"})
+            .to(".sketch .aCircle", 0.3, { transformOrigin:"50% 50%",  scale:"5" })
+            .to(".sketch .aCircle", 0.2, {})
+            .to('.uploadingAnim', 0.1, {display:"flex", transformOrigin:"50% 50%",  scale:"0.2"})
+            .to('.uploadingAnim p', 0.1, {opacity:1})
+            .to("#eyesUpload", 0.2, {y:-7,  onComplete: endSlide.kill})
             
         }
     }
@@ -121,10 +136,12 @@ class Slide5 extends React.Component{
                     className = { this.state.name }
                     onFocus = { this.toggleClassName }
                     name="elaborate"
-                    placeholder="Click to start typing here...&#10;For example : The washing drum should be placed on the front of the handlebars of the cycle. The rotors then get attached to the washing drum’s bottom and rotate the inner drum. The clothes, along with detergent powder is put inside the drum, the lid is closed, and the user pedals to spin the clothes!">
+                    placeholder="Click to start typing here...&#10;For example : Just like google glass, you should be able to see projections in front of your eye. Using augmented reality technology, the user should be able to see a google map navigation in a little box on a corner in his eye view while riding his bike.">
                 </textarea>
             )
         }
+
+        
 
         else{
             return(
@@ -184,6 +201,7 @@ class Slide5 extends React.Component{
                         </div>
                         <div className="sCircle sketch">
                             <div className="aCircle">
+                                <UploadAnimation/>
                                 <div className="tick">
                                     <Tick/>
                                 </div>
@@ -205,6 +223,8 @@ class Slide5 extends React.Component{
                     <h1 className="headerClass" >Elaborate your idea. Compare it with real life examples similar to your concept.</h1>
 
                     <span></span>
+
+                  
 
 
 
@@ -228,8 +248,6 @@ class Slide5 extends React.Component{
                                 >Done
                             </button>
                     </div>
-
-                    
                 </div>
 
                 /* ************************ Upload image form html end ************************ */
