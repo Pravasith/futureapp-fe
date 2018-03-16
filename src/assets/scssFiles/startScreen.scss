@@ -109,7 +109,8 @@
     width: 30%;
 
     p{
-        color: #B3B3B3;
+        font-size: 0.8em;
+        color: #d0d0d0;
     }
 
     span{
@@ -146,7 +147,7 @@
 .slide1{
 
     background: $white;
-    border: none;
+    border-top: 0.3em solid #ffffff;
 
     .textInputWrapper{
         width: 100%;

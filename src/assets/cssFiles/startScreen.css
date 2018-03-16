@@ -165,7 +165,8 @@
   padding: 1em 0.2em;
   width: 30%; }
   .someText p {
-    color: #B3B3B3; }
+    font-size: 0.8em;
+    color: #d0d0d0; }
   .someText span {
     height: 0.5em;
     display: block; }
@@ -253,7 +254,7 @@
 
 .slide1 {
   background: #ffffff;
-  border: none; }
+  border-top: 0.3em solid #ffffff; }
   .slide1 .textInputWrapper {
     width: 100%; }
     .slide1 .textInputWrapper form {

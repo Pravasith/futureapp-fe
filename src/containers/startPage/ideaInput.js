@@ -12,11 +12,6 @@ import Slide6 from "./slide6";
 
 import { connect } from "react-redux";
 
-
-
-
-
-
 class IdeaInput extends React.Component{
 
     componentDidMount(){
