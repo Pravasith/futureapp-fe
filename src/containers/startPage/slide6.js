@@ -10,8 +10,10 @@ import { TimelineLite} from "gsap";
 
 // import actions
 import { changeSlide } from "../../actions/ideaInputAction";
-import { UploadAnimation } from '../../assets/images/uploadAnimation';
+import { api } from '../../actions/apiLinks'
 
+
+import { UploadAnimation } from '../../assets/images/uploadAnimation';
 
 
 
@@ -43,43 +45,23 @@ class Slide6 extends React.Component{
             // Upload images to backend and from there to aws s3 bucket
             tempImgArray.map((item, index) => {
                 const fd = new FormData()
-                fd.append('image' , item , item.name)
-                this.uploadFile(fd)
+                fd.append('toxicData' , item , item.name)
+                this.uploadImageToBackend(fd)
             })
-
-            console.log(tempImgArray)
-
-            // const fd = new FormData()
-            // fd.append('TheShit',this.props.overAllData.imageArray[0].imageData, this.props.overAllData.imageArray[0].imageData.name)
-            // // let e = fs.readFileSync(this.props.overAllData.imageArray[0].imageData)
-
-            // console.log(fd)
-
-            // this.uploadFile({
-            //     elaboratedIdea: "blue",
-            //     shortIdea: "moon",
-            //     imageArray:[
-            //         {
-            //             imageDescription: 'yollo'
-            //         },
-            //         {
-            //             imageData: fd
-            //         }
-            //     ]
-            // })
-
-            // this.uploadFile(fd)
     }
 
-    uploadFile = (theFile) => {
-        axios.post('http://localhost:8000/api/user/uploadimage', theFile, 
+    // imageFreeData
+
+    uploadImageToBackend = (theFile) => {
+
+        // uploads image to backend. From there the image is
+        // written to an s3 bucket
+        axios.post(api.UPLOAD_IMAGE, theFile, 
             {
                 headers: {
                 'accept': 'application/json',
                 'Accept-Language': 'en-US,en;q=0.8',
-                'Content-Type': 'image/png' || 'image/jpg' || 'image/jpeg' || 'image/gif'
-                    // theFile.type
-                    
+                'Content-Type': 'image/png' || 'image/jpg' || 'image/jpeg' || 'image/gif'                    
                 }
             })
         .then(res => {

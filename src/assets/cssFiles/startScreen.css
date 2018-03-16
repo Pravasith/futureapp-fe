@@ -346,8 +346,11 @@
     max-width: 12em;
     max-height: 12em;
     margin: 1em;
+    border: 0.3em solid #ffffff;
     border-radius: 1em;
-    background: #ffffff; }
+    background: #ffffff;
+    -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+    box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em; }
 
 .slide3 .flexRowDiv {
   height: -webkit-fit-content;
