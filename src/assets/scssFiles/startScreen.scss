@@ -425,7 +425,23 @@
 .slide6{
     .sCircle{
         width: 100%;
+        .outerSlider{
+            width: 10em;
+            background: $lightGrey;
+            height: 0.4em;
+            border-radius: 1em;
+            // position: absolute;
+            // top: 11.5em;
+            .innerSlider{
+                width: 5em;
+                background: linear-gradient(to right, #94E8FF, #FF94F3);
+                height: 0.4em;
+                border-radius: 1em;
+            }
+        }
+        
     }
+    
 }
 
 

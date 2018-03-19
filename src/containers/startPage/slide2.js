@@ -57,8 +57,6 @@ class Slide2 extends React.Component{
             // as props via the reducer 'ideaReducer'
             this.props.passSketchData(this.state.realFile)
         }
-        
-   
     }
 
     nextSlide(e){

@@ -571,6 +571,19 @@
 
 .slide6 .sCircle {
   width: 100%; }
+  .slide6 .sCircle .outerSlider {
+    width: 10em;
+    background: #e4e4e4;
+    height: 0.4em;
+    border-radius: 1em; }
+    .slide6 .sCircle .outerSlider .innerSlider {
+      width: 5em;
+      background: -webkit-gradient(linear, left top, right top, from(#94E8FF), to(#FF94F3));
+      background: -webkit-linear-gradient(left, #94E8FF, #FF94F3);
+      background: -o-linear-gradient(left, #94E8FF, #FF94F3);
+      background: linear-gradient(to right, #94E8FF, #FF94F3);
+      height: 0.4em;
+      border-radius: 1em; }
 
 .imgIcon {
   width: 4em; }

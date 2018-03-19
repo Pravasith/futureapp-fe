@@ -9,15 +9,17 @@ import fs from 'fs'
 import { TimelineLite} from "gsap";
 
 // import actions
-import { changeSlide } from "../../actions/ideaInputAction";
+import { changeSlide } from "../../actions/ideaInputAction"
 import { api } from '../../actions/apiLinks'
 
 
-import { UploadAnimation } from '../../assets/images/uploadAnimation';
+import { UploadAnimation } from '../../assets/images/uploadAnimation'
 
-
+let uploadImageCount = 0
+let imageURLs = []
 
 class Slide6 extends React.Component{
+
 
     componentDidMount(){
             const endSlide = new TimelineLite()
@@ -45,7 +47,7 @@ class Slide6 extends React.Component{
             // Upload images to backend and from there to aws s3 bucket
             tempImgArray.map((item, index) => {
                 const fd = new FormData()
-                fd.append('toxicData' , item , item.name)
+                fd.append('toxicData' , item , item.name + 'imageNoSeparatorX' + (index + 1))
                 this.uploadImageToBackend(fd)
             })
     }
@@ -54,23 +56,44 @@ class Slide6 extends React.Component{
 
     uploadImageToBackend = (theFile) => {
 
-        // uploads image to backend. From there the image is
-        // written to an s3 bucket
+        // uploads image to backend. From there 
+        // the image is written to an s3 bucket
+
         axios.post(api.UPLOAD_IMAGE, theFile, 
             {
                 headers: {
                 'accept': 'application/json',
                 'Accept-Language': 'en-US,en;q=0.8',
                 'Content-Type': 'image/png' || 'image/jpg' || 'image/jpeg' || 'image/gif'                    
+                },
+                onUploadProgress: progressEvent => {
+                    let progress = (progressEvent.loaded / progressEvent.total * 100) 
+                    console.log( "Progress : " + ( progressEvent.loaded / progressEvent.total * 100 ) + '%' )
                 }
             })
         .then(res => {
+            uploadImageCount++
+            imageURLs.push({
+                url: res.data.imageURL,
+                num: res.data.imageNo
+            })
+            if( uploadImageCount === this.props.overAllData.imageArray.length ){
+                    // this.makeUserData()
+                    console.log("in",imageURLs)
+            }
+
             console.log(res)
         })
         .catch(err => {
             console.error(err)
             throw err
         })
+    }
+
+    makeUserData(){
+
+        
+
     }
 
     render(){
@@ -88,11 +111,9 @@ class Slide6 extends React.Component{
                             <div className="aCircle">
                                 <UploadAnimation/>
                             </div>
-                        </div>
-                        
+                        </div>                        
                     </div>
 
-                    <span ></span>
 
                 </div>
 
