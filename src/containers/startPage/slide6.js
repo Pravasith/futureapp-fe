@@ -78,11 +78,8 @@ class Slide6 extends React.Component{
                 num: res.data.imageNo
             })
             if( uploadImageCount === this.props.overAllData.imageArray.length ){
-                    // this.makeUserData()
-                    console.log("in",imageURLs)
+                    this.makeUserDataAndPostToMongoDB(imageURLs)
             }
-
-            console.log(res)
         })
         .catch(err => {
             console.error(err)
@@ -90,7 +87,32 @@ class Slide6 extends React.Component{
         })
     }
 
-    makeUserData(){
+    makeUserDataAndPostToMongoDB(imageArr){
+
+        imageArr.sort(function(a, b){return a.num - b.num})
+
+        let newImgData = this.props.overAllData.imageArray.reduce((all, item, index) => {
+            return [
+                ...all,
+                {
+                    "imageNumber" : index + 1,
+                    "imageURL" : imageArr[index],
+                    "imageDescription" : item.imageDescription
+                }
+            ]
+        }, [])
+
+        let userArr = {
+            shortIdea: this.props.overAllData.shortIdea,
+            elaboratedIdea: this.props.overAllData.elaboratedIdea,
+            imageArray: newImgData
+        }
+
+        
+
+        console.log('sorted one: ', imageArr)
+        console.log("imgdata: ", newImgData)
+        console.log("imgdata: ", userArr)
 
         
 
