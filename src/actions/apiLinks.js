@@ -5,6 +5,6 @@ const API_URL = API_BASE_URL + API_PATH
 
 
 export const api = {
-    REGISTER_USER: API_URL + 'user/adduser',
+    ADD_NEW_USER: API_URL + 'user/adduser',
     UPLOAD_IMAGE: API_URL + 'user/uploadimage'
 }

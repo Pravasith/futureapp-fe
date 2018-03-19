@@ -88,7 +88,7 @@ class IdeaInput extends React.Component{
                 </div>
 
                 <div className="someText">
-                    <p>
+                    {/* <p>
                     Some info for you if you’d like to acknowledge:
                     </p><span ></span>
                     <p>
@@ -108,7 +108,31 @@ class IdeaInput extends React.Component{
                     </p><span ></span>
                     <p>
                     6. As Tyler Durden would say, if this is your first time here, you have to post an idea!
+                    </p><span ></span> */}
+                    
+
+                    <p>
+                    Some info for you if you’d like to acknowledge:
                     </p><span ></span>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                    </p><span ></span>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                    </p><span ></span>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita
+                    </p><span ></span>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    </p><span ></span>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    </p><span ></span>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    </p><span ></span>
+                    
 
                 </div>
             </div>
