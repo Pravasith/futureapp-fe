@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router'
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -19,6 +20,10 @@ let uploadImageCount = 0
 let imageURLs = []
 
 class Slide6 extends React.Component{
+
+    state = {
+        redirect : false
+    }
 
 
     componentDidMount(){
@@ -93,6 +98,8 @@ class Slide6 extends React.Component{
 
     makeUserDataAndPostToMongoDB(imageArr){
 
+        // posts the data to mongodb. 
+
         imageArr.sort(function(a, b){return a.num - b.num})
 
         let newImgData = this.props.overAllData.imageArray.reduce((all, item, index) => {
@@ -126,25 +133,30 @@ class Slide6 extends React.Component{
             })
         .then(res => {
             console.log(res)
+            this.setState({ redirect: true })
+            
         })
         .catch(err => {
             console.error(err)
             throw err
         })
 
-        
 
         console.log('sorted one: ', imageArr)
         console.log("imgdata: ", newImgData)
         console.log("imgdata: ", userArr)
-
-        
 
     }
 
     render(){
 
         console.log(this.props.overAllData)
+
+        const { redirect } = this.state
+
+        if (redirect) {
+            return <Redirect to='/journeybegins'/>;
+        }
         
         return(
                 /* ************************************************************************** */

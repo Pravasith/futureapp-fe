@@ -1,0 +1,175 @@
+@import "configVariables";
+@import "configMixins";
+
+.journeyScreen{
+
+    @include flexCentreCol;
+
+    height: 32em;
+    justify-content: space-around;
+
+    .congratsBigWrapper{
+        @include flexCentreRow;
+    }
+
+    .congratsSmallWrapper{
+        @include flexCentreRow;
+    }
+
+    .letsGo{
+        @include bigButtonPlain;
+        border: none;
+        font-weight: bold;
+        color: $secondaryMagenta;
+        background: $darkGrey;
+        font-family: arial;
+        font-size: 1.5em;
+        box-shadow: none;
+
+    }
+
+    
+
+    
+
+    .pinkSquare{
+        width: 0.3em;
+        height: 0.3em;
+        background: $secondaryMagenta;
+    }
+
+    .emptySquare{
+        width: 0.3em;
+        height: 0.3em;
+        background: $white;
+    }
+
+    span{
+        width: 1em;
+        height: 1em;
+    }
+
+    h2{
+        font-size: 1.5em;
+        text-align: end;
+        width: 40%;
+        font-family: arial;
+        font-weight: 700;
+        color: $secondaryMagenta;
+    }
+    .rightH2{
+        text-align: start;
+        color: $mediumGrey;
+        width: 36%;
+    }
+
+    .nectarAnim{
+        @include flexCentreRow;
+
+        span{
+            height: 2em;
+        }
+
+        .outerNecFill{
+            height: 0.8em;
+            width: 10em;
+            background: $lightGrey;
+            border-radius: 1em;
+            .innerNecFill{
+                background: $secondaryMagenta;
+                height: 100%;
+                border-radius: 1em;
+                width: 0%;
+            }
+        }
+
+        .plusNec{
+            width: 100%;
+            text-align: center;
+            display: none;
+            margin:0;
+        }
+    }
+}
+
+
+// Media Queries
+
+
+// ipad
+
+@media screen and (max-width: 1024px){
+
+    .journeyScreen{
+        .congratsBigWrapper{
+            @include flexCentreCol;
+        }
+    }
+    
+    
+
+}
+
+
+@media screen and (max-width: 650px){
+    .journeyScreen{
+
+        .pinkSquares{
+            display: none;
+        }
+
+        h2{
+            font-size: 1.5em;
+            text-align: center;
+            width: 85%;
+            font-family: arial;
+            font-weight: 700;
+            color: #FF94F3;
+        }
+
+        .rightH2{
+            text-align: center;
+            color: #a5a5a5;
+            width: 100%;
+        }
+
+        .congratsSmallWrapper{
+            span{
+                height: 0.5em;
+            }
+            @include flexCentreCol;
+        }
+    }
+    
+    
+}
+
+
+// mobiles
+
+@media screen and (max-width: 520px){
+    .journeyScreen{
+
+        h2{
+            font-size: 1.5em;
+            text-align: center;
+            width: 85%;
+            font-family: arial;
+            font-weight: 700;
+            color: #FF94F3;
+        }
+
+        .rightH2{
+            text-align: center;
+            color: #a5a5a5;
+            width: 100%;
+        }
+
+        .congratsSmallWrapper{
+            span{
+                height: 0.5em;
+            }
+            @include flexCentreCol;
+        }
+    }
+}

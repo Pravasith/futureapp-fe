@@ -209,8 +209,8 @@ class Slide2 extends React.Component{
                         <span></span>
 
                         <div className = "flexColDiv">
-                            <p ref="sketchText" >For example, here’s a sketch for the pedalling washing machine :</p>
-                            <img ref="sketch" src="https://78.media.tumblr.com/5075118bf023a5b0f599a949e3813734/tumblr_n19uvekTEO1tsgjavo1_250.gif" alt=""/>
+                            <p ref="sketchText" >For example, here’s a sketch for the augmented reality helmet idea :</p>
+                            <img ref="sketch" src="https://s3.ap-south-1.amazonaws.com/images-use-live/niceimage.jpeg" alt=""/>
                             <span></span>
 
                             <div className="flexRowDiv">

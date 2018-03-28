@@ -6,6 +6,7 @@ import circles from './circlesReducer'
 import userStatusLevelText from './reducerBarryBubbleText'
 import theSlideData from './ideaReducer'
 import overAllData from './imageArrayReducer'
+import businesses from './journeyReducers'
 
 
 const allReducers = combineReducers({
