@@ -17,7 +17,7 @@ class BarryBubbleText extends React.Component{
     render(){
         if(!this.props.userStatusLevel){
             return (
-                <p>I am your assitant</p>
+                <p>I am your assistant</p>
             )
         }
 

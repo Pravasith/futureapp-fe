@@ -14,6 +14,7 @@
 
     .congratsSmallWrapper{
         @include flexCentreRow;
+        width:64%;
     }
 
     .letsGo{
@@ -25,6 +26,9 @@
         font-family: arial;
         font-size: 1.5em;
         box-shadow: none;
+        &:hover {
+            text-decoration: none;
+        }
 
     }
 
@@ -51,8 +55,8 @@
 
     h2{
         font-size: 1.5em;
-        text-align: end;
-        width: 40%;
+        text-align: start;
+        width: 72%;
         font-family: arial;
         font-weight: 700;
         color: $secondaryMagenta;
@@ -88,6 +92,7 @@
             text-align: center;
             display: none;
             margin:0;
+            color: $darkGrey;
         }
     }
 }
@@ -101,9 +106,19 @@
 @media screen and (max-width: 1024px){
 
     .journeyScreen{
+
+        h2{
+            text-align: center;
+        }
+
         .congratsBigWrapper{
             @include flexCentreCol;
         }
+
+        .congratsSmallWrapper{
+            width:100%;
+        }
+
     }
     
     
@@ -133,7 +148,10 @@
             width: 100%;
         }
 
+
+
         .congratsSmallWrapper{
+            width:100%;
             span{
                 height: 0.5em;
             }
@@ -166,6 +184,7 @@
         }
 
         .congratsSmallWrapper{
+            width: 100%;
             span{
                 height: 0.5em;
             }

@@ -58,7 +58,8 @@
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; }
+    align-items: center;
+    width: 64%; }
   .journeyScreen .letsGo {
     background: #ffffff;
     -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
@@ -96,6 +97,8 @@
     font-size: 1.5em;
     -webkit-box-shadow: none;
     box-shadow: none; }
+    .journeyScreen .letsGo:hover {
+      text-decoration: none; }
   .journeyScreen .pinkSquare {
     width: 0.3em;
     height: 0.3em;
@@ -109,8 +112,8 @@
     height: 1em; }
   .journeyScreen h2 {
     font-size: 1.5em;
-    text-align: end;
-    width: 40%;
+    text-align: start;
+    width: 72%;
     font-family: arial;
     font-weight: 700;
     color: #FF94F3; }
@@ -148,9 +151,12 @@
       width: 100%;
       text-align: center;
       display: none;
-      margin: 0; }
+      margin: 0;
+      color: #4d4d4d; }
 
 @media screen and (max-width: 1024px) {
+  .journeyScreen h2 {
+    text-align: center; }
   .journeyScreen .congratsBigWrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -164,7 +170,9 @@
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; } }
+    align-items: center; }
+  .journeyScreen .congratsSmallWrapper {
+    width: 100%; } }
 
 @media screen and (max-width: 650px) {
   .journeyScreen .pinkSquares {
@@ -181,6 +189,7 @@
     color: #a5a5a5;
     width: 100%; }
   .journeyScreen .congratsSmallWrapper {
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -210,6 +219,7 @@
     color: #a5a5a5;
     width: 100%; }
   .journeyScreen .congratsSmallWrapper {
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

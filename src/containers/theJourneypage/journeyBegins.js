@@ -1,6 +1,7 @@
 import React from "react"
  
 import { Navbar } from "../../components/navbar"
+import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 import businesses from "../../reducers/journeyReducers"
 import Confetti from "../../assets/images/confetti"
@@ -26,7 +27,7 @@ export default class JourneyBegins extends React.Component{
         .to('.outerNecFill', 0, {display: "none"})
         .to('.plusNec', 0, {display:"flex"})
         .to('.letsGo', 0.8, {})
-        .from('.letsGo', 0.3, {opacity:0})
+        .from('.letsGo', 0.2, {opacity:0})
 
     }
 
@@ -55,15 +56,7 @@ export default class JourneyBegins extends React.Component{
                             <span></span>
 
                             <div className="congratsSmallWrapper">
-                                <h2>Congrats, you are now entering the next phase</h2>
-                                <span></span>
-                                <div className="pinkSquares flexColDiv">
-                                    <div className="pinkSquare"></div>
-                                    <div className="emptySquare"></div>
-                                    <div className="pinkSquare"></div>
-                                </div>
-                                <span></span>
-                                <h2 className="rightH2">Team Building</h2>
+                                <h2>Wohoooo, we have recieved your business idea. Next, we'll show you some people who can work on this. You can then choose your team members.</h2>
                             </div>                            
                         </div>
 
@@ -81,9 +74,7 @@ export default class JourneyBegins extends React.Component{
                             <h2 className="plusNec" >+15 Nectar</h2>
                         </div>
 
-                        
-
-                        <button className="letsGo">Let's go!</button>
+                        <NavLink to="/create-card" className="letsGo">Let's go!</NavLink>
 
 
                     </div>
