@@ -7,16 +7,17 @@ import MainStatusBar from "../startPage/mainStatusBar"
 
 
 //typical import of gsap methods
-import {TimelineLite} from "gsap";
-import { ImgIcon } from "../../assets/images/imgIcon";
-import { PieCoin } from "../../assets/images/piecoin";
+import {TimelineLite} from "gsap"
+import IdeaCard from './ideaCard/ideaCard'
 
 require("../../assets/cssFiles/journeyPage.css")
 
 export default class CreateCard extends React.Component{
 
     componentDidMount(){
+
     }
+
 
     render(){
 
@@ -34,26 +35,7 @@ export default class CreateCard extends React.Component{
                     <div className="cardScreen">
                         <div className="leftScr">
                             <h2>Your Idea card</h2>
-                            <div className="ideaCard">
-                                <p>Software Product</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <div className="starRating">
-                                    <div className="endsInRow">
-                                        <StarRating color = {"#94E8FF"} />
-                                        <div className="images">
-                                            <ImgIcon/>
-                                            <p>1</p>
-                                        </div>
-                                    </div>
-                                    <p>Not rated yet</p>
-                                </div>
-                                <div className="piecoinData">
-                                    <PieCoin/>
-                                    <p>0 piecoins raised</p>
-                                </div>
-                                <p>No one remotely working currently</p>
-                                <p>No open remote work positions</p>
-                            </div>
+                            <IdeaCard/>
                         </div>
                         <div className="rightScr">
                         </div>

@@ -1,0 +1,115 @@
+@import "configVariables";
+@import "configMixins";
+
+.ideaCard{
+    p{
+        font-size: 0.75em;
+        padding: 0.25em 0 0.25em 0
+    }
+
+    .ideaUpperWrap{
+
+        padding: 1em;
+
+        .ideaType{
+            color: $secondaryMagenta;
+            font-weight: 800;
+        }
+    
+        .starRating{
+            // @include flexCentreRow;
+            .endsInRow{
+                @include flexCentreRow;
+                justify-content: space-between;
+                padding: 0.3em 0;
+                .imagesQw{
+                    @include flexCentreRow;
+                    p{
+                        padding: 0.5em;
+                    }
+                }
+            }
+        }
+    
+        .piecoinData{
+            @include flexCentreRow;
+            padding: 0.5em;
+            p{
+                padding: 0.5em;
+            }
+        }
+
+    }
+
+    width: 18em;
+    
+    border: 0.3em solid $lightGrey;
+    border-radius: 0.75em;
+    
+
+    .nameAndAvatar{
+
+        height: 5.5em;
+        
+        .backLine{
+            height: 0.3em;
+            background: #FF7F29;
+            bottom: 2.5em;
+            position: relative;
+            z-index: -2;
+        }
+
+        .responseRate{
+            @include flexCentreRow;
+            width: 8em;
+            justify-content: space-between;
+            position: relative;
+            left: 7em;
+            bottom: 3.5em;
+            p{
+                font-weight: 500;
+            }
+        }
+
+        .avatar{
+            left: 1em;
+            position: relative;
+            border: 0.3em solid;
+            border-color: #FF7F29;
+            background: $white;
+            @include flexCentreRow;
+            width: fit-content;
+            padding: 0.2em;
+            border-radius: 100em;
+        }
+        .userNameTemp{
+            position: relative;
+            left: 6.3em;
+            padding: 0.3em 1em;
+            border-radius: 1em;
+            bottom: 3.6em;
+            background: #FF7F29;
+            max-width: 10em;
+            min-width: 7em;
+            text-align: center;
+            width: fit-content;
+            p{
+                color: $white;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .creds{
+        padding: 1em 0;
+        @include flexCentreRow;
+        justify-content: space-around;
+        .credWrap{
+            @include flexCentreRow;
+            p{
+                padding: 0.5em;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,183 @@
+@-webkit-keyframes rotateThis {
+  from {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1); }
+  to {
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1); } }
+
+@keyframes rotateThis {
+  from {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1); }
+  to {
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1); } }
+
+.ideaCard {
+  width: 18em;
+  border: 0.3em solid #e4e4e4;
+  border-radius: 0.75em; }
+  .ideaCard p {
+    font-size: 0.75em;
+    padding: 0.25em 0 0.25em 0; }
+  .ideaCard .ideaUpperWrap {
+    padding: 1em; }
+    .ideaCard .ideaUpperWrap .ideaType {
+      color: #FF94F3;
+      font-weight: 800; }
+    .ideaCard .ideaUpperWrap .starRating .endsInRow {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      padding: 0.3em 0; }
+      .ideaCard .ideaUpperWrap .starRating .endsInRow .imagesQw {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        .ideaCard .ideaUpperWrap .starRating .endsInRow .imagesQw p {
+          padding: 0.5em; }
+    .ideaCard .ideaUpperWrap .piecoinData {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 0.5em; }
+      .ideaCard .ideaUpperWrap .piecoinData p {
+        padding: 0.5em; }
+  .ideaCard .nameAndAvatar {
+    height: 5.5em; }
+    .ideaCard .nameAndAvatar .backLine {
+      height: 0.3em;
+      background: #FF7F29;
+      bottom: 2.5em;
+      position: relative;
+      z-index: -2; }
+    .ideaCard .nameAndAvatar .responseRate {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 8em;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      position: relative;
+      left: 7em;
+      bottom: 3.5em; }
+      .ideaCard .nameAndAvatar .responseRate p {
+        font-weight: 500; }
+    .ideaCard .nameAndAvatar .avatar {
+      left: 1em;
+      position: relative;
+      border: 0.3em solid;
+      border-color: #FF7F29;
+      background: #ffffff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      padding: 0.2em;
+      border-radius: 100em; }
+    .ideaCard .nameAndAvatar .userNameTemp {
+      position: relative;
+      left: 6.3em;
+      padding: 0.3em 1em;
+      border-radius: 1em;
+      bottom: 3.6em;
+      background: #FF7F29;
+      max-width: 10em;
+      min-width: 7em;
+      text-align: center;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content; }
+      .ideaCard .nameAndAvatar .userNameTemp p {
+        color: #ffffff;
+        font-weight: 500; }
+  .ideaCard .creds {
+    padding: 1em 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+    .ideaCard .creds .credWrap {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .ideaCard .creds .credWrap p {
+        padding: 0.5em; }
