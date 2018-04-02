@@ -37,13 +37,13 @@ export const NectarBlack = () => {
                     <path fill="none" d="M0.502,7.083v10.179 c0,0-0.183,3.321,2.552,3.321c1.295,0,2.555,0,3.532,0c1.087,0,1.822,0,1.822,0c1.061,0,2.03,0,3.469,0 c2.924,0,2.625-3.321,2.625-3.321V7.083"
                     />
                 </g>
-                <circle opacity="0" fill="none" stroke="#333" strokeLinecap="round" strokeLinejoin="round"
+                <circle opacity="0" fill="#FFF" stroke="#FF88FF" strokeLinecap="round" strokeLinejoin="round"
                 strokeMiterlimit="10" cx="5.585" cy="15.917" r="1.417" id="leftCircle1Black"
                 />
-                <circle opacity="0" fill="none" stroke="#333" strokeLinecap="round" strokeLinejoin="round"
+                <circle opacity="0" fill="#FFF" stroke="#FF88FF" strokeLinecap="round" strokeLinejoin="round"
                 strokeMiterlimit="10" cx="5.585" cy="15.917" r="1.417" id="leftCircle2Black"
                 />
-                <circle opacity="0" fill="none" stroke="#333" strokeLinecap="round" strokeLinejoin="round"
+                <circle opacity="0" fill="#FFF" stroke="#FF88FF" strokeLinecap="round" strokeLinejoin="round"
                 strokeMiterlimit="10" cx="10.585" cy="15.917" r="1.417" id="rightCircleBlack"
                 />
             </svg>

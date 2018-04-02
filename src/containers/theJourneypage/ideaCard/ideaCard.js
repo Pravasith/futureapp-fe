@@ -3,7 +3,7 @@ import React from "react"
 
 import StarRating from '../../../assets/images/starRating'
 import { ImgIcon } from "../../../assets/images/imgIcon";
-import { PieCoin } from "../../../assets/images/piecoin";
+import { PsyBill } from "../../../assets/images/psybill";
 import { AnonymousAvatar } from "../../../assets/images/anonymousAvatar";
 import { CourageBlack } from "../../../assets/images/courageBlack";
 import { WissenBlack } from "../../../assets/images/wissenBlack";
@@ -37,9 +37,9 @@ export default class IdeaCard extends React.Component{
                             </div>
                             <p>Not rated yet</p>
                         </div>
-                        <div className="piecoinData">
-                            <PieCoin/>
-                            <p>0 piecoins raised</p>
+                        <div className="psycoinData">
+                            <PsyBill/>
+                            <p>0 psybills raised</p>
                         </div>
                         <p>No one remotely working currently</p>
                         <p>No open remote work positions</p>

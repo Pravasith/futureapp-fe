@@ -1,7 +1,7 @@
 @import "configVariables";
 @import "configMixins";
 
-
+// Journey page start
 .journeyScreen{
 
     @include flexCentreCol;
@@ -98,6 +98,96 @@
     }
 }
 
+// Journey page end ///////////////////////
+
+// create card start 
+
+.cardScreen{
+    @include flexCentreRow;
+    .leftScr{
+        @include flexCentreCol;
+        padding: 3em;
+        h2{
+            font-size: 1.5em;
+            text-align: center;
+            width: 72%;
+            font-family: arial;
+            font-weight: 700;
+            color: $secondaryMagenta;
+        }
+        
+    }
+    .rightScr{
+        @include flexCentreCol;
+        padding: 3em;
+
+        h2{
+            color: #808080;
+            font-size: 2.2em;
+        }
+
+        .next{
+            @include bigButtonPlain;
+            
+            border: none;
+            font-weight: bold;
+            color: $secondaryMagenta;
+            background: $darkGrey;
+            font-family: arial;
+            font-size: 1.5em;
+            box-shadow: none;
+            &:hover {
+                text-decoration: none;
+            }
+    
+        }
+
+        .searchKind{
+            @include flexCentreRow;
+            justify-content: start;
+            height: 3em;
+            min-width: 20em;
+            width: 100%;
+            border-radius: 1em;
+            border: 0.1em solid $mediumGrey;
+            .searchIcon{
+                @include flexCentreRow;
+                padding: 0.7em;
+            
+            }
+            input{
+                height: 2em;
+                width: 85%;
+                border: none;
+                outline: none;
+                color: $secondaryMagenta;
+                font-family: arial;
+                font-size: 1.2em;
+            }
+
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $secondaryMagenta;
+                opacity: 1; /* Firefox */
+            }            
+        }
+        .bubble{
+            @include bigButtonPlain;
+            border-color: $secondaryMagenta;
+            box-shadow: none;
+            color: $secondaryMagenta;
+            font-weight: 600;
+            &:hover{
+                border-color: #FF00FF;
+            }
+        }
+
+        .selected{
+            background: $secondaryMagenta;
+            color: $white;
+        }
+    }
+}
+
 
 // Media Queries
 
@@ -120,6 +210,10 @@
             width:100%;
         }
 
+    }
+
+    .cardScreen{
+        @include flexCentreCol;
     }
     
     

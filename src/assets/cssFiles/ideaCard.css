@@ -60,7 +60,7 @@
         align-items: center; }
         .ideaCard .ideaUpperWrap .starRating .endsInRow .imagesQw p {
           padding: 0.5em; }
-    .ideaCard .ideaUpperWrap .piecoinData {
+    .ideaCard .ideaUpperWrap .psycoinData {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -75,7 +75,7 @@
       -ms-flex-align: center;
       align-items: center;
       padding: 0.5em; }
-      .ideaCard .ideaUpperWrap .piecoinData p {
+      .ideaCard .ideaUpperWrap .psycoinData p {
         padding: 0.5em; }
   .ideaCard .nameAndAvatar {
     height: 5.5em; }

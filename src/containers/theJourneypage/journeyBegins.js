@@ -45,8 +45,6 @@ export default class JourneyBegins extends React.Component{
                     <MainStatusBar/>
                     </div>
                     <div className="journeyScreen">
-                        {/* <h1>Thanks for your input Chikki! We'll get back to you on whatsapp soon:P</h1> */}
-                        {/* <h1>Thanks for your input Chikki! We'll get back to you soon :P</h1> */}
 
                         <div className="congratsBigWrapper">
                             <div>
