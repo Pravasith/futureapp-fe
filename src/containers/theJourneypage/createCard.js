@@ -8,9 +8,7 @@ import StarRating   from "../../assets/images/starRating"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
-
-
-
+import { fetchProjectTypes } from "../../actions/fetchUserData"
 
 //typical import of gsap methods
 import {TimelineLite} from "gsap"
@@ -37,6 +35,13 @@ class CreateCard extends React.Component{
     }
 
     componentDidMount(){
+        this.props.fetchProjectTypes()
+        .then(() => this.setState({
+            businessTypesArr: this.props.businessTypes,
+            bubblenames: this.props.businessTypes
+            .map((item, i) => 'bubble ' + i),
+            businessType: undefined
+        }))
 
     }
 
@@ -179,7 +184,7 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
-
+            fetchProjectTypes
         },
         dispatch
     )

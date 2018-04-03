@@ -19,8 +19,8 @@ export function fetchUserData() {
 
 export function fetchProjectTypes() {
     return (dispatch) => {
-        // const apiURL = "http://159.89.167.240:8000/api/user/userdata"
-        const apiURL = "http://localhost:8000/api/user/userdata"
+        // const apiURL = "http://159.89.167.240:8000/api/appData/businesstypes"
+        const apiURL = "http://localhost:8000/api/appData/businesstypes"
         return fetch(apiURL)
         .then(response => response.json())
         .then(data => {

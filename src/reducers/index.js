@@ -3,10 +3,11 @@ import introText from './introText'
 import introActiveText from './introTextActive'
 import userDetailReducer from './userDetailReducer'
 import circles from './circlesReducer'
-import businessTypes from './journeyReducers'
+// import businessTypes from './journeyReducers'
 import userStatusLevelText from './reducerBarryBubbleText'
 import theSlideData from './ideaReducer'
 import overAllData from './imageArrayReducer'
+import businessTypes from './appDataReducer'
 // import businesses from './journeyReducers'
 
 
