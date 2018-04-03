@@ -25,7 +25,8 @@
     padding: 1em; }
     .ideaCard .ideaUpperWrap .ideaType {
       color: #FF94F3;
-      font-weight: 800; }
+      font-weight: 800;
+      font-size: 0.9em; }
     .ideaCard .ideaUpperWrap .starRating .endsInRow {
       display: -webkit-box;
       display: -ms-flexbox;

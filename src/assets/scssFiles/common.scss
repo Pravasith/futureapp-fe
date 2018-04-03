@@ -66,6 +66,29 @@ html{
 
 }
 
+::-webkit-scrollbar-track
+            {
+
+                border-radius: 1em;
+                height: 0.5em;
+                background-color: $lightGrey;
+            }
+            
+            ::-webkit-scrollbar
+            {
+                border-radius: 0.5em;
+                width: 0.5em;
+                height: 0.6em;
+                background-color: $lightGrey;
+            }
+            
+            ::-webkit-scrollbar-thumb
+            {
+                border-radius: 0.5em;
+                height: 0.5em;
+                background-color: $secondaryMagenta;
+            }
+
 .whiteBtnBig{
     background: $white;
     // box-shadow: rgba(74, 74, 74, 0.61) 0.2em 0.2em 0.5em 0.01em;

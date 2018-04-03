@@ -26,45 +26,98 @@ class CreateCard extends React.Component{
 
         const bubblenames = this.props.businessTypes
         .map((item, i) => 'bubble ' + i)
-    
+
         this.state = {
-            bubblenames
+            businessTypesArr: this.props.businessTypes,
+            bubblenames,
+            businessType: undefined
         }
-        this.toggleClassName = this.toggleClassName.bind(this)
+        this.highlightSelectedBubble = this.highlightSelectedBubble.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount(){
 
     }
 
-    toggleClassName(num) {
-
-        // console.log(this.state.bubblenames[num])
-
-        if(this.state.bubblenames[num] === "bubble " + num)
-        {
-            this.state.bubblenames
-            .map((item, i) => {
-                if(i === num)
-                this.state.bubblenames[i] = "bubble selected " + i
-
-                else
-                this.state.bubblenames[i] = "bubble " + i
-            })
-        }
-        
-        this.setState({ 
-            bubblenames:  [...this.state.bubblenames] 
-        })
-
+    componentDidUpdate(){
         
     }
 
-    returnProjectKinds(){
-        return this.props.businessTypes
+    handleChange(e){
+
+        // console.log(e.target.value)
+
+        searchForType = searchForType.bind(this)
+
+        function searchForType(theString){
+            this.setState({
+                businessTypesArr: [...this.props.businessTypes
+                    .map( item => item.toLowerCase() )
+                    .filter((item, index) => {
+                        return item.indexOf(theString) !== -1
+                    })]
+            })
+        }
+
+        new Promise(function(resolve, reject) {
+            resolve(searchForType(e.target.value))
+        })
+        .then(() => {
+            // console.log(this.state.businessTypesArr)
+            if(this.state.businessType)
+            this.highlightSelectedBubble(this.state.businessType)
+        })
+    }
+
+
+    highlightSelectedBubble(name) {
+
+            
+            let theIndex = (this.state.businessTypesArr
+                .map( item => item.toLowerCase() )
+                .indexOf(name.toLowerCase()))
+    
+            // toggle classname start
+            if(this.state.bubblenames[theIndex] === "bubble " + theIndex)
+            {
+                this.state.bubblenames
+                .sort()
+                .map((item, i) => {
+                    if(i === theIndex){
+                        this.state.bubblenames[i] = "bubble selected " + i
+                        this.setState({ 
+                            businessType:  this.state.businessTypesArr[i]
+                        })
+                    }
+                    
+                    else
+                    this.state.bubblenames[i] = "bubble " + i
+                })
+            }
+            
+            this.setState({ 
+                bubblenames:  [...this.state.bubblenames] 
+            })
+        
+
+
+        // toggle classname end
+
+        // Send data to card
+    }
+
+    returnProjectKinds(array){
+        let tempArr = array
         .map((item, index) => (
-            <div key={index} className={this.state.bubblenames[index]} onClick={() => this.toggleClassName(index)} >{item}</div>
+            <div 
+                key={index}
+                className={this.state.bubblenames[index]}
+                onClick={() => this.highlightSelectedBubble(item)}
+            >{item}</div>
         ))
+
+        return tempArr
     }
 
 
@@ -85,7 +138,7 @@ class CreateCard extends React.Component{
                         <div className="cardScreen">
                             <div className="leftScr">
                                 <h2>Your Idea card</h2>
-                                <IdeaCard/>
+                                <IdeaCard businessType={this.state.businessType} />
                             </div>
                             <div className="rightScr">
                                 <h2>What kind of project is this?</h2>
@@ -93,10 +146,14 @@ class CreateCard extends React.Component{
                                     <div className="searchIcon" >
                                         <SearchIcon/>
                                     </div>
-                                    <input type="textarea" placeholder="Search"/>
+                                    <input 
+                                        type="textarea"
+                                        placeholder="Search"
+                                        onChange={this.handleChange}
+                                    />
                                 </div>
                                 <div className="tagBubbles">
-                                    {this.returnProjectKinds()}
+                                    {this.returnProjectKinds(this.state.businessTypesArr)}
                                 </div>
                                 <NavLink to="/create-card" className="next">Next</NavLink>
                             </div>

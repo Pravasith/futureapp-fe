@@ -126,6 +126,22 @@ html form {
   color: #FFFFFF;
   border: 0.05em solid #8CC63F; }
 
+::-webkit-scrollbar-track {
+  border-radius: 1em;
+  height: 0.5em;
+  background-color: #e4e4e4; }
+
+::-webkit-scrollbar {
+  border-radius: 0.5em;
+  width: 0.5em;
+  height: 0.6em;
+  background-color: #e4e4e4; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.5em;
+  height: 0.5em;
+  background-color: #FF94F3; }
+
 .whiteBtnBig {
   background: #ffffff;
   -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;

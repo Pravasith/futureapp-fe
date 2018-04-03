@@ -25,7 +25,7 @@ export default class IdeaCard extends React.Component{
                 <div className="ideaCard">
                     <div className="ideaUpperWrap">
 
-                        <p className="ideaType" >Software Product</p>
+                        <p className="ideaType" >{this.props.businessType}</p>
                         <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         <div className="starRating">
                             <div className="endsInRow">
