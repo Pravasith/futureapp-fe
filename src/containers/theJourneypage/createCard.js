@@ -1,9 +1,15 @@
 import React from "react"
+
+import {connect} from "react-redux"
+import {bindActionCreators} from "redux"
  
 import { Navbar } from "../../components/navbar"
 import StarRating   from "../../assets/images/starRating"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
+
+
+
 
 
 //typical import of gsap methods
@@ -13,13 +19,16 @@ import { SearchIcon } from "../../assets/images/searchIcon";
 
 require("../../assets/cssFiles/journeyPage.css")
 
-export default class CreateCard extends React.Component{
+class CreateCard extends React.Component{
 
     constructor(props, context) {
         super(props, context)
+
+        const bubblenames = this.props.businessTypes
+        .map((item, i) => 'bubble ' + i)
     
         this.state = {
-            name: "bubble",
+            bubblenames
         }
         this.toggleClassName = this.toggleClassName.bind(this)
     }
@@ -28,12 +37,34 @@ export default class CreateCard extends React.Component{
 
     }
 
-    toggleClassName() {
-        if(this.state.name === "bubble selected")
-        this.setState({name: "bubble"})
+    toggleClassName(num) {
 
-        if(this.state.name === "bubble")
-        this.setState({name: "bubble selected"})
+        // console.log(this.state.bubblenames[num])
+
+        if(this.state.bubblenames[num] === "bubble " + num)
+        {
+            this.state.bubblenames
+            .map((item, i) => {
+                if(i === num)
+                this.state.bubblenames[i] = "bubble selected " + i
+
+                else
+                this.state.bubblenames[i] = "bubble " + i
+            })
+        }
+        
+        this.setState({ 
+            bubblenames:  [...this.state.bubblenames] 
+        })
+
+        
+    }
+
+    returnProjectKinds(){
+        return this.props.businessTypes
+        .map((item, index) => (
+            <div key={index} className={this.state.bubblenames[index]} onClick={() => this.toggleClassName(index)} >{item}</div>
+        ))
     }
 
 
@@ -65,7 +96,7 @@ export default class CreateCard extends React.Component{
                                     <input type="textarea" placeholder="Search"/>
                                 </div>
                                 <div className="tagBubbles">
-                                    <div className={this.state.name} onClick={() => this.toggleClassName()} >hi</div>
+                                    {this.returnProjectKinds()}
                                 </div>
                                 <NavLink to="/create-card" className="next">Next</NavLink>
                             </div>
@@ -79,3 +110,22 @@ export default class CreateCard extends React.Component{
         )
     }
 }
+
+function mapStateToProps(state){
+    return(
+        {
+            businessTypes : state.businessTypes
+        }
+    )
+}
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators(
+        {
+
+        },
+        dispatch
+    )
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(CreateCard)

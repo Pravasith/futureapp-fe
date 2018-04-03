@@ -1,5 +1,5 @@
 
-const businesses = [
+const businessTypes = [
     "Web design", "Computer software", "Mechanical product", "Electrical product",
     "Electronics product", "Law related", "Medical", "Spiritual", "Management",
     "Pharmaceutical", "Research paper", "Artistic", "Architectural", "Chemical product",
@@ -17,4 +17,7 @@ const businesses = [
     "Carpentry related", "Waste management related"
 ].sort()
 
-export default businesses
+
+export default function(){
+    return businessTypes
+}
