@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
 import { fetchProjectTypes } from "../../actions/fetchUserData"
+import { addProjectType } from "../../actions/addAppData"
 
 //typical import of gsap methods
 import {TimelineLite} from "gsap"
@@ -32,6 +33,7 @@ class CreateCard extends React.Component{
         }
         this.highlightSelectedBubble = this.highlightSelectedBubble.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.addBusinessType = this.addBusinessType.bind(this)
     }
 
     componentDidMount(){
@@ -47,6 +49,33 @@ class CreateCard extends React.Component{
 
     componentDidUpdate(){
         
+    }
+
+    addBusinessType(){
+            // add a check here, where admin verifies the data and
+            // then only updates the backend db with the value
+            console.log(this.refs.addBusinessType.value)
+            if(this.refs.addBusinessType.value !== '' && this.refs.addBusinessType.value !== 'doesnt start with a space')
+            this.setState({
+                businessType: this.refs.addBusinessType.value
+            })
+
+            this.props.addProjectType({
+                businessType: this.refs.addBusinessType.value
+            })
+            .then(() => {
+                this.props.fetchProjectTypes()
+                .then(() => {
+                    this.setState({
+                        businessTypesArr: this.props.businessTypes,
+                        bubblenames: this.props.businessTypes
+                        .map((item, i) => 'bubble ' + i),
+                        // businessType: undefined
+                    })
+                })
+            })
+            
+            
     }
 
     handleChange(e){
@@ -70,7 +99,7 @@ class CreateCard extends React.Component{
         })
         .then(() => {
             // console.log(this.state.businessTypesArr)
-            if(this.state.businessType)
+            // if(this.state.businessType)
             this.highlightSelectedBubble(this.state.businessType)
         })
     }
@@ -78,38 +107,45 @@ class CreateCard extends React.Component{
 
     highlightSelectedBubble(name) {
 
-            
-            let theIndex = (this.state.businessTypesArr
-                .map( item => item.toLowerCase() )
-                .indexOf(name.toLowerCase()))
-    
-            // toggle classname start
-            if(this.state.bubblenames[theIndex] === "bubble " + theIndex)
-            {
+            if(name && name!==""){
+                let theIndex = (this.state.businessTypesArr
+                    .map( item => item.toLowerCase() )
+                    .indexOf(name.toLowerCase()))
+        
+                // toggle classname start
+                if(this.state.bubblenames[theIndex] === "bubble " + theIndex)
+                {
+                    this.state.bubblenames
+                    .sort()
+                    .map((item, i) => {
+                        if(i === theIndex){
+                            this.state.bubblenames[i] = "bubble selected " + i
+                            this.setState({ 
+                                businessType:  this.state.businessTypesArr[i]
+                            })
+                        }
+                        else
+                        this.state.bubblenames[i] = "bubble " + i
+                    })
+                }
+                
+                this.setState({ 
+                    bubblenames:  [...this.state.bubblenames] 
+                })
+            }
+
+            else{
                 this.state.bubblenames
                 .sort()
                 .map((item, i) => {
-                    if(i === theIndex){
-                        this.state.bubblenames[i] = "bubble selected " + i
-                        this.setState({ 
-                            businessType:  this.state.businessTypesArr[i]
-                        })
-                    }
-                    
-                    else
                     this.state.bubblenames[i] = "bubble " + i
                 })
+                this.setState({ 
+                    bubblenames:  [...this.state.bubblenames] 
+                })
             }
-            
-            this.setState({ 
-                bubblenames:  [...this.state.bubblenames] 
-            })
         
-
-
         // toggle classname end
-
-        // Send data to card
     }
 
     returnProjectKinds(array){
@@ -160,6 +196,21 @@ class CreateCard extends React.Component{
                                 <div className="tagBubbles">
                                     {this.returnProjectKinds(this.state.businessTypesArr)}
                                 </div>
+                                <h1>Don’t find the right kind above? Type it below and click add</h1>
+                                <div className="addProjectKind">
+                                    <input
+                                        ref="addBusinessType"
+                                        type="text"
+                                        placeholder="Type here and add the project kind"
+                                        onChange={this.handleChange}
+                                    />
+                                    <div 
+                                        className="addButton"
+                                        onClick = {this.addBusinessType}
+                                    >+ Add</div>
+                                </div>
+                                
+
                                 <NavLink to="/create-card" className="next">Next</NavLink>
                             </div>
                             
@@ -184,7 +235,8 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
-            fetchProjectTypes
+            fetchProjectTypes,
+            addProjectType
         },
         dispatch
     )

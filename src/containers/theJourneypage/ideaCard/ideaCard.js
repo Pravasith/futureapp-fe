@@ -41,7 +41,7 @@ export default class IdeaCard extends React.Component{
                             <PsyBill/>
                             <p>0 psybills raised</p>
                         </div>
-                        <p>No one remotely working currently</p>
+                        <p>No one remote-working currently</p>
                         <p>No open remote work positions</p>
 
                     </div>

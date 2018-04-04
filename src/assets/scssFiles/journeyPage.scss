@@ -209,6 +209,53 @@
                 color: $white;
             }
         }
+
+        h1{
+            font-size: 1.2em;
+        }
+
+        .addProjectKind{
+            @include flexCentreRow;
+            background: $mediumGrey;
+            width: 100%;
+            min-height: 2.2em;
+            border-radius: 0.5em;
+            margin-bottom: 1em;
+
+            
+
+            input{
+                background: $mediumGrey;
+                color: $white;
+                padding: 0.3em 1em;
+                border: none;
+                width: 70%;
+                outline: none;
+                border-top-left-radius: 0.5em;
+                border-bottom-left-radius: 0.5em;
+            }
+
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $white;
+                opacity: 1; /* Firefox */
+            }  
+
+            .addButton{
+                @include flexCentreRow;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+                color: $secondaryMagenta;
+                cursor: pointer;
+                background: $darkGrey;
+                min-width: 3em;
+                width: 30%;
+                min-height: 2.2em;
+                border-top-right-radius: 0.5em;
+                border-bottom-right-radius: 0.5em;
+                
+            }
+        }
         
 
         
