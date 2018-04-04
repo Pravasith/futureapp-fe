@@ -6,8 +6,8 @@ const API_URL = API_BASE_URL + API_PATH
 
 
 export const api = {
-    ADD_NEW_USER: API_URL + 'user/adduser',
-    FETCH_USER_DATA: API_URL + 'user/userdata',
+    CREATE_NEW_CARD: API_URL + 'card/newcard',
+    USER_DATA: API_URL + 'user/userdata',
     PROJECT_TYPES: API_URL + 'appData/businesstypes',
-    UPLOAD_IMAGE: API_URL + 'user/uploadimage'
+    UPLOAD_IMAGE: API_URL + 'card/uploadimage'
 }

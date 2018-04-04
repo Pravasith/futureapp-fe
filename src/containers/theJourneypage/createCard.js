@@ -8,8 +8,8 @@ import StarRating   from "../../assets/images/starRating"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
-import { fetchProjectTypes } from "../../actions/fetchUserData"
-import { addProjectType } from "../../actions/addAppData"
+import { addProjectType, fetchProjectTypes } from "../../actions/appData"
+import { updateProjectData } from '../../actions/cardActions'
 
 //typical import of gsap methods
 import {TimelineLite} from "gsap"
@@ -29,11 +29,13 @@ class CreateCard extends React.Component{
         this.state = {
             businessTypesArr: this.props.businessTypes,
             bubblenames,
-            businessType: undefined
+            businessType: undefined,
+            nextBtnClass: "next"
         }
         this.highlightSelectedBubble = this.highlightSelectedBubble.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.addBusinessType = this.addBusinessType.bind(this)
+        this.nextHandler = this.nextHandler.bind(this)
     }
 
     componentDidMount(){
@@ -42,22 +44,30 @@ class CreateCard extends React.Component{
             businessTypesArr: this.props.businessTypes,
             bubblenames: this.props.businessTypes
             .map((item, i) => 'bubble ' + i),
-            businessType: undefined
+            businessType: undefined,
+            nextBtnClass: "next"
         }))
-
     }
 
-    componentDidUpdate(){
-        
+    nextHandler(){
+        if(this.state.businessType){
+            this.props.updateProjectData({
+                businessType: this.state.businessType,
+                // robotName: this.
+            })
+            .then(() => console.log(this.props.projectType))
+            .catch(e => console.log(e))
+        }
     }
 
     addBusinessType(){
             // add a check here, where admin verifies the data and
             // then only updates the backend db with the value
-            console.log(this.refs.addBusinessType.value)
+            // console.log(this.refs.addBusinessType.value)
             if(this.refs.addBusinessType.value !== '' && this.refs.addBusinessType.value !== 'doesnt start with a space')
             this.setState({
-                businessType: this.refs.addBusinessType.value
+                businessType: this.refs.addBusinessType.value,
+                nextBtnClass: "letSee next"
             })
 
             this.props.addProjectType({
@@ -121,7 +131,8 @@ class CreateCard extends React.Component{
                         if(i === theIndex){
                             this.state.bubblenames[i] = "bubble selected " + i
                             this.setState({ 
-                                businessType:  this.state.businessTypesArr[i]
+                                businessType:  this.state.businessTypesArr[i],
+                                nextBtnClass: "letSee next"
                             })
                         }
                         else
@@ -211,7 +222,11 @@ class CreateCard extends React.Component{
                                 </div>
                                 
 
-                                <NavLink to="/create-card" className="next">Next</NavLink>
+                                <div 
+                                    // to="/create-card"
+                                    className= {this.state.nextBtnClass}
+                                    onClick={this.nextHandler}
+                                >Next</div>
                             </div>
                             
                         </div>
@@ -227,7 +242,9 @@ class CreateCard extends React.Component{
 function mapStateToProps(state){
     return(
         {
-            businessTypes : state.businessTypes
+            businessTypes : state.businessTypes,
+            userDetails : state.userDetails,
+            projectType : state.updateProjectType
         }
     )
 }
@@ -236,7 +253,8 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
             fetchProjectTypes,
-            addProjectType
+            addProjectType,
+            updateProjectData
         },
         dispatch
     )

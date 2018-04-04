@@ -119,7 +119,7 @@ class Slide6 extends React.Component{
             imageArray: newImgData
         }
 
-        axios.post(api.ADD_NEW_USER, userArr, 
+        axios.post(api.CREATE_NEW_CARD, userArr, 
             {
                 // headers: {
                 // 'accept': 'application/json',

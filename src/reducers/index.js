@@ -1,15 +1,13 @@
 import { combineReducers } from 'redux'
 import introText from './introText'
 import introActiveText from './introTextActive'
-import userDetailReducer from './userDetailReducer'
+import { userDetailReducer } from './userDetailReducer'
 import circles from './circlesReducer'
-// import businessTypes from './journeyReducers'
 import userStatusLevelText from './reducerBarryBubbleText'
 import theSlideData from './ideaReducer'
 import overAllData from './imageArrayReducer'
 import businessTypes from './appDataReducer'
-// import businesses from './journeyReducers'
-
+import {updateProjectType} from './cardDataReducer'
 
 const allReducers = combineReducers({
     introText,
@@ -19,7 +17,9 @@ const allReducers = combineReducers({
     userStatusLevelText,
     theSlideData,
     overAllData,
-    businessTypes
+    businessTypes,
+    updateProjectType
+
 })
 
 export default allReducers

@@ -3,11 +3,30 @@ import { api } from './apiLinks'
 
 
 export const ADD_PROJECT_TYPE = "ADD_PROJECT_TYPE"
+export const FETCH_PROJECT_TYPES = "FETCH_PROJECT_TYPES"
+
+
+export function fetchProjectTypes() {
+    return (dispatch) => {
+        // const apiURL = "http://159.89.167.240:8000/api/appData/businesstypes"
+        const apiURL = api.PROJECT_TYPES
+        // const apiURL = "http://localhost:8000/api/appData/businesstypes"
+        return fetch(apiURL)
+        .then(response => response.json())
+        .then(data => {
+            dispatch({
+                type: FETCH_PROJECT_TYPES,
+                payload: data
+            })
+        })
+    }
+}
+
 
 
 export function addProjectType(data) {
     return dispatch => {
-        return axios.post(api.PROJECT_TYPES, data, 
+        return axios.put(api.PROJECT_TYPES, data, 
             {
                 headers: {
                 'accept': 'application/json',
@@ -32,8 +51,8 @@ export function addProjectType(data) {
         })
 
     }
-        
-    
-    
+
 }
+
+
 

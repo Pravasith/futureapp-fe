@@ -3,7 +3,7 @@ import React from "react"
 import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
-import businesses from "../../reducers/journeyReducers"
+// import businesses from "../../reducers/journeyReducers"
 import Confetti from "../../assets/images/confetti"
 import { NectarBlackBig } from "../../assets/images/nectarBlack-Big"
 
@@ -34,7 +34,7 @@ export default class JourneyBegins extends React.Component{
 
     render(){
 
-        console.log(businesses)
+        // console.log(businesses)
 
         return(
             <div className="screenWrapper" >
