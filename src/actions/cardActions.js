@@ -4,6 +4,7 @@ import axios from 'axios'
 
 export const UPDATE_PROJECT_TYPE = "UPDATE_PROJECT_TYPE"
 
+
 export function updateProjectData(projectType) {
     return dispatch => {
         return axios.put(api.CREATE_NEW_CARD, projectType, 
@@ -32,4 +33,10 @@ export function updateProjectData(projectType) {
 
     }
 }
+
+
+
+
+        
+
 

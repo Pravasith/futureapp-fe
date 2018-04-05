@@ -7,7 +7,7 @@ import userStatusLevelText from './reducerBarryBubbleText'
 import theSlideData from './ideaReducer'
 import overAllData from './imageArrayReducer'
 import businessTypes from './appDataReducer'
-import {updateProjectType} from './cardDataReducer'
+import { updateProjectType } from './cardDataReducer'
 
 const allReducers = combineReducers({
     introText,
@@ -18,7 +18,7 @@ const allReducers = combineReducers({
     theSlideData,
     overAllData,
     businessTypes,
-    updateProjectType
+    updateProjectType,
 
 })
 

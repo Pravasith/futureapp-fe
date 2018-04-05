@@ -48,7 +48,7 @@ class Slide6 extends React.Component{
                     return all
                 }, [])
 
-                // Upload images to backend and from there to aws s3 bucket
+
                 tempImgArray.map((item, index) => {
                     const fd = new FormData()
                     fd.append('toxicData' , item , item.name + 'imageNoSeparatorX' + (index + 1))
@@ -75,10 +75,10 @@ class Slide6 extends React.Component{
                 'Accept-Language': 'en-US,en;q=0.8',
                 'Content-Type': 'image/png' || 'image/jpg' || 'image/jpeg' || 'image/gif'                    
                 },
-                onUploadProgress: progressEvent => {
-                    let progress = (progressEvent.loaded / progressEvent.total * 100) 
-                    console.log( "Progress : " + ( progressEvent.loaded / progressEvent.total * 100 ) + '%' )
-                }
+                // onUploadProgress: progressEvent => {
+                //     let progress = (progressEvent.loaded / progressEvent.total * 100) 
+                //     console.log( "Progress : " + ( progressEvent.loaded / progressEvent.total * 100 ) + '%' )
+                // }
             })
         .then(res => {
             uploadImageCount++
@@ -96,20 +96,25 @@ class Slide6 extends React.Component{
         })
     }
 
+
     makeUserDataAndPostToMongoDB(imageArr){
 
         // posts the data to mongodb. 
 
         imageArr.sort(function(a, b){return a.num - b.num})
 
+        
+
         let newImgData = this.props.overAllData.imageArray.reduce((all, item, index) => {
+            console.log("image desc =" , item.imageDescription)
+            const imageDetailsObject = {
+                "imageNumber" : index + 1,
+                "imageURL" : imageArr[index].url,
+                "imageDescription" : item.imageDescription === '' ? "No description provided" : item.imageDescription
+            }
             return [
                 ...all,
-                {
-                    "imageNumber" : index + 1,
-                    "imageURL" : imageArr[index].url,
-                    "imageDescription" : item.imageDescription
-                }
+                imageDetailsObject
             ]
         }, [])
 
@@ -132,7 +137,7 @@ class Slide6 extends React.Component{
                 }
             })
         .then(res => {
-            console.log(res)
+            // console.log("MONGODATA", res)
             this.setState({ redirect: true })
             
         })
@@ -142,15 +147,15 @@ class Slide6 extends React.Component{
         })
 
 
-        console.log('sorted one: ', imageArr)
-        console.log("imgdata: ", newImgData)
-        console.log("imgdata: ", userArr)
+        // console.log('sorted one: ', imageArr)
+        // console.log("imgdata: ", newImgData)
+        // console.log("imgdata: ", userArr)
 
     }
 
     render(){
 
-        console.log(this.props.overAllData)
+        // console.log(this.props.overAllData)
 
         const { redirect } = this.state
 
@@ -183,13 +188,13 @@ class Slide6 extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        overAllData : state.overAllData
+        overAllData : state.overAllData,
     }
 }
 
 const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        changeSlide: changeSlide
+        changeSlide: changeSlide,
     }, dispatch)
 }
 
