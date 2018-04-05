@@ -53,9 +53,9 @@ class CreateCard extends React.Component{
         if(this.state.businessType){
             this.props.updateProjectData({
                 businessType: this.state.businessType,
-                // robotName: this.
+                robotName: this.props.cardData.robotName
             })
-            .then(() => console.log(this.props.projectType))
+            .then(() => console.log(this.props.cardData))
             .catch(e => console.log(e))
         }
     }
@@ -244,7 +244,8 @@ function mapStateToProps(state){
         {
             businessTypes : state.businessTypes,
             userDetails : state.userDetails,
-            projectType : state.updateProjectType
+            projectType : state.updateProjectType,
+            cardData : state.updatedCardData
         }
     )
 }

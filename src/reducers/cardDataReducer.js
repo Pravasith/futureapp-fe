@@ -14,4 +14,15 @@ switch(action.type){
 return state
 }
 
+export function updatedCardData(state = {
+}, action){
+
+switch(action.type){
+    case "UPDATE_CARD_DATA":
+    return action.payload
+
+}
+return state
+}
+
 

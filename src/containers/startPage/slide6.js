@@ -11,6 +11,7 @@ import { TimelineLite} from "gsap";
 
 // import actions
 import { changeSlide } from "../../actions/ideaInputAction"
+import {postDataToMongoDB } from '../../actions/cardActions'
 import { api } from '../../actions/apiLinks'
 
 
@@ -24,7 +25,6 @@ class Slide6 extends React.Component{
     state = {
         redirect : false
     }
-
 
     componentDidMount(){
             const endSlide = new TimelineLite()
@@ -48,7 +48,6 @@ class Slide6 extends React.Component{
                     return all
                 }, [])
 
-
                 tempImgArray.map((item, index) => {
                     const fd = new FormData()
                     fd.append('toxicData' , item , item.name + 'imageNoSeparatorX' + (index + 1))
@@ -57,7 +56,15 @@ class Slide6 extends React.Component{
             }
 
             else
-            this.makeUserDataAndPostToMongoDB([])
+            // this.makeCardDataAndPostToMongoDB([])
+            this.props.postDataToMongoDB([], this.props.overAllData)
+            .then(() => {
+                this.setState({ redirect: true })
+            })
+            .catch(err => {
+                console.error(err)
+                throw err
+            })
             
     }
 
@@ -87,7 +94,16 @@ class Slide6 extends React.Component{
                 num: res.data.imageNo
             })
             if( uploadImageCount === this.props.overAllData.imageArray.length ){
-                    this.makeUserDataAndPostToMongoDB(imageURLs)
+                    // this.makeCardDataAndPostToMongoDB(imageURLs)
+                    this.props.postDataToMongoDB(imageURLs, this.props.overAllData)
+                    .then(() => {
+                        this.setState({ redirect: true })
+                    })
+                    .catch(err => {
+                        console.error(err)
+                        throw err
+                    })
+
             }
         })
         .catch(err => {
@@ -97,61 +113,54 @@ class Slide6 extends React.Component{
     }
 
 
-    makeUserDataAndPostToMongoDB(imageArr){
+    // makeCardDataAndPostToMongoDB(imageArr){
 
-        // posts the data to mongodb. 
+    //     // posts the data to mongodb. 
 
-        imageArr.sort(function(a, b){return a.num - b.num})
+    //     imageArr.sort(function(a, b){return a.num - b.num})
 
-        
+    //     let newImgData = this.props.overAllData.imageArray.reduce((all, item, index) => {
+    //         // console.log("image desc =" , item.imageDescription)
+    //         const imageDetailsObject = {
+    //             "imageNumber" : index + 1,
+    //             "imageURL" : imageArr[index].url,
+    //             "imageDescription" : item.imageDescription === '' ? "No description provided" : item.imageDescription
+    //         }
+    //         return [
+    //             ...all,
+    //             imageDetailsObject
+    //         ]
+    //     }, [])
 
-        let newImgData = this.props.overAllData.imageArray.reduce((all, item, index) => {
-            console.log("image desc =" , item.imageDescription)
-            const imageDetailsObject = {
-                "imageNumber" : index + 1,
-                "imageURL" : imageArr[index].url,
-                "imageDescription" : item.imageDescription === '' ? "No description provided" : item.imageDescription
-            }
-            return [
-                ...all,
-                imageDetailsObject
-            ]
-        }, [])
+    //     let userArr = {
+    //         shortIdea: this.props.overAllData.shortIdea,
+    //         elaboratedIdea: this.props.overAllData.elaboratedIdea,
+    //         imageArray: newImgData
+    //     }
 
-        let userArr = {
-            shortIdea: this.props.overAllData.shortIdea,
-            elaboratedIdea: this.props.overAllData.elaboratedIdea,
-            imageArray: newImgData
-        }
-
-        axios.post(api.CREATE_NEW_CARD, userArr, 
-            {
-                // headers: {
-                // 'accept': 'application/json',
-                // 'Accept-Language': 'en-US,en;q=0.8',
-                // 'Content-Type': 'image/png' || 'image/jpg' || 'image/jpeg' || 'image/gif'                    
-                // },
-                onUploadProgress: progressEvent => {
-                    let progress = (progressEvent.loaded / progressEvent.total * 100) 
-                    console.log( "Progress : " + ( progressEvent.loaded / progressEvent.total * 100 ) + '%' )
-                }
-            })
-        .then(res => {
-            // console.log("MONGODATA", res)
-            this.setState({ redirect: true })
+    //     axios.post(api.CREATE_NEW_CARD, userArr, 
+    //         {
+    //             headers: {
+    //             'accept': 'application/json',
+    //             'Accept-Language': 'en-US,en;q=0.8',
+    //             'Content-Type': 'application/json'                   
+    //             },
+    //             onUploadProgress: progressEvent => {
+    //                 let progress = (progressEvent.loaded / progressEvent.total * 100) 
+    //                 console.log( "Progress : " + ( progressEvent.loaded / progressEvent.total * 100 ) + '%' )
+    //             }
+    //         })
+    //     .then(res => {
+    //         console.log("MONGODATA", res)
+    //         this.setState({ redirect: true })
             
-        })
-        .catch(err => {
-            console.error(err)
-            throw err
-        })
+    //     })
+    //     .catch(err => {
+    //         console.error(err)
+    //         throw err
+    //     })
 
-
-        // console.log('sorted one: ', imageArr)
-        // console.log("imgdata: ", newImgData)
-        // console.log("imgdata: ", userArr)
-
-    }
+    // }
 
     render(){
 
@@ -189,12 +198,14 @@ class Slide6 extends React.Component{
 const mapStateToProps = (state) => {
     return {
         overAllData : state.overAllData,
+        updatedCardData: state.updatedCardData
     }
 }
 
 const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({
         changeSlide: changeSlide,
+        postDataToMongoDB
     }, dispatch)
 }
 
