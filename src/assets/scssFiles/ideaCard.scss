@@ -30,6 +30,10 @@
                     }
                 }
             }
+            #ratingData{
+                color: $primaryGreen;
+                font-weight: 500;
+            }
         }
     
         .psycoinData{
@@ -54,7 +58,7 @@
         
         .backLine{
             height: 0.3em;
-            background: #FF7F29;
+            background: $mediumGrey;
             bottom: 2.5em;
             position: relative;
             z-index: -2;
@@ -69,6 +73,7 @@
             bottom: 3.5em;
             p{
                 font-weight: 500;
+                color: $primaryGreen;
             }
         }
 
@@ -76,7 +81,7 @@
             left: 1em;
             position: relative;
             border: 0.3em solid;
-            border-color: #FF7F29;
+            border-color: $mediumGrey;
             background: $white;
             @include flexCentreRow;
             width: fit-content;
@@ -89,7 +94,7 @@
             padding: 0.3em 1em;
             border-radius: 1em;
             bottom: 3.6em;
-            background: #FF7F29;
+            background: $mediumGrey;
             max-width: 10em;
             min-width: 7em;
             text-align: center;

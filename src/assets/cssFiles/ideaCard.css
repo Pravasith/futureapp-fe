@@ -61,6 +61,9 @@
         align-items: center; }
         .ideaCard .ideaUpperWrap .starRating .endsInRow .imagesQw p {
           padding: 0.5em; }
+    .ideaCard .ideaUpperWrap .starRating #ratingData {
+      color: #8CC63F;
+      font-weight: 500; }
     .ideaCard .ideaUpperWrap .psycoinData {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -82,7 +85,7 @@
     height: 5.5em; }
     .ideaCard .nameAndAvatar .backLine {
       height: 0.3em;
-      background: #FF7F29;
+      background: #a5a5a5;
       bottom: 2.5em;
       position: relative;
       z-index: -2; }
@@ -108,12 +111,13 @@
       left: 7em;
       bottom: 3.5em; }
       .ideaCard .nameAndAvatar .responseRate p {
-        font-weight: 500; }
+        font-weight: 500;
+        color: #8CC63F; }
     .ideaCard .nameAndAvatar .avatar {
       left: 1em;
       position: relative;
       border: 0.3em solid;
-      border-color: #FF7F29;
+      border-color: #a5a5a5;
       background: #ffffff;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -139,7 +143,7 @@
       padding: 0.3em 1em;
       border-radius: 1em;
       bottom: 3.6em;
-      background: #FF7F29;
+      background: #a5a5a5;
       max-width: 10em;
       min-width: 7em;
       text-align: center;

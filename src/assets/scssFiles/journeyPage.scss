@@ -265,6 +265,24 @@
                 
             }
         }
+
+        // Select color styles
+        .colorPalette{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            .outerPalette{
+                @include flexCentreCol;
+                width: 2.2em;
+                height: 2.2em;
+            }
+            .palette{
+                width: 2em;
+                height: 2em;
+                border-radius: 1em;
+            }
+
+
+        }
         
 
         

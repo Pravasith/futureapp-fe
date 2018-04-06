@@ -26,16 +26,16 @@ export default class IdeaCard extends React.Component{
                     <div className="ideaUpperWrap">
 
                         <p className="ideaType" >{this.props.businessType}</p>
-                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p >{this.props.idea}</p>
                         <div className="starRating">
                             <div className="endsInRow">
                                 <StarRating color = {"#94E8FF"} />
                                 <div className="imagesQw">
                                     <ImgIcon/>
-                                    <p>1</p>
+                                    <p>{this.props.noOfImages}</p>
                                 </div>
                             </div>
-                            <p>Not rated yet</p>
+                            <p id = "ratingData">Not rated yet</p>
                         </div>
                         <div className="psycoinData">
                             <PsyBill/>
@@ -52,7 +52,7 @@ export default class IdeaCard extends React.Component{
                         </div>
                         <div className="backLine"></div>
                         <div className="userNameTemp">
-                            <p>real.vengeance</p>
+                            <p>{this.props.robotName}</p>
                         </div>
                         <div className="responseRate">
                             <p>Response rate</p>
@@ -62,15 +62,15 @@ export default class IdeaCard extends React.Component{
                     <div className="creds">
                         <div className="credWrap">
                             <CourageBlack/>
-                            <p>233</p>
+                            <p>{this.props.courage}</p>
                         </div>
                         <div className="credWrap">
                             <WissenBlack/>
-                            <p>135</p>
+                            <p>{this.props.wisdom}</p>
                         </div>
                         <div className="credWrap">
                             <NectarBlack/>
-                            <p>313</p>
+                            <p>{this.props.nectar}</p>
                         </div>
                     </div>
                 </div>

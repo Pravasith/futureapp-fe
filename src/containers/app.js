@@ -4,6 +4,7 @@ import Hello from "./helloScreen/hello"
 import Start from "./startPage/start"
 import JourneyBegins from "./theJourneypage/journeyBegins"
 import CreateCard from "./theJourneypage/createCard"
+import SelectCardColor from "./theJourneypage/selectCardColor"
 
 import '../assets/cssFiles/common.css'
 
@@ -20,6 +21,7 @@ class App extends React.Component{
                             <Route exact path="/start" component={Start}/>
                             <Route exact path="/journeybegins" component={JourneyBegins}/>
                             <Route exact path="/create-card" component={CreateCard}/>
+                            <Route exact path="/create-card/select-color" component={SelectCardColor}/>
                         </Switch>
                     }
                 

@@ -424,6 +424,29 @@
         min-height: 2.2em;
         border-top-right-radius: 0.5em;
         border-bottom-right-radius: 0.5em; }
+    .cardScreen .rightScr .colorPalette {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
+      .cardScreen .rightScr .colorPalette .outerPalette {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 2.2em;
+        height: 2.2em; }
+      .cardScreen .rightScr .colorPalette .palette {
+        width: 2em;
+        height: 2em;
+        border-radius: 1em; }
 
 @media screen and (max-width: 1024px) {
   .journeyScreen h2 {

@@ -2,9 +2,10 @@ import React from "react"
 
 import {connect} from "react-redux"
 import {bindActionCreators} from "redux"
+import { Redirect } from 'react-router'
  
 import { Navbar } from "../../components/navbar"
-import StarRating   from "../../assets/images/starRating"
+// import StarRating   from "../../assets/images/starRating"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
@@ -30,7 +31,8 @@ class CreateCard extends React.Component{
             businessTypesArr: this.props.businessTypes,
             bubblenames,
             businessType: undefined,
-            nextBtnClass: "next"
+            nextBtnClass: "next",
+            redirect : false
         }
         this.highlightSelectedBubble = this.highlightSelectedBubble.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -55,7 +57,7 @@ class CreateCard extends React.Component{
                 businessType: this.state.businessType,
                 robotName: this.props.cardData.robotName
             })
-            .then(() => console.log(this.props.cardData))
+            .then(() => this.setState({ redirect: true }))
             .catch(e => console.log(e))
         }
     }
@@ -175,6 +177,12 @@ class CreateCard extends React.Component{
 
     render(){
 
+        const { redirect } = this.state
+
+        if (redirect) {
+            return <Redirect to='create-card/select-color'/>
+        }
+
         return(
 
 
@@ -190,7 +198,16 @@ class CreateCard extends React.Component{
                         <div className="cardScreen">
                             <div className="leftScr">
                                 <h2>Your Idea card</h2>
-                                <IdeaCard businessType={this.state.businessType} />
+                                <IdeaCard
+                                    businessType={this.state.businessType ? this.state.businessType : "Select project type"}
+                                    noOfImages = {this.props.cardData.imageArray? this.props.cardData.imageArray.length : 0}
+                                    idea = {this.props.cardData.shortIdea ? this.props.cardData.shortIdea : "the idea goes here"}
+                                    robotName = {this.props.cardData.robotName ? this.props.cardData.robotName : "Your name"}
+                                    courage = {this.props.cardData.userStatData ? this.props.cardData.userStatData.courage : 0}
+                                    wisdom = {this.props.cardData.userStatData ? this.props.cardData.userStatData.wisdom : 0}
+                                    nectar = {this.props.cardData.userStatData ? this.props.cardData.userStatData.nectar : 0}
+
+                                />
                             </div>
                             <div className="rightScr">
                                 <h2>What kind of project is this?</h2>
