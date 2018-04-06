@@ -7,7 +7,7 @@ import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
-// import { updateCardColor } from '../../actions/cardActions'
+import { updateCardColor } from '../../actions/cardActions'
 
 //typical import of gsap methods
 import {TimelineLite} from "gsap"
@@ -49,7 +49,10 @@ class SelectCardColor extends React.Component{
     }
 
     nextHandler(){
-        
+        this.props.updateCardColor({
+            robotName : this.props.cardData.robotName,
+            cardColor: this.state.color
+        })
     }
 
     selectedColor(color){
@@ -198,7 +201,7 @@ class SelectCardColor extends React.Component{
 
                                 <div className={this.state.chooseAgain}>
                                         <div
-                                            onClick = {this.nextHandler()}
+                                            onClick = { () => this.nextHandler()}
                                             className= {this.state.nextBtnClass}
                                         >Next</div>
 
@@ -234,7 +237,7 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
-            // updateCardColor
+            updateCardColor
         },
         dispatch
     )

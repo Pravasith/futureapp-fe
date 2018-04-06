@@ -9,5 +9,6 @@ export const api = {
     CREATE_NEW_CARD: API_URL + 'card/newcard',
     USER_DATA: API_URL + 'user/userdata',
     PROJECT_TYPES: API_URL + 'appData/businesstypes',
-    UPLOAD_IMAGE: API_URL + 'card/uploadimage'
+    UPLOAD_IMAGE: API_URL + 'card/uploadimage',
+    UPDATE_COLOR: API_URL + 'card/update-color'
 }
