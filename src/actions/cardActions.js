@@ -36,6 +36,14 @@ export function updateProjectData(projectTypeAndName) {
     }
 }
 
+
+
+
+
+
+
+
+
 export function postDataToMongoDB(imageArr, overAllData) {
     return dispatch => {
         // posts the data to mongodb. 

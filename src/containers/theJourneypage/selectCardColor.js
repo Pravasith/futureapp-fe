@@ -7,7 +7,7 @@ import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
-import { updateProjectData } from '../../actions/cardActions'
+// import { updateCardColor } from '../../actions/cardActions'
 
 //typical import of gsap methods
 import {TimelineLite} from "gsap"
@@ -34,6 +34,7 @@ class SelectCardColor extends React.Component{
         this.removeHighlight = this.removeHighlight.bind(this)
         this.toggleClass = this.toggleClass.bind(this)
         this.selectedColor = this.selectedColor.bind(this)
+        this.nextHandler = this.nextHandler.bind(this)
     }
 
     componentDidMount(){
@@ -45,6 +46,10 @@ class SelectCardColor extends React.Component{
 
         else
         this.setState({ paletteClass : "paletteContainer ", chooseAgain : "chooseAgain hide"  })
+    }
+
+    nextHandler(){
+        
     }
 
     selectedColor(color){
@@ -62,7 +67,7 @@ class SelectCardColor extends React.Component{
         let i = 1
         let j = 1
 
-        anim.to('.color'+idNumber, 0.1, {transformOrigin:"50% 50%", scale:1.2}, 'con')
+        anim.to('.color'+idNumber, 0.1, {transformOrigin:"50% 50%", scale:1.3}, 'con')
         this.setState({
             color
         })
@@ -192,10 +197,10 @@ class SelectCardColor extends React.Component{
                                 </div>
 
                                 <div className={this.state.chooseAgain}>
-                                        <NavLink
-                                            to="/create-card"
+                                        <div
+                                            onClick = {this.nextHandler()}
                                             className= {this.state.nextBtnClass}
-                                        >Next</NavLink>
+                                        >Next</div>
 
                                         <div
                                             onClick={ () => this.toggleClass() }
@@ -229,7 +234,7 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
-            updateProjectData
+            // updateCardColor
         },
         dispatch
     )

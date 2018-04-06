@@ -526,7 +526,8 @@
       .cardScreen .rightScr .chooseAgain p {
         margin: 1em;
         color: #a5a5a5;
-        cursor: pointer; }
+        cursor: pointer;
+        text-align: center; }
     .cardScreen .rightScr .hide {
       display: none; }
 
