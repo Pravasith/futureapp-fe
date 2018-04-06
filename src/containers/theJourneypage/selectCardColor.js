@@ -22,14 +22,107 @@ class SelectCardColor extends React.Component{
         super(props, context)
 
         this.state = {
-            nextBtnClass: "next",
+            nextBtnClass: "nextBtn",
+            color : "#333333",
+            paletteClass : "paletteContainer ",
+            chooseAgain : 'chooseAgain hide'
             
         }
 
         this.populateColors = this.populateColors.bind(this)
+        this.highlightColor = this.highlightColor.bind(this)
+        this.removeHighlight = this.removeHighlight.bind(this)
+        this.toggleClass = this.toggleClass.bind(this)
+        this.selectedColor = this.selectedColor.bind(this)
     }
 
     componentDidMount(){
+    }
+
+    toggleClass() {
+        if(this.state.paletteClass === "paletteContainer ")
+        this.setState({ paletteClass : "paletteContainer hide", chooseAgain : "chooseAgain " })
+
+        else
+        this.setState({ paletteClass : "paletteContainer ", chooseAgain : "chooseAgain hide"  })
+    }
+
+    selectedColor(color){
+        this.toggleClass()
+    }
+
+    highlightColor(idNumber,color){
+        // console.log(idNumber, idNumber%5)
+        const anim = new TimelineLite()
+        let colNum = idNumber%5
+
+        colNum = colNum === 0 ? 5 : colNum
+
+        let c = 1
+        let i = 1
+        let j = 1
+
+        anim.to('.color'+idNumber, 0.1, {transformOrigin:"50% 50%", scale:1.2}, 'con')
+        this.setState({
+            color
+        })
+        
+        // console.log(colNum)
+        while( c <= 5 ){
+            // console.log(0.2*c)
+            anim
+            .to('.color'+ (idNumber + (5*c)), 0.1, {y: 15, transformOrigin:"50% 50%", scale:(0.25*c)}, 'con' )
+            .to('.color'+ (idNumber - (5*c)), 0.1, {y: -15, transformOrigin:"50% 50%", scale:(0.25*c)}, 'con' )
+            c++
+        }
+        while( i <= 5-colNum ){
+            anim
+            .to('.color'+ (idNumber + i), 0.1, {x: 15, transformOrigin:"50% 50%", scale:(0.25*i)}, 'con' )
+            // .to('.color'+ (idNumber - i), 0.1, {x: -15}, 'con' )
+            i++
+        }
+        while( j <= colNum-1 ){
+            anim
+            .to('.color'+ (idNumber - (j)), 0.1, {x: -15, transformOrigin:"50% 50%", scale:(0.25*j)}, 'con' )
+            j++
+        }
+        
+    }
+
+    removeHighlight(idNumber){
+
+        const anim1 = new TimelineLite()
+        let colNum = idNumber%5
+
+        colNum = colNum === 0 ? 5 : colNum
+
+        let c = 1
+        let i = 1
+        let j = 1
+
+        anim1.to('.color'+idNumber, 0.1, {transformOrigin:"50% 50%", scale:1}, 'con')
+
+        
+        while( c <= 5 ){
+            anim1
+            .to('.color'+ (idNumber + (5*c)), 0.1, {y: 0, transformOrigin:"50% 50%", scale:(1)}, 'con' )
+            .to('.color'+ (idNumber - (5*c)), 0.1, {y: 0, transformOrigin:"50% 50%", scale:(1)}, 'con' )
+            // .to('.color'+ (idNumber + (c)), 0.1, {x: 0}, 'con' )
+            // .to('.color'+ (idNumber - (c)), 0.1, {x: 0}, 'con' )
+            c++
+        }
+        while( i <= 5-colNum ){
+            anim1
+            .to('.color'+ (idNumber + i), 0.1, {x: 0, transformOrigin:"50% 50%", scale:(1)}, 'con' )
+            // .to('.color'+ (idNumber - i), 0.1, {x: 0}, 'con' )
+            i++
+        }
+        while( j <= colNum-1 ){
+            anim1
+            .to('.color'+ (idNumber - (j)), 0.1, {x: 0, transformOrigin:"50% 50%", scale:(1)}, 'con' )
+            j++
+        }
+
     }
 
     populateColors(){
@@ -42,13 +135,19 @@ class SelectCardColor extends React.Component{
         ]
 
         return colorArray.map((item, i) => {
-            return <div key={"parent"+i} className={"outerPalette color"+i}>
-                <div
-                    key={i}
-                    className = {"palette "+ i}
-                    style={{'background':item}}
+            return <div 
+                key={"parent"+(i+1)}
+                className={"outerPalette color"+(i+1)}
+                onMouseOver = { () => this.highlightColor( (i+1), item ) }
+                onMouseLeave = { () => this.removeHighlight( (i+1) ) }
+                onClick = { () => this.selectedColor( item ) }
                 >
-                </div>
+                    <div
+                        key={i+1}
+                        className = {"palette "+ (i+1)}
+                        style={{'background':item}}
+                    >
+                    </div>
             </div>
         })
     }
@@ -80,19 +179,33 @@ class SelectCardColor extends React.Component{
                                     courage = {this.props.cardData.userStatData ? this.props.cardData.userStatData.courage : 0}
                                     wisdom = {this.props.cardData.userStatData ? this.props.cardData.userStatData.wisdom : 0}
                                     nectar = {this.props.cardData.userStatData ? this.props.cardData.userStatData.nectar : 0}
+                                    color = {this.state.color}
 
                                 />
                             </div>
                             <div className="rightScr">
-                                <h2>Pick a color</h2>
-                                <div className="colorPalette">
-                                    {this.populateColors()}
+                                <div className={this.state.paletteClass}>
+                                    <h2>Pick a color</h2>
+                                    <div className="colorPalette">
+                                        {this.populateColors()}
+                                    </div>
                                 </div>
 
-                                <NavLink
-                                    to="/create-card"
-                                    className= {this.state.nextBtnClass}
-                                >Next</NavLink>
+                                <div className={this.state.chooseAgain}>
+                                        <NavLink
+                                            to="/create-card"
+                                            className= {this.state.nextBtnClass}
+                                        >Next</NavLink>
+
+                                        <div
+                                            onClick={ () => this.toggleClass() }
+                                            >
+                                                <p> <strong>No, I wanna select another color</strong> </p>
+                                        </div>
+                                </div>
+                                
+
+                                
                             </div>
                             
                         </div>

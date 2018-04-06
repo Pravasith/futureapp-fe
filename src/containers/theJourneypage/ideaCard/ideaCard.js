@@ -39,20 +39,34 @@ export default class IdeaCard extends React.Component{
                         </div>
                         <div className="psycoinData">
                             <PsyBill/>
-                            <p>0 psybills raised</p>
+                            {/* <p>0 psybills raised</p> */}
+                            <p>Lorem ipsum dolor sit amet, consectetur ad</p>
                         </div>
-                        <p>No one remote-working currently</p>
-                        <p>No open remote work positions</p>
+                        {/* <p>No one remote-working currently</p> */}
+                        <p>Lorem ipsum dolor sit amet, consectetur ad</p>
+                        {/* <p>No open remote work positions</p> */}
+                        <p>Lorem ipsum dolor sit amet, consectetur ad</p>
 
                     </div>
                     <div className="nameAndAvatar">
                         
-                        <div className="avatar">
-                            <AnonymousAvatar/>
+                        
+                        <div 
+                            className="avatar"
+                            style={{'borderColor':this.props.color}}
+                            >
+                                <AnonymousAvatar/>
                         </div>
-                        <div className="backLine"></div>
-                        <div className="userNameTemp">
-                            <p>{this.props.robotName}</p>
+                        <div 
+                            className="backLine"
+                            style={{background: this.props.color}}
+                        >
+                        </div>
+                        <div 
+                            className="userNameTemp"
+                            style={{background: this.props.color}}
+                            >
+                                <p>{this.props.robotName}</p>
                         </div>
                         <div className="responseRate">
                             <p>Response rate</p>

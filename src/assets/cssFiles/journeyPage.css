@@ -424,10 +424,65 @@
         min-height: 2.2em;
         border-top-right-radius: 0.5em;
         border-bottom-right-radius: 0.5em; }
-    .cardScreen .rightScr .colorPalette {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
-      .cardScreen .rightScr .colorPalette .outerPalette {
+    .cardScreen .rightScr .paletteContainer {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .cardScreen .rightScr .paletteContainer .colorPalette {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
+        .cardScreen .rightScr .paletteContainer .colorPalette .outerPalette {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          width: 2.2em;
+          height: 2.2em;
+          cursor: pointer;
+          margin: 0.2em; }
+        .cardScreen .rightScr .paletteContainer .colorPalette .palette {
+          width: 2em;
+          height: 2em;
+          border-radius: 1em; }
+    .cardScreen .rightScr .chooseAgain {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .cardScreen .rightScr .chooseAgain .nextBtn {
+        background: #ffffff;
+        -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+        box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+        border: 0.1em solid #212529;
+        border-radius: 2em;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -441,12 +496,39 @@
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        width: 2.2em;
-        height: 2.2em; }
-      .cardScreen .rightScr .colorPalette .palette {
-        width: 2em;
+        outline: none;
+        height: 2.8em;
+        width: 12em;
+        margin: 0.5em;
+        color: #4d4d4d;
+        cursor: pointer;
+        -webkit-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         height: 2em;
-        border-radius: 1em; }
+        width: 8em;
+        padding: 1em;
+        border-color: #4d4d4d;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        color: #FF94F3;
+        font-size: 1.5em;
+        font-weight: 600;
+        background: #4d4d4d;
+        -webkit-transition: 0.5s;
+        -o-transition: 0.5s;
+        transition: 0.5s; }
+        .cardScreen .rightScr .chooseAgain .nextBtn:hover {
+          text-decoration: none; }
+        .cardScreen .rightScr .chooseAgain .nextBtn:hover {
+          border-color: #FF94F3; }
+      .cardScreen .rightScr .chooseAgain p {
+        margin: 1em;
+        color: #a5a5a5;
+        cursor: pointer; }
+    .cardScreen .rightScr .hide {
+      display: none; }
 
 @media screen and (max-width: 1024px) {
   .journeyScreen h2 {
