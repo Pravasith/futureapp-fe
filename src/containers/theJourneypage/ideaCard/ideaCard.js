@@ -1,5 +1,7 @@
 import React from "react"
 
+import {connect} from "react-redux"
+import {bindActionCreators} from "redux"
 
 import StarRating from '../../../assets/images/starRating'
 import { ImgIcon } from "../../../assets/images/imgIcon";
@@ -9,13 +11,46 @@ import { CourageBlack } from "../../../assets/images/courageBlack";
 import { WissenBlack } from "../../../assets/images/wissenBlack";
 import { NectarBlack } from "../../../assets/images/nectarBlack";
 
+import { getCardData } from "../../../actions/cardActions"
+
 
 require("../../../assets/cssFiles/ideaCard.css")
 
-export default class IdeaCard extends React.Component{
+class IdeaCard extends React.Component{
+
+    constructor(props, context) {
+        super(props, context)
+
+        this.state = {
+            businessType : this.props.cardData.ideaType ? this.props.cardData.ideaType : "Select project type",
+            noOfImages : this.props.cardData.imageArray? this.props.cardData.imageArray.length : 0,
+            idea : this.props.cardData.shortIdea ? this.props.cardData.shortIdea : "the idea goes here",
+            robotName : this.props.cardData.robotName ? this.props.cardData.robotName : "Your name",
+            courage : this.props.cardData.userStatData ? this.props.cardData.userStatData.courage : 0,
+            wisdom : this.props.cardData.userStatData ? this.props.cardData.userStatData.wisdom : 0,
+            nectar : this.props.cardData.userStatData ? this.props.cardData.userStatData.nectar : 0,
+            color : this.props.cardData.cardColor ? this.props.cardData.cardColor : "#333333"
+        }
+    }
 
     componentDidMount(){
+        let username = {
+            robotName : localStorage.getItem('username')
+        }
 
+        this.props.getCardData(username)
+        .then(() => {
+            this.setState({
+                businessType : this.props.cardData.ideaType ? this.props.cardData.ideaType : "Select project type",
+                noOfImages : this.props.cardData.imageArray? this.props.cardData.imageArray.length : 0,
+                idea : this.props.cardData.shortIdea ? this.props.cardData.shortIdea : "the idea goes here",
+                robotName : this.props.cardData.robotName ? this.props.cardData.robotName : "Your name",
+                courage : this.props.cardData.userStatData ? this.props.cardData.userStatData.courage : 0,
+                wisdom : this.props.cardData.userStatData ? this.props.cardData.userStatData.wisdom : 0,
+                nectar : this.props.cardData.userStatData ? this.props.cardData.userStatData.nectar : 0,
+                color : this.props.cardData.cardColor ? this.props.cardData.cardColor : "#333333"
+            })
+        })
     }
 
 
@@ -25,14 +60,17 @@ export default class IdeaCard extends React.Component{
                 <div className="ideaCard">
                     <div className="ideaUpperWrap">
 
-                        <p className="ideaType" >{this.props.businessType}</p>
-                        <p >{this.props.idea}</p>
+                        <p 
+                            className="ideaType"
+                            style={{'color' : this.props.color ? this.props.color : this.state.color }}
+                            >{this.props.businessType ? this.props.businessType : this.state.businessType }</p>
+                        <p >{this.props.idea ? this.props.idea : this.state.idea }</p>
                         <div className="starRating">
                             <div className="endsInRow">
                                 <StarRating color = {"#94E8FF"} />
                                 <div className="imagesQw">
                                     <ImgIcon/>
-                                    <p>{this.props.noOfImages}</p>
+                                    <p>{this.props.noOfImages ? this.props.noOfImages : this.state.noOfImages }</p>
                                 </div>
                             </div>
                             <p id = "ratingData">Not rated yet</p>
@@ -53,20 +91,20 @@ export default class IdeaCard extends React.Component{
                         
                         <div 
                             className="avatar"
-                            style={{'borderColor':this.props.color}}
+                            style={{'borderColor': this.props.color ? this.props.color : this.state.color}}
                             >
                                 <AnonymousAvatar/>
                         </div>
                         <div 
                             className="backLine"
-                            style={{background: this.props.color}}
+                            style={{background: this.props.color ? this.props.color : this.state.color}}
                         >
                         </div>
                         <div 
                             className="userNameTemp"
-                            style={{background: this.props.color}}
+                            style={{background: this.props.color ? this.props.color : this.state.color}}
                             >
-                                <p>{this.props.robotName}</p>
+                                <p>{ this.props.robotName ? this.props.robotName : this.state.robotName}</p>
                         </div>
                         <div className="responseRate">
                             <p>Response rate</p>
@@ -91,3 +129,23 @@ export default class IdeaCard extends React.Component{
         )
     }
 }
+
+
+function mapStateToProps(state){
+    return(
+        {
+            cardData : state.updatedCardData
+        }
+    )
+}
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators(
+        {
+            getCardData
+        },
+        dispatch
+    )
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(IdeaCard)

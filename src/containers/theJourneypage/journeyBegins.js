@@ -1,4 +1,7 @@
 import React from "react"
+
+import {connect} from "react-redux"
+import {bindActionCreators} from "redux"
  
 import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
@@ -7,6 +10,10 @@ import MainStatusBar from "../startPage/mainStatusBar"
 import Confetti from "../../assets/images/confetti"
 import { NectarBlackBig } from "../../assets/images/nectarBlack-Big"
 
+import { getCardData } from "../../actions/cardActions"
+
+
+
 //typical import of gsap methods
 import {TimelineLite} from "gsap";
 
@@ -14,9 +21,12 @@ import {TimelineLite} from "gsap";
 require("../../assets/cssFiles/navbar.css")
 require("../../assets/cssFiles/journeyPage.css")
 
-export default class JourneyBegins extends React.Component{
+class JourneyBegins extends React.Component{
 
     componentDidMount(){
+
+        localStorage.setItem("username", this.props.cardData.robotName)
+
         const anim = new TimelineLite()
         anim
         .from('.congratsBigWrapper', 0.2, {opacity:0})
@@ -85,3 +95,23 @@ export default class JourneyBegins extends React.Component{
         )
     }
 }
+
+
+function mapStateToProps(state){
+    return(
+        {
+            cardData : state.updatedCardData
+        }
+    )
+}
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators(
+        {
+            getCardData
+        },
+        dispatch
+    )
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(JourneyBegins)
