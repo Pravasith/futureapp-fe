@@ -68,8 +68,6 @@ class JourneyBegins extends React.Component{
                             </div>                            
                         </div>
 
-                        
-
                         <div className="nectarAnim">
                             <NectarBlackBig/>
                             <span></span>
@@ -84,13 +82,8 @@ class JourneyBegins extends React.Component{
 
                         <NavLink to="/create-card" className="letsGo">Let's go!</NavLink>
 
-
                     </div>
-
-                    
-                    
                 </div>
-
             </div>
         )
     }

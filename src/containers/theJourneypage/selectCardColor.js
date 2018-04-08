@@ -1,7 +1,8 @@
 import React from "react"
 
-import {connect} from "react-redux"
-import {bindActionCreators} from "redux"
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import { Redirect } from 'react-router'
  
 import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
@@ -25,7 +26,8 @@ class SelectCardColor extends React.Component{
             nextBtnClass: "nextBtn",
             color : "#333333",
             paletteClass : "paletteContainer ",
-            chooseAgain : 'chooseAgain hide'
+            chooseAgain : 'chooseAgain hide',
+            redirect : false
             
         }
 
@@ -53,7 +55,7 @@ class SelectCardColor extends React.Component{
         this.props.updateCardColor({
             robotName : this.props.cardData.robotName,
             cardColor: this.state.color
-        })
+        }).then(() => this.setState({redirect: true}))
     }
 
     selectedColor(color){
@@ -164,6 +166,12 @@ class SelectCardColor extends React.Component{
 
 
     render(){
+
+        const { redirect } = this.state
+
+        if (redirect) {
+            return <Redirect to='/anonymous-or-not'/>;
+        }
 
         return(
 

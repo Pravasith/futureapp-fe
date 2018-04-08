@@ -11,7 +11,7 @@ import { TimelineLite} from "gsap";
 
 // import actions
 import { changeSlide } from "../../actions/ideaInputAction"
-import {postDataToMongoDB } from '../../actions/cardActions'
+import { postDataToMongoDB } from '../../actions/cardActions'
 import { api } from '../../actions/apiLinks'
 
 

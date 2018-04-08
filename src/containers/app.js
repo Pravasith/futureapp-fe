@@ -5,8 +5,10 @@ import Start from "./startPage/start"
 import JourneyBegins from "./theJourneypage/journeyBegins"
 import CreateCard from "./theJourneypage/createCard"
 import SelectCardColor from "./theJourneypage/selectCardColor"
+import AnonymousOrNot from "./theJourneypage/anonymousOrNot"
 
 import '../assets/cssFiles/common.css'
+
 
 class App extends React.Component{
 
@@ -22,6 +24,7 @@ class App extends React.Component{
                             <Route exact path="/journeybegins" component={JourneyBegins}/>
                             <Route exact path="/create-card" component={CreateCard}/>
                             <Route exact path="/create-card/select-color" component={SelectCardColor}/>
+                            <Route exact path="/anonymous-or-not" component={AnonymousOrNot}/>
                         </Switch>
                     }
                 

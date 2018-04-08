@@ -77,13 +77,13 @@ class IdeaCard extends React.Component{
                         </div>
                         <div className="psycoinData">
                             <PsyBill/>
-                            {/* <p>0 psybills raised</p> */}
-                            <p>Lorem ipsum dolor sit amet, consectetur ad</p>
+                            <p>0 psybills raised</p>
+                            {/* <p>Lorem ipsum dolor sit amet, consectetur ad</p> */}
                         </div>
-                        {/* <p>No one remote-working currently</p> */}
-                        <p>Lorem ipsum dolor sit amet, consectetur ad</p>
-                        {/* <p>No open remote work positions</p> */}
-                        <p>Lorem ipsum dolor sit amet, consectetur ad</p>
+                        <p>No one remote-working currently</p>
+                        {/* <p>Lorem ipsum dolor sit amet, consectetur ad</p> */}
+                        <p>No open remote work positions</p>
+                        {/* <p>Lorem ipsum dolor sit amet, consectetur ad</p> */}
 
                     </div>
                     <div className="nameAndAvatar">
@@ -114,15 +114,15 @@ class IdeaCard extends React.Component{
                     <div className="creds">
                         <div className="credWrap">
                             <CourageBlack/>
-                            <p>{this.props.courage}</p>
+                            <p>{this.props.courage ? this.props.courage : this.state.courage }</p>
                         </div>
                         <div className="credWrap">
                             <WissenBlack/>
-                            <p>{this.props.wisdom}</p>
+                            <p>{this.props.wisdom ? this.props.wisdom : this.state.wisdom }</p>
                         </div>
                         <div className="credWrap">
                             <NectarBlack/>
-                            <p>{this.props.nectar}</p>
+                            <p>{this.props.nectar ? this.props.nectar : this.state.nectar }</p>
                         </div>
                     </div>
                 </div>
