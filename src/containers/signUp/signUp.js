@@ -27,10 +27,141 @@ class SignUp extends React.Component{
         super(props, context)
 
         this.state = {
+            usernameText : null,
+            userNameClass : 'usernameText hide',
+            usernameIsValid : false,
 
+            userEmailText : null,
+            userEmailClass : 'emailText hide',
+            userEmailIsValid : false,
+
+            passwordText : null,
+            passwordClass : 'passwordText hide',
+            passwordIsValid : false,
+
+            confirmPasswordText : '',
+            confirmPasswordClass : 'confirmPasswordText hide',
+            confirmPasswordIsValid : false,
+
+            checkingForTheFirstTime: false
         }
 
+        this.validateUsername = this.validateUsername.bind(this)
+        this.validatePassword = this.validatePassword.bind(this)
+        this.validateEmail = this.validateEmail.bind(this)
+        this.validateConfirmPassword = this.validateConfirmPassword.bind(this)
 
+    }
+
+    validateAndSubmit = () => {
+        if(this.state.usernameIsValid && this.state.userEmailIsValid && this.state.passwordIsValid && this.state.confirmPasswordIsValid)
+        {
+            console.log("yes")
+        }
+    }
+
+    validateUsername(e){
+        let theInput = e.target
+
+        let nameRegex = /^[a-zA-Z0-9\-]+$/
+        let validUsername = theInput.value.match(nameRegex)
+        if(validUsername === null ){
+            this.setState({
+                usernameText: "Please keep in mind. Only alphabets A-Z, a-z, numbers 0-9 and '-' (hyphen) are  acceptable.",
+                userNameClass: 'usernameText',
+                usernameIsValid: false
+            })
+            theInput.focus()
+        }
+
+        else if(validUsername !== null && theInput.value.length < 6){
+            this.setState({
+                usernameText: "Please keep in mind. Username should contain atleast 6 characters.",
+                userNameClass: 'usernameText',
+                usernameIsValid: false
+            })
+        }
+
+        else{
+            this.setState({
+                usernameText: null,
+                userNameClass: 'usernameText hide',
+                usernameIsValid: true
+            })   
+        }
+    }
+
+    validateEmail(e){
+
+        let theInput = e.target.value
+        let nameRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+        let validEmail = nameRegex.test(theInput)
+        if (!validEmail) {
+            this.setState({
+                userEmailText: "Please keep in mind, the email address has to be valid",
+                userEmailClass: 'emailText',
+                userEmailIsValid: false
+            })
+        }
+
+        else if(validEmail && theInput.includes('.')){
+            this.setState({
+                userEmailText: null,
+                userEmailClass: 'emailText hide',
+                userEmailIsValid: true
+            })
+        }
+
+        else{
+            this.setState({
+                userEmailText: "Please keep in mind, the email address has to be valid",
+                userEmailClass: 'emailText',
+                userEmailIsValid: false
+            })
+        }
+    }
+
+    validatePassword(e){
+        let theInput = e.target.value
+        
+        if(theInput.length < 6){
+            this.setState({
+                passwordText: "Please keep in mind, the password has to be atleast 6 characters long.",
+                passwordClass: 'passwordText',
+                passwordIsValid: false
+            })
+
+        }
+        else{
+            this.setState({
+                passwordText: null,
+                passwordClass: 'passwordText hide',
+                passwordIsValid: true
+            })
+
+        }
+        
+    }
+
+    validateConfirmPassword(e){
+        let theInput = e.target.value
+        if(theInput !== this.refs.password.value){
+            this.setState({
+                confirmPasswordText: "Keep in mind, both passwords should match",
+                confirmPasswordClass: 'confirmPasswordText',
+                confirmPasswordIsValid: false
+            })
+
+        }
+        else{
+            this.setState({
+                confirmPasswordText: null,
+                confirmPasswordClass: 'confirmPasswordText hide',
+                confirmPasswordIsValid: true
+            })
+
+        }
+        
     }
 
 
@@ -70,44 +201,48 @@ class SignUp extends React.Component{
                                         ref="userName"
                                         type="text"
                                         placeholder="Type your username here"
-                                        // onChange={this.handleChange}
+                                        onChange={this.validateUsername}
                                     />
                                     <p 
-                                        // className = {this.state.displayPara} 
-                                    >Please enter a valid email id</p>
+                                        className = {this.state.userNameClass} 
+                                    > { this.state.usernameText } </p>
                                     <span></span>
                                     <input
                                         ref="emailId"
                                         type="text"
                                         placeholder="Type your email address here"
-                                        // onChange={this.handleChange}
+                                        onChange={this.validateEmail}
                                     />
                                     <p 
-                                        // className = {this.state.displayPara} 
-                                    >Please enter a valid email id</p>
+                                        className = {this.state.userEmailClass}
+                                    > { this.state.userEmailText } </p>
                                     <span></span>
                                     <input
                                         ref="password"
-                                        type="text"
+                                        type="password"
                                         placeholder="Type your password here"
-                                        // onChange={this.handleChange}
+                                        onChange={this.validatePassword}
                                     />
                                     <p 
-                                        // className = {this.state.displayPara} 
-                                    >Please enter a valid email id</p>
+                                        className = {this.state.passwordClass}
+                                    > { this.state.passwordText } </p>
                                     <span></span>
                                     <input
                                         ref="confirmPassword"
-                                        type="text"
+                                        type="password"
                                         placeholder="Type your password again"
-                                        // onChange={this.handleChange}
+                                        onChange={this.validateConfirmPassword}
                                     />
                                     <p 
-                                        // className = {this.state.displayPara} 
-                                    >Please enter a valid email id</p>
+                                        className = {this.state.confirmPasswordClass}
+                                    > { this.state.confirmPasswordText } </p>
                                     <span></span>
 
-                                    <div className="sendBtn">Go</div>
+                                    <div 
+                                    className="sendBtn"
+                                    onClick={() => this.validateAndSubmit()}
+                                    
+                                    >Go</div>
                                 </div>
 
                                 <div className="orSplit"><h2>OR</h2></div>
@@ -119,14 +254,14 @@ class SignUp extends React.Component{
                                             <FacebookIcon/>
                                         </div>
                                         <span></span>
-                                        <div className="socialNetworkText">Connect with facebook</div>
+                                        <div className="socialNetworkText">Connect with Facebook</div>
                                     </div>
                                     <div className="googleConnect flexRowDiv">
                                         <div className="googleIcon">
                                             <GoogleIcon/>
                                         </div>
                                         <span></span>
-                                        <div className="socialNetworkText">Connect with google</div>
+                                        <div className="socialNetworkText">Connect with Google</div>
                                     
                                     </div>
                                     <div className="linkedInConnect flexRowDiv">
@@ -134,7 +269,7 @@ class SignUp extends React.Component{
                                             <LinkedInIcon/>
                                         </div>
                                         <span></span>
-                                        <div className="socialNetworkText">Connect with linked</div>
+                                        <div className="socialNetworkText">Connect with LinkedIn</div>
                                     
                                     </div>
                                 </div>
