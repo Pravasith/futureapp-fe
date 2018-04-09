@@ -86,7 +86,11 @@ class AnonymousOrNot extends React.Component{
                                     <span></span>
 
                                     <div className="theButtons">
-                                        <div className="yesBtn">Yes, make me anonymous</div>
+                                        <NavLink 
+                                            className="yesBtn"
+                                            to="/anonymous-provide-email"
+                                        >Yes, make me anonymous</NavLink>
+
                                         <div className="noBtn">No, use my real name</div>
                                     </div>
                                     

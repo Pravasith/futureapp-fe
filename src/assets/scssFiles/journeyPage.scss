@@ -102,6 +102,8 @@
 
 // create card start 
 
+
+
 .cardScreen{
     @include flexCentreRow;
     .leftScr{
@@ -328,7 +330,7 @@
             display: none;
         }
 
-        // Anonymous ot not screen styles
+        // Anonymous or not screen styles
 
         .anonymousOrNotWrapper{
             @include flexCentreCol;
@@ -386,7 +388,7 @@
                 }
 
                 .noBtn{
-                    background: linear-gradient(to right, #94E8FF, #FF94F3);
+                    background: linear-gradient(to right, #94E8FF, $secondaryMagenta);
                     color: $white;
                     border-color: $white;
                     &:hover{
@@ -395,6 +397,77 @@
                     }
                 }
             }
+        }
+
+        // provide email styles
+
+        .provideEmailScr{
+
+            span{
+                width:  1em;
+                height: 1em;
+            }
+
+            h2{
+                font-size: 1.5em;
+                font-weight: 600;
+                color: $secondaryMagenta;
+                text-align: center;
+            }
+
+            input{
+                background: $darkGrey;
+                color: $secondaryMagenta;
+                padding: 0.3em 1em;
+                border: none;
+                width: 70%;
+                outline: none;
+                border-radius: 0.5em;
+                // border-bottom-left-radius: 0.5em;
+            }
+
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $secondaryMagenta;
+                opacity: 1; /* Firefox */
+            }
+
+            p{
+                padding: 0.5em;
+                color: red;
+            }
+
+            .hide{
+                display: none;
+            }
+
+            .sendButton{
+    
+                &:hover {
+                    text-decoration: none;
+                }
+    
+                @include bigButtonPlain;
+                @include flexCentreRow;
+                    padding: 1em;
+                    border-color: $mediumGrey;
+                    box-shadow: none;
+                    color: $mediumGrey;
+                    font-weight: 600;
+                    background: $white;
+                    transition: 0.2s;
+                    text-align: center;
+                    padding: 1.5em;
+                    line-height: 1em;
+    
+                    &:hover{
+                        border-color: $secondaryMagenta;
+                        color: $secondaryMagenta;
+                    }
+                    // display: none;
+        
+            }
+
+
         }
         
 

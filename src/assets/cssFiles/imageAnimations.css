@@ -1,0 +1,55 @@
+/* The animation code */
+@-webkit-keyframes upAndDown {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); }
+  50% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px); }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); } }
+@keyframes upAndDown {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); }
+  50% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px); }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); } }
+
+@-webkit-keyframes scaleYHighAndLow {
+  0% {
+    -webkit-transform: scaleY(0.95);
+    transform: scaleY(0.95); }
+  50% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); }
+  100% {
+    -webkit-transform: scaleY(0.95);
+    transform: scaleY(0.95); } }
+
+@keyframes scaleYHighAndLow {
+  0% {
+    -webkit-transform: scaleY(0.95);
+    transform: scaleY(0.95); }
+  50% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); }
+  100% {
+    -webkit-transform: scaleY(0.95);
+    transform: scaleY(0.95); } }
+
+/* The element to apply the animation to */
+#shakeHands {
+  -webkit-animation: upAndDown 1.5s infinite;
+  animation: upAndDown 1.5s infinite; }
+
+#botBgd {
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-animation: scaleYHighAndLow 2s infinite;
+  animation: scaleYHighAndLow 2s infinite; }

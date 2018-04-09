@@ -170,7 +170,7 @@ class SelectCardColor extends React.Component{
         const { redirect } = this.state
 
         if (redirect) {
-            return <Redirect to='/anonymous-or-not'/>;
+            return <Redirect to='/sign-up'/>;
         }
 
         return(
