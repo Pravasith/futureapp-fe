@@ -8,6 +8,7 @@ import theSlideData from './ideaReducer'
 import overAllData from './imageArrayReducer'
 import businessTypes from './appDataReducer'
 import { updateProjectType, updatedCardData } from './cardDataReducer'
+import { createUser } from './userDetailReducer'
 
 const allReducers = combineReducers({
     introText,
@@ -19,7 +20,8 @@ const allReducers = combineReducers({
     overAllData,
     businessTypes,
     updateProjectType,
-    updatedCardData
+    updatedCardData,
+    createUser
 
 })
 

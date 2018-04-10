@@ -15,3 +15,14 @@ export function userDetailReducer(state = {
     }
     return state
 }
+
+export function createUser(state = {
+    }, action){
+
+switch(action.type){
+    case "UPDATE_USER_DATA":
+    return action.payload
+
+}
+return state
+}

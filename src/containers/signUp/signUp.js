@@ -7,6 +7,8 @@ import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
+import { registerNewUser } from '../../actions/userActions'
+
 
 
 //typical import of gsap methods
@@ -56,7 +58,16 @@ class SignUp extends React.Component{
     validateAndSubmit = () => {
         if(this.state.usernameIsValid && this.state.userEmailIsValid && this.state.passwordIsValid && this.state.confirmPasswordIsValid)
         {
-            console.log("yes")
+            
+            const theData = {
+                username : this.refs.userName.value,
+                password : this.refs.pWord.value,
+                emailId : this.refs.emailAddress.value,
+                cardsArray : [{...this.props.cardData}],
+            }
+            console.log(theData)
+            this.props.registerNewUser(theData)
+            // .then(() => )
         }
     }
 
@@ -145,7 +156,7 @@ class SignUp extends React.Component{
 
     validateConfirmPassword(e){
         let theInput = e.target.value
-        if(theInput !== this.refs.password.value){
+        if(theInput !== this.refs.pWord.value){
             this.setState({
                 confirmPasswordText: "Keep in mind, both passwords should match",
                 confirmPasswordClass: 'confirmPasswordText',
@@ -208,7 +219,7 @@ class SignUp extends React.Component{
                                     > { this.state.usernameText } </p>
                                     <span></span>
                                     <input
-                                        ref="emailId"
+                                        ref="emailAddress"
                                         type="text"
                                         placeholder="Type your email address here"
                                         onChange={this.validateEmail}
@@ -218,7 +229,7 @@ class SignUp extends React.Component{
                                     > { this.state.userEmailText } </p>
                                     <span></span>
                                     <input
-                                        ref="password"
+                                        ref="pWord"
                                         type="password"
                                         placeholder="Type your password here"
                                         onChange={this.validatePassword}
@@ -288,7 +299,8 @@ class SignUp extends React.Component{
 function mapStateToProps(state){
     return(
         {
-            cardData : state.updatedCardData
+            cardData : state.updatedCardData,
+            createUser : state.createUser
         }
     )
 }
@@ -296,7 +308,7 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
-            // updateCardColor
+            registerNewUser
         },
         dispatch
     )

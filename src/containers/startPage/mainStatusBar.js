@@ -6,7 +6,7 @@ import {bindActionCreators} from "redux"
 import {TimelineLite} from "gsap";
 
 import {statusAction} from "../../actions/statusLevelActions"
-import { fetchUserData } from "../../actions/fetchUserData"
+import { fetchUserData } from "../../actions/userActions"
  
 class MainStatusBar extends React.Component{
 
