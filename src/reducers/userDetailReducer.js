@@ -5,7 +5,10 @@ export function userDetailReducer(state = {
 
     switch(action.type){
         case "FETCH_USER_DATA":
-        return action.payload
+        return {
+            ...state,
+            ...action.payload
+        }
 
     }
     return state
@@ -16,7 +19,10 @@ export function createUser(state = {
 
 switch(action.type){
     case "UPDATE_USER_DATA":
-    return action.payload
+    return {
+        ...state,
+        ...action.payload
+    }
 
 }
 return state

@@ -2,12 +2,15 @@ import React from "react"
 
 import {connect} from "react-redux"
 import {bindActionCreators} from "redux"
+
+
  
 import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
 import { updateCardColor } from '../../actions/cardActions'
+import { fetchUserData } from '../../actions/userActions'
 
 //typical import of gsap methods
 import {TimelineLite} from "gsap"
@@ -16,6 +19,8 @@ import { CourageBlack } from "../../assets/images/courageBlack"
 import { Psydog } from "../../assets/images/psydog"
 import { SendRocket } from "../../assets/images/sendRocket"
 
+const nacl = require('tweetnacl')
+nacl.util = require('tweetnacl-util')
 
 require("../../assets/cssFiles/journeyPage.css")
 
@@ -28,8 +33,22 @@ class AnonymousProvideEmail extends React.Component{
             displayPara : 'displayPara hide',
             isValid : false,
             count : 0,
-            firstTime : true
+            firstTime : true,
+            email: this.props.userDetails.emailId
         }
+
+        this.props.fetchUserData(localStorage.getItem('realUsername'))
+        .then(() => {
+            
+            this.refs.emailId.value = this.props.userDetails.emailId
+            // decrypt data 
+            // use cardsData inplace of encrypted data string
+            // Decodes Base-64 encoded string and returns Uint8Array of bytes.
+            let key = nacl.util.decodeBase64('LTEBAPrZfUvTCFT0DVHVq0hdJPMcz2T+E17xq3uYQzw=')
+            let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.userDetails.cardsData), nacl.util.decodeBase64(this.props.userDetails.encryptedKey), key)
+            let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
+            console.log(decryptedData)
+        })
 
         this.handleChange = this.handleChange.bind(this)
         this.checkAndSend = this.checkAndSend.bind(this)
@@ -48,10 +67,15 @@ class AnonymousProvideEmail extends React.Component{
     }
 
     componentDidMount(){
+        
+        
     }
 
 
     handleChange(e){
+
+        
+
         let theEmail = e.target.value
 
         var rea = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
@@ -70,6 +94,13 @@ class AnonymousProvideEmail extends React.Component{
     }
 
     render(){
+
+
+
+
+        
+
+        
 
         return(
 
@@ -92,13 +123,14 @@ class AnonymousProvideEmail extends React.Component{
                                 <div className="provideEmailScr flexColDiv">
                                     <Psydog/>
                                     <span></span>
-                                    <h2>Your anonymous secret encrypted key (ASEK) will be sent to you via email. Please provide your email id. (Your email id will never be displayed in public)</h2>
+                                    <h2>Your anonymous secret encrypted key (ASEK) will be sent to you via email. Is this your email id?</h2>
                                     <span></span>
                                     <input
                                         ref="emailId"
                                         type="text"
                                         placeholder="Type your email address here"
                                         onChange={this.handleChange}
+                                        // value={this.state.email}
                                     />
                                     <p className = {this.state.displayPara} >Please enter a valid email id</p>
                                     <span></span>
@@ -129,7 +161,8 @@ class AnonymousProvideEmail extends React.Component{
 function mapStateToProps(state){
     return(
         {
-            cardData : state.updatedCardData
+            cardData : state.updatedCardData,
+            userDetails :state.userDetails
         }
     )
 }
@@ -137,7 +170,7 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
-            updateCardColor
+            fetchUserData
         },
         dispatch
     )

@@ -3,17 +3,15 @@ import React from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
  
-import { Navbar } from "../../components/navbar"
+
 import { NavLink } from 'react-router-dom'
+import { Redirect } from 'react-router'
+
+import { Navbar } from "../../components/navbar"
 import MainStatusBar from "../startPage/mainStatusBar"
 
 import { registerNewUser, fetchUserData } from '../../actions/userActions'
 import { getCardData, deleteCardData } from '../../actions/cardActions'
-
-
-
-
-
 
 
 //typical import of gsap methods
@@ -50,7 +48,9 @@ class SignUp extends React.Component{
             confirmPasswordClass : 'confirmPasswordText hide',
             confirmPasswordIsValid : false,
 
-            checkingForTheFirstTime: false
+            checkingForTheFirstTime: false,
+
+            redirect : false
         }
 
         this.validateUsername = this.validateUsername.bind(this)
@@ -98,11 +98,12 @@ class SignUp extends React.Component{
                     })
                 }
 
-                else{
+                if(!this.props.createUser.itsTaken){
                     this.props.fetchUserData(theData.username)
                     .then(() => {
+                        localStorage.setItem("realUsername", this.props.userDetails.username)
                         this.props.deleteCardData(robotname)
-                        .then(() => console.log(this.props.cardData))
+                        .then(() => this.setState({ redirect: true }))
                     })
                     .catch((err) => console.error(err))
                 }
@@ -234,6 +235,12 @@ class SignUp extends React.Component{
 
 
     render(){
+
+        const { redirect } = this.state
+
+        if (redirect) {
+            return <Redirect to='/anonymous-provide-email'/>
+        }
 
 
         return(

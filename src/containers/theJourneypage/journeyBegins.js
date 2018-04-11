@@ -25,7 +25,12 @@ class JourneyBegins extends React.Component{
 
     componentDidMount(){
 
+        if(this.props.cardData.robotName)
         localStorage.setItem("username", this.props.cardData.robotName)
+
+        console.log(localStorage.getItem("username"))
+        this.props.getCardData({robotName: localStorage.getItem("username")})
+        // .then(() => )
 
         const anim = new TimelineLite()
         anim

@@ -20,6 +20,8 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "tweetnacl": "^1.0.0",
+    "tweetnacl-util": "^0.15.0",
     "universal-cookie": "^2.1.2"
   },
   "scripts": {
