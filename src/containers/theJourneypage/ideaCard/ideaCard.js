@@ -51,6 +51,9 @@ class IdeaCard extends React.Component{
                 color : this.props.cardData.cardColor ? this.props.cardData.cardColor : "#333333"
             })
         })
+        .catch((err) => {
+            console.error(err)
+        }) 
     }
 
 

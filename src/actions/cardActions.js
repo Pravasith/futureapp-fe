@@ -4,6 +4,7 @@ import axios from 'axios'
 
 export const UPDATE_PROJECT_TYPE = "UPDATE_PROJECT_TYPE"
 export const UPDATE_CARD_DATA = "UPDATE_CARD_DATA"
+export const DELETE_CARD_DATA = "DELETE_CARD_DATA"
 
 
 export function updateProjectData(projectTypeAndName) {
@@ -97,9 +98,34 @@ export function getCardData(robotName) {
 }
 
 
-
-
-
+export function deleteCardData(robotName) {
+    return dispatch => {
+        return axios.delete(api.DELETE_CARD_DATA, {
+            data: robotName
+        }, 
+            {
+                headers: {
+                'accept': 'application/json',
+                'Accept-Language': 'en-US,en;q=0.8',
+                "Content-Type": "application/json"
+                }
+            }
+        )
+        .then(res => {
+            console.log(res.data)
+            dispatch({
+                // type: UPDATE_PROJECT_TYPE,
+                type: UPDATE_CARD_DATA,
+                // payload: res.data
+                payload: {}
+            })
+        })
+        .catch(err => {
+            console.error(err)
+            throw err
+        })
+    }
+}
 
 
 

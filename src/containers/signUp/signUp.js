@@ -1,13 +1,18 @@
 import React from "react"
 
-import {connect} from "react-redux"
-import {bindActionCreators} from "redux"
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
  
 import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
-import { registerNewUser } from '../../actions/userActions'
+import { registerNewUser, fetchUserData } from '../../actions/userActions'
+import { getCardData, deleteCardData } from '../../actions/cardActions'
+
+
+
+
 
 
 
@@ -65,9 +70,45 @@ class SignUp extends React.Component{
                 emailId : this.refs.emailAddress.value,
                 cardsArray : [{...this.props.cardData}],
             }
-            console.log(theData)
+
+            let robotname = {
+                robotName : localStorage.getItem('username')
+            }
+
+            // console.log(robotname)
+
+            
             this.props.registerNewUser(theData)
-            // .then(() => )
+            .then(() => {
+                if(this.props.createUser.itsTaken && this.props.createUser.exists === 'Someone has already taken the username'){
+                    // console.log(this.props.createUser.exists)
+                    this.setState({
+                        usernameText: this.props.createUser.exists,
+                        userNameClass: 'usernameText',
+                        usernameIsValid: false
+                    })
+                }
+
+                if(this.props.createUser.itsTaken && this.props.createUser.exists === 'Someone has already taken the email'){
+                    // console.log(this.props.createUser.exists)
+                    this.setState({
+                        userEmailText: this.props.createUser.exists,
+                        userEmailClass: 'usernameText',
+                        userEmailIsValid: false,
+                    })
+                }
+
+                else{
+                    this.props.fetchUserData(theData.username)
+                    .then(() => {
+                        this.props.deleteCardData(robotname)
+                        .then(() => console.log(this.props.cardData))
+                    })
+                    .catch((err) => console.error(err))
+                }
+                
+            })
+            .catch((err) => console.error(err))
         }
     }
 
@@ -177,20 +218,31 @@ class SignUp extends React.Component{
 
 
     componentDidMount(){
+        let username = {
+            robotName : localStorage.getItem('username')
+        }
+
+
+        this.props.getCardData(username)
+        .then(() => {
+            this.props.cardData
+        })
+        .catch((err) => {
+            console.error(err)
+        }) 
     }
 
 
     render(){
 
+
         return(
-
-
             <div className="screenWrapper" >
                 <Navbar/>
 
                 <div className="rightScreenContainer">
                     <div className="statusBarContainer" >
-                    <MainStatusBar/>
+                    <MainStatusBar  />
                     </div>
 
                     <div className="focusScreen">
@@ -300,7 +352,8 @@ function mapStateToProps(state){
     return(
         {
             cardData : state.updatedCardData,
-            createUser : state.createUser
+            createUser : state.createUser,
+            userDetails : state.userDetails
         }
     )
 }
@@ -308,7 +361,10 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
-            registerNewUser
+            registerNewUser,
+            fetchUserData,
+            getCardData,
+            deleteCardData
         },
         dispatch
     )

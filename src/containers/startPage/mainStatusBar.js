@@ -28,14 +28,25 @@ class MainStatusBar extends React.Component{
 
     componentDidMount(){
 
-        this.props.fetchUserData() // gets user data from backend
-        .then(() => {
-            this.fillStatusBar(
-                // Put in the level in the next line to animate 
-                // the status bar according to that ex. 5 or 4 or 8 etc.
-                this.props.userDetails.statusBarLevel 
-            )
-        })
+        // this.props.fetchUserData() // gets user data from backend
+        // .then(() => {
+        //     this.fillStatusBar(
+        //         // Put in the level in the next line to animate 
+        //         // the status bar according to that ex. 5 or 4 or 8 etc.
+        //         this.props.statusBarLevel ? this.props.statusBarLevel : 1
+        //     )
+        // })
+        // .catch((err) => this.fillStatusBar(
+        //         // Put in the level in the next line to animate 
+        //         // the status bar according to that ex. 5 or 4 or 8 etc.
+        //         this.props.statusBarLevel ? this.props.statusBarLevel : 1
+        // ))
+
+        this.fillStatusBar(
+            // Put in the level in the next line to animate 
+            // the status bar according to that ex. 5 or 4 or 8 etc.
+            this.props.statusBarLevel ? this.props.statusBarLevel : 1
+        )
 
     }
 
