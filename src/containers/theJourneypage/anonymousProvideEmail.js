@@ -3,8 +3,8 @@ import React from "react"
 import {connect} from "react-redux"
 import {bindActionCreators} from "redux"
 
+import { crack } from '../.././config'
 
- 
 import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
@@ -34,20 +34,30 @@ class AnonymousProvideEmail extends React.Component{
             isValid : false,
             count : 0,
             firstTime : true,
-            email: this.props.userDetails.emailId
+            cardData : null,
+            userData : null,
+            
         }
 
-        this.props.fetchUserData(localStorage.getItem('realUsername'))
+        this.props.fetchUserData(localStorage.getItem('id'))
         .then(() => {
-            
+
             this.refs.emailId.value = this.props.userDetails.emailId
-            // decrypt data 
+            // decrypt data
             // use cardsData inplace of encrypted data string
             // Decodes Base-64 encoded string and returns Uint8Array of bytes.
-            let key = nacl.util.decodeBase64('LTEBAPrZfUvTCFT0DVHVq0hdJPMcz2T+E17xq3uYQzw=')
+            let key = nacl.util.decodeBase64(crack)
             let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.userDetails.cardsData), nacl.util.decodeBase64(this.props.userDetails.encryptedKey), key)
             let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
-            console.log(decryptedData)
+            console.log(decryptedData) 
+
+            if( Object.keys(decryptedData[0]).length === 0 && decryptedData[0].constructor === Object ){}
+
+            else
+            this.setState({
+                cardData : {...decryptedData[0]},
+                userData : this.props.userDetails
+            })
         })
 
         this.handleChange = this.handleChange.bind(this)
@@ -67,14 +77,10 @@ class AnonymousProvideEmail extends React.Component{
     }
 
     componentDidMount(){
-        
-        
     }
 
 
     handleChange(e){
-
-        
 
         let theEmail = e.target.value
 
@@ -90,21 +96,11 @@ class AnonymousProvideEmail extends React.Component{
             this.setState({ displayPara : "displayPara hide" })
         }
         
-
     }
 
     render(){
 
-
-
-
-        
-
-        
-
         return(
-
-
             <div className="screenWrapper" >
                 <Navbar/>
 
@@ -117,7 +113,16 @@ class AnonymousProvideEmail extends React.Component{
                         <div className="cardScreen">
                             <div className="leftScr">
                                 <h2>Your Idea card</h2>
-                                <IdeaCard/>
+                                <IdeaCard
+                                    businessType={this.state.cardData ? this.state.cardData.ideaType : "Loading your project type"}
+                                    noOfImages = {this.state.cardData ? this.state.cardData.imageArray.length : 0}
+                                    idea = {this.state.cardData ? this.state.cardData.shortIdea : "Loading your idea"}
+                                    robotName = {this.state.cardData ? this.state.cardData.robotName : "Just a min"}
+                                    courage = {this.state.cardData ? this.state.cardData.userStatData.courage : 0}
+                                    wisdom = {this.state.cardData ? this.state.cardData.userStatData.wisdom : 0}
+                                    nectar = {this.state.cardData ? this.state.cardData.userStatData.nectar : 0}
+                                    color = {this.state.cardData ? this.state.cardData.cardColor : "#333333"}
+                                />
                             </div>
                             <div className="rightScr">
                                 <div className="provideEmailScr flexColDiv">

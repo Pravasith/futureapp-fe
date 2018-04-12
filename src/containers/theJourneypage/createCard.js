@@ -199,13 +199,13 @@ class CreateCard extends React.Component{
                             <div className="leftScr">
                                 <h2>Your Idea card</h2>
                                 <IdeaCard
-                                    businessType={this.state.businessType ? this.state.businessType : "Select project type"}
-                                    noOfImages = {this.props.cardData.imageArray? this.props.cardData.imageArray.length : 0}
-                                    idea = {this.props.cardData.shortIdea ? this.props.cardData.shortIdea : "the idea goes here"}
-                                    robotName = {this.props.cardData.robotName ? this.props.cardData.robotName : "Your name"}
-                                    courage = {this.props.cardData.userStatData ? this.props.cardData.userStatData.courage : 0}
-                                    wisdom = {this.props.cardData.userStatData ? this.props.cardData.userStatData.wisdom : 0}
-                                    nectar = {this.props.cardData.userStatData ? this.props.cardData.userStatData.nectar : 0}
+                                    businessType    =    {this.state.businessType ? this.state.businessType : "Select project type"}
+                                    noOfImages      =    {this.props.cardData.imageArray? this.props.cardData.imageArray.length : 0}
+                                    idea            =    {this.props.cardData.shortIdea ? this.props.cardData.shortIdea : "the idea goes here"}
+                                    robotName       =    {this.props.cardData.robotName ? this.props.cardData.robotName : "Your name"}
+                                    courage         =    {this.props.cardData.userStatData ? this.props.cardData.userStatData.courage : 0}
+                                    wisdom          =    {this.props.cardData.userStatData ? this.props.cardData.userStatData.wisdom : 0}
+                                    nectar          =    {this.props.cardData.userStatData ? this.props.cardData.userStatData.nectar : 0}
 
                                 />
                             </div>

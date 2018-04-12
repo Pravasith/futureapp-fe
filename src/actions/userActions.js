@@ -6,11 +6,13 @@ export const FETCH_USER_DATA = "FETCH_USER_DATA"
 export const UPDATE_USER_DATA = "UPDATE_USER_DATA"
 
 
-export function fetchUserData(username) {
+export function fetchUserData(id) {
+
+    
 
     return (dispatch) => {
 
-        return axios.post(api.GET_USER_DATA, { username },
+        return axios.post(api.GET_USER_DATA, { id },
             {
                 headers: {
                 'accept': 'application/json',

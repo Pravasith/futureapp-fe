@@ -18,12 +18,9 @@ import { getCardData, deleteCardData } from '../../actions/cardActions'
 import {TimelineLite} from "gsap"
 import IdeaCard from '../theJourneypage/ideaCard/ideaCard'
 import { ShakeHands } from "../../assets/images/shakeHands";
-import { FacebookIcon, GoogleIcon, LinkedInIcon } from "../../assets/images/socialNetworkIcons";
+import { GoogleIcon, LinkedInIcon } from "../../assets/images/socialNetworkIcons";
 
 import '../../assets/cssFiles/signUp.css'
-
-
-
 
 
 class SignUp extends React.Component{
@@ -44,7 +41,7 @@ class SignUp extends React.Component{
             passwordClass : 'passwordText hide',
             passwordIsValid : false,
 
-            confirmPasswordText : '',
+            confirmPasswordText : null,
             confirmPasswordClass : 'confirmPasswordText hide',
             confirmPasswordIsValid : false,
 
@@ -57,6 +54,9 @@ class SignUp extends React.Component{
         this.validatePassword = this.validatePassword.bind(this)
         this.validateEmail = this.validateEmail.bind(this)
         this.validateConfirmPassword = this.validateConfirmPassword.bind(this)
+
+        
+        
 
     }
 
@@ -77,7 +77,6 @@ class SignUp extends React.Component{
 
             // console.log(robotname)
 
-            
             this.props.registerNewUser(theData)
             .then(() => {
                 if(this.props.createUser.itsTaken && this.props.createUser.exists === 'Someone has already taken the username'){
@@ -99,9 +98,11 @@ class SignUp extends React.Component{
                 }
 
                 if(!this.props.createUser.itsTaken){
-                    this.props.fetchUserData(theData.username)
+                    
+                    this.props.fetchUserData(this.props.createUser._id)
                     .then(() => {
-                        localStorage.setItem("realUsername", this.props.userDetails.username)
+                        
+                        localStorage.setItem("id", this.props.userDetails._id)
                         this.props.deleteCardData(robotname)
                         .then(() => this.setState({ redirect: true }))
                     })
@@ -319,14 +320,12 @@ class SignUp extends React.Component{
 
                                 <div className="socialNetworksForm">
                                     <h2>Click one of the buttons below to sign up through social networking sites</h2>
-                                    <div className="facebookConnect flexRowDiv">
-                                        <div className="fbIcon">
-                                            <FacebookIcon/>
-                                        </div>
-                                        <span></span>
-                                        <div className="socialNetworkText">Connect with Facebook</div>
-                                    </div>
-                                    <div className="googleConnect flexRowDiv">
+                                    
+                                    <div 
+                                        className="googleConnect flexRowDiv"
+                                        onClick = {() => window.open('http://localhost:8000/knock/google')}
+                                        
+                                        >
                                         <div className="googleIcon">
                                             <GoogleIcon/>
                                         </div>
@@ -334,7 +333,10 @@ class SignUp extends React.Component{
                                         <div className="socialNetworkText">Connect with Google</div>
                                     
                                     </div>
-                                    <div className="linkedInConnect flexRowDiv">
+                                    <div 
+                                        className="linkedInConnect flexRowDiv"
+                                        onClick = {() => window.open('http://localhost:8000/knock/linkedin')}
+                                        >
                                         <div className="linkedInIcon">
                                             <LinkedInIcon/>
                                         </div>
