@@ -2,6 +2,7 @@ import React from "react"
 
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
+import axios from 'axios'
  
 
 import { NavLink } from 'react-router-dom'
@@ -234,6 +235,23 @@ class SignUp extends React.Component{
         }) 
     }
 
+    handleLinkedin = () => {
+
+          axios.post('http://localhost:8000/api/user/login-linkedin-user', {cardsArray : [this.props.cardData]},  {
+            headers: {
+                'accept': 'application/json',
+                'Accept-Language': 'en-US,en;q=0.8',
+                "Content-Type": "application/json",
+                },
+                withCredentials: true
+          })
+          .then(response => console.log(response))
+          .catch(e => console.error(e))
+        
+    }
+
+
+
 
     render(){
 
@@ -323,7 +341,8 @@ class SignUp extends React.Component{
                                     
                                     <div 
                                         className="googleConnect flexRowDiv"
-                                        onClick = {() => window.open('http://localhost:8000/knock/google')}
+                                        // onClick = {() => window.open('http://localhost:8000/knock/google')}
+                                        onClick = {() => this.handleLinkedin()}
                                         
                                         >
                                         <div className="googleIcon">
@@ -335,7 +354,9 @@ class SignUp extends React.Component{
                                     </div>
                                     <div 
                                         className="linkedInConnect flexRowDiv"
+                                        // type = "in/Login"
                                         onClick = {() => window.open('http://localhost:8000/knock/linkedin')}
+                                        // onClick = {() => this.handleLinkedin()}
                                         >
                                         <div className="linkedInIcon">
                                             <LinkedInIcon/>
@@ -344,6 +365,8 @@ class SignUp extends React.Component{
                                         <div className="socialNetworkText">Connect with LinkedIn</div>
                                     
                                     </div>
+
+                                    
                                 </div>
                             </div>
                             
