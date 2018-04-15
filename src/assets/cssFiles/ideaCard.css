@@ -115,6 +115,7 @@
         color: #8CC63F; }
     .ideaCard .nameAndAvatar .avatar {
       left: 1em;
+      bottom: 0.2em;
       position: relative;
       border: 0.3em solid;
       border-color: #a5a5a5;
@@ -132,11 +133,15 @@
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      width: -webkit-fit-content;
-      width: -moz-fit-content;
-      width: fit-content;
-      padding: 0.2em;
-      border-radius: 100em; }
+      width: 4.2em;
+      height: 4.2em;
+      border-radius: 5em;
+      padding: 0.2em; }
+      .ideaCard .nameAndAvatar .avatar img {
+        width: 3.8em;
+        height: 3.8em;
+        border-radius: 3.6em;
+        position: absolute; }
     .ideaCard .nameAndAvatar .userNameTemp {
       position: relative;
       left: 6.3em;

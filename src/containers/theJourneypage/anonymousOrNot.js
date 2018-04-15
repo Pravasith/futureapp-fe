@@ -31,6 +31,8 @@ class AnonymousOrNot extends React.Component{
 
         this.state = {
             cardData : null,
+            profilePicture : null,
+            name : "Loading name"
         }
     }
 
@@ -62,6 +64,8 @@ class AnonymousOrNot extends React.Component{
                     {
                         this.setState({
                             cardData : {...decryptedData[0]},
+                            profilePicture : this.props.createUser.profilePicture,
+                            name : this.props.createUser.firstName
                         })
                     }
                 })
@@ -86,6 +90,8 @@ class AnonymousOrNot extends React.Component{
                     {
                         this.setState({
                             cardData : {...decryptedData[0]},
+                            profilePicture : this.props.createUser.profilePicture,
+                            name : this.props.createUser.firstName
                         })
                     }
                 })
@@ -98,6 +104,30 @@ class AnonymousOrNot extends React.Component{
         .catch((err) => {
             console.error(err)
         }) 
+    }
+
+    showAnonymousProfile = () => {
+         // decrypt data
+        // use cardsData inplace of encrypted data string
+        // Decodes Base-64 encoded string and returns Uint8Array of bytes.
+        let key = nacl.util.decodeBase64(crack)
+        let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.createUser.cardsData), nacl.util.decodeBase64(this.props.createUser.encryptedKey), key)
+        let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
+
+        if( Object.keys(decryptedData[0]).length === 0 && decryptedData[0].constructor === Object ){}
+
+        else
+        this.setState({
+            name : decryptedData[0].robotName,
+            profilePicture : null
+        })
+    }
+
+    showRealProfile = () => {
+        this.setState({
+            name : this.props.createUser.firstName,
+            profilePicture : this.props.createUser.profilePicture
+        })
     }
 
 
@@ -123,11 +153,12 @@ class AnonymousOrNot extends React.Component{
                                     businessType={this.state.cardData ? this.state.cardData.ideaType : "Loading your project type"}
                                     noOfImages = {this.state.cardData ? this.state.cardData.imageArray.length : 0}
                                     idea = {this.state.cardData ? this.state.cardData.shortIdea : "Loading your idea"}
-                                    robotName = {this.state.cardData ? this.state.cardData.robotName : "Just a min"}
+                                    robotName = {this.state.name}
                                     courage = {this.state.cardData ? this.state.cardData.userStatData.courage : 0}
                                     wisdom = {this.state.cardData ? this.state.cardData.userStatData.wisdom : 0}
                                     nectar = {this.state.cardData ? this.state.cardData.userStatData.nectar : 0}
                                     color = {this.state.cardData ? this.state.cardData.cardColor : "#333333"}
+                                    profilePicture = {this.state.profilePicture}
                                 
                                 />
                             </div>
@@ -169,9 +200,16 @@ class AnonymousOrNot extends React.Component{
                                         <NavLink 
                                             className="yesBtn"
                                             to="/anonymous-provide-email"
+                                            onMouseEnter = {() => this.showAnonymousProfile()}
                                         >Yes, make me anonymous</NavLink>
 
-                                        <div className="noBtn">No, use my real name</div>
+                                        <NavLink 
+                                            className="noBtn"
+                                            to="/anonymous-provide-email"
+                                            onMouseEnter = {() => this.showRealProfile()}
+                                        >No, use my real name</NavLink>
+
+                                        
                                     </div>
                                     
                                 </div>

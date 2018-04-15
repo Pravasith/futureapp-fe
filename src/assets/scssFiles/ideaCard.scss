@@ -79,14 +79,25 @@
 
         .avatar{
             left: 1em;
+            bottom: 0.2em;
             position: relative;
             border: 0.3em solid;
             border-color: $mediumGrey;
             background: $white;
             @include flexCentreRow;
-            width: fit-content;
+            
+            width: 4.2em;
+            height: 4.2em;
+            border-radius: 5em;
             padding: 0.2em;
-            border-radius: 100em;
+            
+
+            img{
+                width: 3.8em;
+                height: 3.8em;
+                border-radius: 3.6em;
+                position: absolute;
+            }
         }
         .userNameTemp{
             position: relative;

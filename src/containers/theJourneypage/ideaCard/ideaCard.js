@@ -29,7 +29,8 @@ class IdeaCard extends React.Component{
             courage : this.props.cardData.userStatData ? this.props.cardData.userStatData.courage : 0,
             wisdom : this.props.cardData.userStatData ? this.props.cardData.userStatData.wisdom : 0,
             nectar : this.props.cardData.userStatData ? this.props.cardData.userStatData.nectar : 0,
-            color : this.props.cardData.cardColor ? this.props.cardData.cardColor : "#333333"
+            color : this.props.cardData.cardColor ? this.props.cardData.cardColor : "#333333",
+            profilePicture : this.props.cardData.profilePicture ? this.props.cardData.profilePicture : "https://i.pinimg.com/originals/5f/58/0c/5f580c8bc800617cc9c51f5204f7afb8.jpg",
         }
     }
 
@@ -48,7 +49,8 @@ class IdeaCard extends React.Component{
                 courage : this.props.cardData.userStatData ? this.props.cardData.userStatData.courage : 0,
                 wisdom : this.props.cardData.userStatData ? this.props.cardData.userStatData.wisdom : 0,
                 nectar : this.props.cardData.userStatData ? this.props.cardData.userStatData.nectar : 0,
-                color : this.props.cardData.cardColor ? this.props.cardData.cardColor : "#333333"
+                color : this.props.cardData.cardColor ? this.props.cardData.cardColor : "#333333",
+                profilePicture : this.props.cardData.profilePicture ? this.props.cardData.profilePicture : "https://i.pinimg.com/originals/5f/58/0c/5f580c8bc800617cc9c51f5204f7afb8.jpg",
             })
         })
         .catch((err) => {
@@ -97,6 +99,7 @@ class IdeaCard extends React.Component{
                             style={{'borderColor': this.props.color ? this.props.color : this.state.color}}
                             >
                                 <AnonymousAvatar/>
+                                <img src={this.props.profilePicture ? this.props.profilePicture : this.state.profilePicture} alt=""/>
                         </div>
                         <div 
                             className="backLine"
