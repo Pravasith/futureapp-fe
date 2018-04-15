@@ -1,5 +1,5 @@
 
-// const API_BASE_URL = 'http://159.89.167.240:8000/'
+// export const API_BASE_URL = 'http://159.89.167.240:8000/'
 const API_BASE_URL = 'http://localhost:8000/'
 const API_PATH = 'api/'
 const API_URL = API_BASE_URL + API_PATH
@@ -11,6 +11,8 @@ export const api = {
     DELETE_CARD_DATA : API_URL + 'card/delete-card',
     USER_DATA: API_URL + 'user/userdata',
     GET_USER_DATA : API_URL + 'user/getuserdata',
+    KNOCK_LINKEDIN : API_BASE_URL + 'knock/linkedin',
+    KNOCK_GOOGLE : API_BASE_URL + 'knock/google',
     REGISTER_LINKEDIN_USER : API_URL + 'user/login-linkedin-user',
     REGISTER_GOOGLE_USER : API_URL + 'user/login-google-user',
     PROJECT_TYPES: API_URL + 'appData/businesstypes',

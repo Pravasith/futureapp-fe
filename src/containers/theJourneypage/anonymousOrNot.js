@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
 import { getCardData, deleteCardData } from '../../actions/cardActions'
-import { registerLinkedInUser, registerGoogleUser } from '../../actions/userActions'
+import { registerLinkedInUser, registerGoogleUser, fetchUserData } from '../../actions/userActions'
 import { crack } from '../.././config'
 
 //typical import of gsap methods
@@ -98,6 +98,34 @@ class AnonymousOrNot extends React.Component{
                 .catch(e => console.error(e))
             }
 
+            if(localStorage.getItem('loginThrough') === 'form'){
+
+                    this.props.fetchUserData(localStorage.getItem("id"))
+                    .then(() => {
+
+                        // decrypt data
+                        // use cardsData inplace of encrypted data string
+                        // Decodes Base-64 encoded string and returns Uint8Array of bytes.
+                        let key = nacl.util.decodeBase64(crack)
+                        let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.userDetails.cardsData), nacl.util.decodeBase64(this.props.userDetails.encryptedKey), key)
+                        let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
+
+                        if( Object.keys(decryptedData[0]).length === 0 && decryptedData[0].constructor === Object ){}
+
+                        else
+                        this.setState({
+                                cardData : {...decryptedData[0]},
+                                // profilePicture : this.props.createUser.profilePicture,
+                                name : this.props.userDetails.username
+                            })
+                    })
+                    // this.setState({
+                    //     cardData : {...decryptedData[0]},
+                    //     profilePicture : this.props.createUser.profilePicture,
+                    //     name : this.props.createUser.firstName
+                    // })
+            }
+
 
             
         })
@@ -107,23 +135,52 @@ class AnonymousOrNot extends React.Component{
     }
 
     showAnonymousProfile = () => {
-         // decrypt data
-        // use cardsData inplace of encrypted data string
-        // Decodes Base-64 encoded string and returns Uint8Array of bytes.
-        let key = nacl.util.decodeBase64(crack)
-        let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.createUser.cardsData), nacl.util.decodeBase64(this.props.createUser.encryptedKey), key)
-        let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
 
-        if( Object.keys(decryptedData[0]).length === 0 && decryptedData[0].constructor === Object ){}
+        if(localStorage.getItem('loginThrough' === 'form')){
+            // decrypt data
+            // use cardsData inplace of encrypted data string
+            // Decodes Base-64 encoded string and returns Uint8Array of bytes.
+            let key = nacl.util.decodeBase64(crack)
+            let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.userDetails.cardsData), nacl.util.decodeBase64(this.props.userDetails.encryptedKey), key)
+            let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
 
-        else
-        this.setState({
-            name : decryptedData[0].robotName,
-            profilePicture : null
-        })
+            if( Object.keys(decryptedData[0]).length === 0 && decryptedData[0].constructor === Object ){}
+
+            else
+            this.setState({
+                    // cardData : {...decryptedData[0]},
+                    // profilePicture : this.props.createUser.profilePicture,
+                    name : this.props.decryptedData[0].robotName
+                })
+
+        }
+
+        else{
+            // decrypt data
+            // use cardsData inplace of encrypted data string
+            // Decodes Base-64 encoded string and returns Uint8Array of bytes.
+            let key = nacl.util.decodeBase64(crack)
+            let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.userDetails.cardsData), nacl.util.decodeBase64(this.props.userDetails.encryptedKey), key)
+            let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
+
+            if( Object.keys(decryptedData[0]).length === 0 && decryptedData[0].constructor === Object ){}
+            else
+            this.setState({
+                name : decryptedData[0].robotName,
+                profilePicture : null
+            })
+        }
     }
 
     showRealProfile = () => {
+        
+        if(localStorage.getItem('loginThrough') === 'form'){
+            this.setState({
+                name : this.props.userDetails.username
+            })
+        }
+
+        else
         this.setState({
             name : this.props.createUser.firstName,
             profilePicture : this.props.createUser.profilePicture
@@ -229,7 +286,8 @@ function mapStateToProps(state){
     return(
         {
             cardData : state.updatedCardData,
-            createUser : state.createUser
+            createUser : state.createUser,
+            userDetails : state.userDetails
         }
     )
 }
@@ -240,7 +298,8 @@ function matchDispatchToProps(dispatch){
             getCardData,
             registerLinkedInUser,
             registerGoogleUser,
-            deleteCardData
+            deleteCardData,
+            fetchUserData
         },
         dispatch
     )

@@ -1,5 +1,6 @@
 import React from "react"
 
+
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import axios from 'axios'
@@ -7,6 +8,8 @@ import axios from 'axios'
 
 import { NavLink } from 'react-router-dom'
 import { Redirect } from 'react-router'
+
+import { api } from '../../actions/apiLinks'
 
 import { Navbar } from "../../components/navbar"
 import MainStatusBar from "../startPage/mainStatusBar"
@@ -99,13 +102,16 @@ class SignUp extends React.Component{
                 }
 
                 if(!this.props.createUser.itsTaken){
+
+                    // above condition means check if username is not taken
                     
                     this.props.fetchUserData(this.props.createUser._id)
                     .then(() => {
                         localStorage.setItem("id", this.props.userDetails._id)
                         localStorage.setItem("loginThrough", 'form')
                         // this.props.deleteCardData(robotname)
-                        .then(() => this.setState({ redirect: true }))
+                        this.setState({ redirect: true })
+                        
                     })
                     .catch((err) => console.error(err))
                 }
@@ -342,7 +348,7 @@ class SignUp extends React.Component{
                                         className="googleConnect flexRowDiv"
                                         onClick = {() => {
                                             localStorage.setItem("loginThrough", 'google')
-                                            window.open('http://localhost:8000/knock/google')
+                                            window.open(api.KNOCK_GOOGLE, '_self')
                                         }}
                                         >
                                         <div className="googleIcon">
@@ -356,7 +362,7 @@ class SignUp extends React.Component{
                                         className="linkedInConnect flexRowDiv"
                                         onClick = {() => {
                                             localStorage.setItem("loginThrough", 'linkedin')
-                                            window.open('http://localhost:8000/knock/linkedin')
+                                            window.open(api.KNOCK_LINKEDIN , '_self')
                                         }}
                                         >
                                         <div className="linkedInIcon">
