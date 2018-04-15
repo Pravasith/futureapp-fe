@@ -102,9 +102,9 @@ class SignUp extends React.Component{
                     
                     this.props.fetchUserData(this.props.createUser._id)
                     .then(() => {
-                        
                         localStorage.setItem("id", this.props.userDetails._id)
-                        this.props.deleteCardData(robotname)
+                        localStorage.setItem("loginThrough", 'form')
+                        // this.props.deleteCardData(robotname)
                         .then(() => this.setState({ redirect: true }))
                     })
                     .catch((err) => console.error(err))
@@ -225,7 +225,6 @@ class SignUp extends React.Component{
             robotName : localStorage.getItem('username')
         }
 
-
         this.props.getCardData(username)
         .then(() => {
             this.props.cardData
@@ -235,20 +234,20 @@ class SignUp extends React.Component{
         }) 
     }
 
-    handleLinkedin = () => {
+    // handleLinkedin = () => {
 
-          axios.post('http://localhost:8000/api/user/login-linkedin-user', {cardsArray : [this.props.cardData]},  {
-            headers: {
-                'accept': 'application/json',
-                'Accept-Language': 'en-US,en;q=0.8',
-                "Content-Type": "application/json",
-                },
-                withCredentials: true
-          })
-          .then(response => console.log(response))
-          .catch(e => console.error(e))
+    //       axios.post('http://localhost:8000/api/user/login-linkedin-user', {cardsArray : [this.props.cardData]},  {
+    //         headers: {
+    //             'accept': 'application/json',
+    //             'Accept-Language': 'en-US,en;q=0.8',
+    //             "Content-Type": "application/json",
+    //             },
+    //             withCredentials: true
+    //       })
+    //       .then(response => console.log(response))
+    //       .catch(e => console.error(e))
         
-    }
+    // }
 
 
 
@@ -258,7 +257,7 @@ class SignUp extends React.Component{
         const { redirect } = this.state
 
         if (redirect) {
-            return <Redirect to='/anonymous-provide-email'/>
+            return <Redirect to='/anonymous-or-not'/>
         }
 
 
@@ -341,22 +340,24 @@ class SignUp extends React.Component{
                                     
                                     <div 
                                         className="googleConnect flexRowDiv"
-                                        // onClick = {() => window.open('http://localhost:8000/knock/google')}
-                                        onClick = {() => this.handleLinkedin()}
-                                        
+                                        onClick = {() => {
+                                            localStorage.setItem("loginThrough", 'google')
+                                            window.open('http://localhost:8000/knock/google')
+                                        }}
                                         >
                                         <div className="googleIcon">
                                             <GoogleIcon/>
                                         </div>
                                         <span></span>
                                         <div className="socialNetworkText">Connect with Google</div>
-                                    
                                     </div>
-                                    <div 
+
+                                    <div
                                         className="linkedInConnect flexRowDiv"
-                                        // type = "in/Login"
-                                        onClick = {() => window.open('http://localhost:8000/knock/linkedin')}
-                                        // onClick = {() => this.handleLinkedin()}
+                                        onClick = {() => {
+                                            localStorage.setItem("loginThrough", 'linkedin')
+                                            window.open('http://localhost:8000/knock/linkedin')
+                                        }}
                                         >
                                         <div className="linkedInIcon">
                                             <LinkedInIcon/>

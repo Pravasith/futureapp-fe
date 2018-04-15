@@ -2,12 +2,14 @@ import React from "react"
 
 import {connect} from "react-redux"
 import {bindActionCreators} from "redux"
+
+import axios from 'axios'
  
 import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
-import { updateCardColor } from '../../actions/cardActions'
+import { getCardData } from '../../actions/cardActions'
 
 //typical import of gsap methods
 import {TimelineLite} from "gsap"
@@ -27,7 +29,44 @@ class AnonymousOrNot extends React.Component{
     }
 
     componentDidMount(){
+        let username = {
+            robotName : localStorage.getItem('username')
+        }
 
+        this.props.getCardData(username)
+        .then(() => {
+            if(localStorage.getItem('loginThrough') === 'linkedin'){
+                axios.post('http://localhost:8000/api/user/login-linkedin-user', {cardsArray : [this.props.cardData]},  {
+                headers: {
+                    'accept': 'application/json',
+                    'Accept-Language': 'en-US,en;q=0.8',
+                    "Content-Type": "application/json",
+                    },
+                    withCredentials: true
+                })
+                .then(response => console.log(response))
+                .catch(e => console.error(e))
+            }
+
+            if(localStorage.getItem('loginThrough') === 'google'){
+                axios.post('http://localhost:8000/api/user/login-google-user', {cardsArray : [this.props.cardData]},  {
+                headers: {
+                    'accept': 'application/json',
+                    'Accept-Language': 'en-US,en;q=0.8',
+                    "Content-Type": "application/json",
+                    },
+                    withCredentials: true
+                })
+                .then(response => console.log(response))
+                .catch(e => console.error(e))
+            }
+
+
+            
+        })
+        .catch((err) => {
+            console.error(err)
+        }) 
     }
 
 
@@ -118,7 +157,7 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
-            updateCardColor
+            getCardData
         },
         dispatch
     )

@@ -67,3 +67,9 @@ export function registerNewUser(userdata) {
 }
 
 
+export function registerLinkedInUser(cardsData) {
+    return dispatch => {
+
+    }
+}
+
