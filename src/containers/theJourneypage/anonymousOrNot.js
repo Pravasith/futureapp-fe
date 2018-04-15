@@ -9,12 +9,17 @@ import { Navbar } from "../../components/navbar"
 import { NavLink } from 'react-router-dom'
 import MainStatusBar from "../startPage/mainStatusBar"
 
-import { getCardData } from '../../actions/cardActions'
+import { getCardData, deleteCardData } from '../../actions/cardActions'
+import { registerLinkedInUser, registerGoogleUser } from '../../actions/userActions'
+import { crack } from '../.././config'
 
 //typical import of gsap methods
 import {TimelineLite} from "gsap"
 import IdeaCard from './ideaCard/ideaCard'
 import { CourageBlack } from "../../assets/images/courageBlack";
+
+const nacl = require('tweetnacl')
+nacl.util = require('tweetnacl-util')
 
 
 require("../../assets/cssFiles/journeyPage.css")
@@ -24,7 +29,8 @@ class AnonymousOrNot extends React.Component{
     constructor(props, context) {
         super(props, context)
 
-        this.state = {            
+        this.state = {
+            cardData : null,
         }
     }
 
@@ -35,29 +41,54 @@ class AnonymousOrNot extends React.Component{
 
         this.props.getCardData(username)
         .then(() => {
+
+
             if(localStorage.getItem('loginThrough') === 'linkedin'){
-                axios.post('http://localhost:8000/api/user/login-linkedin-user', {cardsArray : [this.props.cardData]},  {
-                headers: {
-                    'accept': 'application/json',
-                    'Accept-Language': 'en-US,en;q=0.8',
-                    "Content-Type": "application/json",
-                    },
-                    withCredentials: true
+                this.props.registerLinkedInUser(this.props.cardData)
+                .then(() => {
+                    localStorage.setItem('id', this.props.createUser._id)
+                    // let robotname = this.
+                    // this.props.deleteCardData(robotname)
+                    // decrypt data
+                    // use cardsData inplace of encrypted data string
+                    // Decodes Base-64 encoded string and returns Uint8Array of bytes.
+                    let key = nacl.util.decodeBase64(crack)
+                    let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.createUser.cardsData), nacl.util.decodeBase64(this.props.createUser.encryptedKey), key)
+                    let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
+
+                    if( Object.keys(decryptedData[0]).length === 0 && decryptedData[0].constructor === Object ){}
+
+                    else
+                    {
+                        this.setState({
+                            cardData : {...decryptedData[0]},
+                        })
+                    }
                 })
-                .then(response => console.log(response))
                 .catch(e => console.error(e))
             }
 
             if(localStorage.getItem('loginThrough') === 'google'){
-                axios.post('http://localhost:8000/api/user/login-google-user', {cardsArray : [this.props.cardData]},  {
-                headers: {
-                    'accept': 'application/json',
-                    'Accept-Language': 'en-US,en;q=0.8',
-                    "Content-Type": "application/json",
-                    },
-                    withCredentials: true
+                this.props.registerGoogleUser(this.props.cardData)
+                .then(() => {
+                    localStorage.setItem('id', this.props.createUser._id)
+                    // this.props.deleteCardData(robotname)
+                    // decrypt data
+                    // use cardsData inplace of encrypted data string
+                    // Decodes Base-64 encoded string and returns Uint8Array of bytes.
+                    let key = nacl.util.decodeBase64(crack)
+                    let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.createUser.cardsData), nacl.util.decodeBase64(this.props.createUser.encryptedKey), key)
+                    let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
+
+                    if( Object.keys(decryptedData[0]).length === 0 && decryptedData[0].constructor === Object ){}
+
+                    else
+                    {
+                        this.setState({
+                            cardData : {...decryptedData[0]},
+                        })
+                    }
                 })
-                .then(response => console.log(response))
                 .catch(e => console.error(e))
             }
 
@@ -88,7 +119,17 @@ class AnonymousOrNot extends React.Component{
                         <div className="cardScreen">
                             <div className="leftScr">
                                 <h2>Your Idea card</h2>
-                                <IdeaCard/>
+                                <IdeaCard
+                                    businessType={this.state.cardData ? this.state.cardData.ideaType : "Loading your project type"}
+                                    noOfImages = {this.state.cardData ? this.state.cardData.imageArray.length : 0}
+                                    idea = {this.state.cardData ? this.state.cardData.shortIdea : "Loading your idea"}
+                                    robotName = {this.state.cardData ? this.state.cardData.robotName : "Just a min"}
+                                    courage = {this.state.cardData ? this.state.cardData.userStatData.courage : 0}
+                                    wisdom = {this.state.cardData ? this.state.cardData.userStatData.wisdom : 0}
+                                    nectar = {this.state.cardData ? this.state.cardData.userStatData.nectar : 0}
+                                    color = {this.state.cardData ? this.state.cardData.cardColor : "#333333"}
+                                
+                                />
                             </div>
                             <div className="rightScr">
                                 <div className="anonymousOrNotWrapper">
@@ -149,7 +190,8 @@ class AnonymousOrNot extends React.Component{
 function mapStateToProps(state){
     return(
         {
-            cardData : state.updatedCardData
+            cardData : state.updatedCardData,
+            createUser : state.createUser
         }
     )
 }
@@ -157,7 +199,10 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators(
         {
-            getCardData
+            getCardData,
+            registerLinkedInUser,
+            registerGoogleUser,
+            deleteCardData
         },
         dispatch
     )

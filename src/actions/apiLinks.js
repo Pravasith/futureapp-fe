@@ -11,6 +11,8 @@ export const api = {
     DELETE_CARD_DATA : API_URL + 'card/delete-card',
     USER_DATA: API_URL + 'user/userdata',
     GET_USER_DATA : API_URL + 'user/getuserdata',
+    REGISTER_LINKEDIN_USER : API_URL + 'user/login-linkedin-user',
+    REGISTER_GOOGLE_USER : API_URL + 'user/login-google-user',
     PROJECT_TYPES: API_URL + 'appData/businesstypes',
     UPLOAD_IMAGE: API_URL + 'card/uploadimage',
     UPDATE_COLOR: API_URL + 'card/update-color'
