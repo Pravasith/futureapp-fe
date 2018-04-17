@@ -8,6 +8,7 @@ import SelectCardColor from "./theJourneypage/selectCardColor"
 import AnonymousOrNot from "./theJourneypage/anonymousOrNot"
 import AnonymousProvideEmail from "./theJourneypage/anonymousProvideEmail"
 import SignUp from "./signUp/signUp"
+import TeamPanel from "./teamPage/teamPanel"
 
 
 import '../assets/cssFiles/common.css'
@@ -30,6 +31,7 @@ class App extends React.Component{
                             <Route exact path="/anonymous-or-not" component={AnonymousOrNot}/>
                             <Route exact path="/anonymous-provide-email" component={AnonymousProvideEmail}/>
                             <Route exact path="/sign-up" component={SignUp}/>
+                            <Route exact path="/team-panel" component={TeamPanel}/>
                         </Switch>
                     }
                 

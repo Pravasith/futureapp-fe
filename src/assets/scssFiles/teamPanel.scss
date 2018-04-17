@@ -1,0 +1,325 @@
+@import "configVariables";
+@import "configMixins";
+
+// Team panel page start
+
+
+.teamPanelWrapper{
+    @include flexCentreRow;
+    span{
+        width: 1em;
+        height: 1em;
+    }
+    .teamLayout{
+        background: $veryLightGrey;
+        // background: blueviolet;
+        @include flexCentreCol;
+        width: 32%;
+        margin: 1em;
+        margin-right: 0.5em;
+
+        .sendBtn{
+            @include darkGreyBtn;
+            font-size: 0.8em;
+            margin: 1em;
+        }
+        
+
+        .type1{
+            font-weight: 700;
+            color: $secondaryMagenta;
+            font-size: 1em;
+            margin: 1em;
+            text-align: center;
+        }
+
+        .type2{
+            font-weight: 500;
+            color: $darkGrey;
+            font-size: 0.8em;
+            
+        }
+
+        .teamWrap{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: start;
+            grid-gap: 0em 1em;
+            height: 20em;
+            overflow-y: auto;
+
+            .teamCol{
+                width: 100%;
+                @include flexCentreRow;
+                
+    
+                .teamCircleAndDetails{
+                    @include flexCentreCol;
+    
+                    width: 100%;
+                    margin: 0.25em 0;
+    
+                    .teamCircle{
+                        width: 0.7em;
+                        height: 0.7em;
+                        border-radius: 1em;
+                        background: $secondaryBlue;
+                    }
+    
+                    .teamBubble{
+    
+                        position: relative;
+                        
+                        .insideBubble{
+                            background: $white;
+                            @include flexCentreRow;
+                            min-height: 2em;
+                            max-width: 10em;
+                            padding: 0.3em 0.7em;
+                            border-radius: 0.5em;
+                            margin-top: 0.4em;
+                            margin: 0.4em;
+                            justify-content: space-between;
+                            
+                            .noOfMembers{
+                                @include flexCentreRow;
+                                p{
+                                    padding: 0.3em;
+                                }
+                                
+                            }
+                        }
+    
+                        .coneToolTip{
+                            position: absolute;
+                            top: -0.5em;
+                            left: 46%;
+                        }
+                        
+                    }
+                }
+            }
+
+        }
+
+        
+    }
+    .teamDetails{
+        @include flexCentreCol;
+        background: $veryLightGrey;
+        width: 62%;
+        margin: 1em;
+        margin-left: 0.5em;
+
+        .teamHeading{
+            margin: 1em 0;
+            @include flexCentreRow;
+            .teamPicture{
+                width: 3.5em;
+                height: 3em;
+                border-radius: 4em;
+                background: $lightGrey;
+            }
+            h2{
+                font-size: 1.5em;
+                text-align: center;
+                width: 72%;
+                font-family: arial;
+                font-weight: 700;
+                color: $mediumGrey;
+                margin: 0.5em 0;
+            }
+            .editTeam{
+                @include darkGreyBtn;
+                font-size: 0.8em;
+                width: 8em;
+                padding: 0.1em;
+                background: $white;
+                color: $darkGrey;                
+            }
+        }
+
+        .memberDetailWrap{
+            @include flexCentreRow;
+            .teamInfo{
+                @include flexCentreCol;
+                background: $white;
+                width: 60%;
+                margin: 1em;
+                margin-right: 0.5em;
+                width: 58%;
+
+                .scheduleNewMeeting, .postLinkedin{
+                    @include darkGreyBtn;
+                    font-size: 0.8em;
+                    padding: 0.1em 1em;
+                    width: 80%;
+                    background: $white;
+                    color: $darkGrey;     
+                }
+
+                .scheduleNewMeeting{
+                    background: $darkGrey;
+                    color: $white;    
+                }
+
+                .memberDetails{
+                    @include flexCentreCol;
+                    width: 100%;
+                    padding: 0 1em;
+
+                    p{
+                        margin: 0.25em 0;
+                    }
+                    
+                    .flexRowDiv{
+                        width: 100%;
+                        justify-content: start;
+                        font-size: 0.8em;
+                        font-weight: 700;
+                        padding: 0 1em;
+
+                    }
+                }
+
+                .line{
+                    height: 0.15em;
+                    width: 80%;
+                    background: $lightGrey;
+                    margin: 0.3em;
+                    border-radius: 1em;
+                }
+
+                .promiseDetails{
+                    @include flexCentreCol;
+                    width: 100%;
+                    justify-content: start;
+                    padding: 0 1em;
+                    margin: 0.8em 0;
+
+                    .iconAndPromise{
+                        @include flexCentreRow;
+                        width: 100%;
+                        justify-content: start;
+                        font-size: 0.8em;
+                        font-weight: 700;
+                        padding: 0 1em;
+
+                        
+                    }
+
+                    .promiseInfo{
+                        padding: 0.5em 0;
+                        @include flexCentreCol;
+
+                        .title{
+                            font-weight: 500;
+                        }
+
+                        span{
+                            height: 0.5em;
+                        }
+
+                        .viewContracts{
+                            @include darkGreyBtn;
+                            font-size: 0.8em;
+                            padding: 0.1em 1em;
+                            
+                            background: $white;
+                            color: $darkGrey;     
+                        }
+
+                        .smallLine{
+                            width: 70%;
+                            height: 0.15em;
+                            margin: 0.3em;
+                            border-radius: 1em;
+                            background: $lightGrey;
+                        }
+                        
+                    }
+
+                }
+            }
+
+            .suggested{
+                background: $white;
+                margin: 1em;
+                margin-left: 0.5em;
+                width: 38%;
+
+                .memberIconSuggested{
+                    @include flexCentreRow;
+                    font-weight: 500;
+                    padding: 1em;
+                    border-bottom: 0.5em solid $veryLightGrey;
+                }
+
+                .memberWrapper{
+                    @include flexCentreCol;
+                    padding: 1em;
+                    .picAndDetails{
+                        @include flexCentreRow;
+                        .picMember{
+                            width: 5em;
+                            height: 4em;
+                            border-radius: 4em;
+                            background: $lightGrey;
+                        }
+
+                        .memberLine{
+                            height: 0.15em;
+                            width: 100%;
+                            background: $lightGrey;
+                            margin: 0.3em 0;
+                            border-radius: 1em;
+                        }
+
+                        .memberName{
+                            font-weight: 500;
+                        }
+
+                        
+                    }
+
+                    .joinReqBtn{
+                        @include darkGreyBtn;
+                        font-size: 0.8em;
+                        padding: 0.1em 1em;
+                        width: 90%;
+                        background: $white;
+                        color: $darkGrey;   
+                    }
+                }
+            }
+
+        }
+
+    }
+    
+}
+
+
+
+// Media Queries
+
+
+// ipad
+
+@media screen and (max-width: 1024px){
+
+
+}
+
+
+@media screen and (max-width: 650px){
+
+    
+}
+
+
+// mobiles
+
+@media screen and (max-width: 520px){
+
+}

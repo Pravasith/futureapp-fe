@@ -4,12 +4,12 @@ import {connect} from "react-redux"
 import {bindActionCreators} from "redux"
 
 import StarRating from '../../../assets/images/starRating'
-import { ImgIcon } from "../../../assets/images/imgIcon";
-import { PsyBill } from "../../../assets/images/psybill";
-import { AnonymousAvatar } from "../../../assets/images/anonymousAvatar";
-import { CourageBlack } from "../../../assets/images/courageBlack";
-import { WissenBlack } from "../../../assets/images/wissenBlack";
-import { NectarBlack } from "../../../assets/images/nectarBlack";
+import { ImgIcon } from "../../../assets/images/imgIcon"
+import { PsyBill } from "../../../assets/images/psybill"
+import { AnonymousAvatar } from "../../../assets/images/anonymousAvatar"
+import { CourageBlack } from "../../../assets/images/courageBlack"
+import { WissenBlack } from "../../../assets/images/wissenBlack"
+import { NectarBlack } from "../../../assets/images/nectarBlack"
 
 import { getCardData } from "../../../actions/cardActions"
 

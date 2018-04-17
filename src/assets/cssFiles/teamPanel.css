@@ -1,0 +1,667 @@
+@-webkit-keyframes rotateThis {
+  from {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1); }
+  to {
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1); } }
+
+@keyframes rotateThis {
+  from {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1); }
+  to {
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1); } }
+
+.teamPanelWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .teamPanelWrapper span {
+    width: 1em;
+    height: 1em; }
+  .teamPanelWrapper .teamLayout {
+    background: #F2F2F2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 32%;
+    margin: 1em;
+    margin-right: 0.5em; }
+    .teamPanelWrapper .teamLayout .sendBtn {
+      background: #ffffff;
+      -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+      box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+      border: 0.1em solid #212529;
+      border-radius: 2em;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      outline: none;
+      height: 2.8em;
+      width: 12em;
+      margin: 0.5em;
+      color: #4d4d4d;
+      cursor: pointer;
+      -webkit-transition: 0.2s;
+      -o-transition: 0.2s;
+      transition: 0.2s;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      display: flex;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 1em;
+      border-color: #4d4d4d;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      color: #ffffff;
+      font-weight: 600;
+      background: #4d4d4d;
+      transition: 0.2s;
+      text-align: center;
+      padding: 1.5em;
+      line-height: 1em;
+      font-size: 0.8em;
+      margin: 1em; }
+      .teamPanelWrapper .teamLayout .sendBtn:hover {
+        text-decoration: none; }
+      .teamPanelWrapper .teamLayout .sendBtn:hover {
+        border-color: #FF94F3;
+        color: #FF94F3; }
+    .teamPanelWrapper .teamLayout .type1 {
+      font-weight: 700;
+      color: #FF94F3;
+      font-size: 1em;
+      margin: 1em;
+      text-align: center; }
+    .teamPanelWrapper .teamLayout .type2 {
+      font-weight: 500;
+      color: #4d4d4d;
+      font-size: 0.8em; }
+    .teamPanelWrapper .teamLayout .teamWrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: start;
+      grid-gap: 0em 1em;
+      height: 20em;
+      overflow-y: auto; }
+      .teamPanelWrapper .teamLayout .teamWrap .teamCol {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        .teamPanelWrapper .teamLayout .teamWrap .teamCol .teamCircleAndDetails {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          width: 100%;
+          margin: 0.25em 0; }
+          .teamPanelWrapper .teamLayout .teamWrap .teamCol .teamCircleAndDetails .teamCircle {
+            width: 0.7em;
+            height: 0.7em;
+            border-radius: 1em;
+            background: #94E8FF; }
+          .teamPanelWrapper .teamLayout .teamWrap .teamCol .teamCircleAndDetails .teamBubble {
+            position: relative; }
+            .teamPanelWrapper .teamLayout .teamWrap .teamCol .teamCircleAndDetails .teamBubble .insideBubble {
+              background: #ffffff;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: horizontal;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: row;
+              flex-direction: row;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              min-height: 2em;
+              max-width: 10em;
+              padding: 0.3em 0.7em;
+              border-radius: 0.5em;
+              margin-top: 0.4em;
+              margin: 0.4em;
+              -webkit-box-pack: justify;
+              -ms-flex-pack: justify;
+              justify-content: space-between; }
+              .teamPanelWrapper .teamLayout .teamWrap .teamCol .teamCircleAndDetails .teamBubble .insideBubble .noOfMembers {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                flex-direction: row;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center; }
+                .teamPanelWrapper .teamLayout .teamWrap .teamCol .teamCircleAndDetails .teamBubble .insideBubble .noOfMembers p {
+                  padding: 0.3em; }
+            .teamPanelWrapper .teamLayout .teamWrap .teamCol .teamCircleAndDetails .teamBubble .coneToolTip {
+              position: absolute;
+              top: -0.5em;
+              left: 46%; }
+  .teamPanelWrapper .teamDetails {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #F2F2F2;
+    width: 62%;
+    margin: 1em;
+    margin-left: 0.5em; }
+    .teamPanelWrapper .teamDetails .teamHeading {
+      margin: 1em 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .teamPanelWrapper .teamDetails .teamHeading .teamPicture {
+        width: 3.5em;
+        height: 3em;
+        border-radius: 4em;
+        background: #e4e4e4; }
+      .teamPanelWrapper .teamDetails .teamHeading h2 {
+        font-size: 1.5em;
+        text-align: center;
+        width: 72%;
+        font-family: arial;
+        font-weight: 700;
+        color: #a5a5a5;
+        margin: 0.5em 0; }
+      .teamPanelWrapper .teamDetails .teamHeading .editTeam {
+        background: #ffffff;
+        -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+        box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+        border: 0.1em solid #212529;
+        border-radius: 2em;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        outline: none;
+        height: 2.8em;
+        width: 12em;
+        margin: 0.5em;
+        color: #4d4d4d;
+        cursor: pointer;
+        -webkit-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        display: flex;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+        border-color: #4d4d4d;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        color: #ffffff;
+        font-weight: 600;
+        background: #4d4d4d;
+        transition: 0.2s;
+        text-align: center;
+        padding: 1.5em;
+        line-height: 1em;
+        font-size: 0.8em;
+        width: 8em;
+        padding: 0.1em;
+        background: #ffffff;
+        color: #4d4d4d; }
+        .teamPanelWrapper .teamDetails .teamHeading .editTeam:hover {
+          text-decoration: none; }
+        .teamPanelWrapper .teamDetails .teamHeading .editTeam:hover {
+          border-color: #FF94F3;
+          color: #FF94F3; }
+    .teamPanelWrapper .teamDetails .memberDetailWrap {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background: #ffffff;
+        width: 60%;
+        margin: 1em;
+        margin-right: 0.5em;
+        width: 58%; }
+        .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .scheduleNewMeeting, .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .postLinkedin {
+          background: #ffffff;
+          -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+          box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+          border: 0.1em solid #212529;
+          border-radius: 2em;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          outline: none;
+          height: 2.8em;
+          width: 12em;
+          margin: 0.5em;
+          color: #4d4d4d;
+          cursor: pointer;
+          -webkit-transition: 0.2s;
+          -o-transition: 0.2s;
+          transition: 0.2s;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          display: flex;
+          -ms-flex-direction: row;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 1em;
+          border-color: #4d4d4d;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          color: #ffffff;
+          font-weight: 600;
+          background: #4d4d4d;
+          transition: 0.2s;
+          text-align: center;
+          padding: 1.5em;
+          line-height: 1em;
+          font-size: 0.8em;
+          padding: 0.1em 1em;
+          width: 80%;
+          background: #ffffff;
+          color: #4d4d4d; }
+          .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .scheduleNewMeeting:hover, .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .postLinkedin:hover {
+            text-decoration: none; }
+          .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .scheduleNewMeeting:hover, .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .postLinkedin:hover {
+            border-color: #FF94F3;
+            color: #FF94F3; }
+        .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .scheduleNewMeeting {
+          background: #4d4d4d;
+          color: #ffffff; }
+        .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .memberDetails {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          width: 100%;
+          padding: 0 1em; }
+          .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .memberDetails p {
+            margin: 0.25em 0; }
+          .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .memberDetails .flexRowDiv {
+            width: 100%;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: start;
+            font-size: 0.8em;
+            font-weight: 700;
+            padding: 0 1em; }
+        .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .line {
+          height: 0.15em;
+          width: 80%;
+          background: #e4e4e4;
+          margin: 0.3em;
+          border-radius: 1em; }
+        .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .promiseDetails {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          width: 100%;
+          -webkit-box-pack: start;
+          -ms-flex-pack: start;
+          justify-content: start;
+          padding: 0 1em;
+          margin: 0.8em 0; }
+          .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .promiseDetails .iconAndPromise {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 100%;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: start;
+            font-size: 0.8em;
+            font-weight: 700;
+            padding: 0 1em; }
+          .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .promiseDetails .promiseInfo {
+            padding: 0.5em 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .promiseDetails .promiseInfo .title {
+              font-weight: 500; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .promiseDetails .promiseInfo span {
+              height: 0.5em; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .promiseDetails .promiseInfo .viewContracts {
+              background: #ffffff;
+              -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+              box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+              border: 0.1em solid #212529;
+              border-radius: 2em;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+              flex-direction: column;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              outline: none;
+              height: 2.8em;
+              width: 12em;
+              margin: 0.5em;
+              color: #4d4d4d;
+              cursor: pointer;
+              -webkit-transition: 0.2s;
+              -o-transition: 0.2s;
+              transition: 0.2s;
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+              display: flex;
+              -ms-flex-direction: row;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              padding: 1em;
+              border-color: #4d4d4d;
+              -webkit-box-shadow: none;
+              box-shadow: none;
+              color: #ffffff;
+              font-weight: 600;
+              background: #4d4d4d;
+              transition: 0.2s;
+              text-align: center;
+              padding: 1.5em;
+              line-height: 1em;
+              font-size: 0.8em;
+              padding: 0.1em 1em;
+              background: #ffffff;
+              color: #4d4d4d; }
+              .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .promiseDetails .promiseInfo .viewContracts:hover {
+                text-decoration: none; }
+              .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .promiseDetails .promiseInfo .viewContracts:hover {
+                border-color: #FF94F3;
+                color: #FF94F3; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo .promiseDetails .promiseInfo .smallLine {
+              width: 70%;
+              height: 0.15em;
+              margin: 0.3em;
+              border-radius: 1em;
+              background: #e4e4e4; }
+      .teamPanelWrapper .teamDetails .memberDetailWrap .suggested {
+        background: #ffffff;
+        margin: 1em;
+        margin-left: 0.5em;
+        width: 38%; }
+        .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberIconSuggested {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+          flex-direction: row;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          font-weight: 500;
+          padding: 1em;
+          border-bottom: 0.5em solid #F2F2F2; }
+        .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          padding: 1em; }
+          .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .picAndDetails {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .picAndDetails .picMember {
+              width: 5em;
+              height: 4em;
+              border-radius: 4em;
+              background: #e4e4e4; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .picAndDetails .memberLine {
+              height: 0.15em;
+              width: 100%;
+              background: #e4e4e4;
+              margin: 0.3em 0;
+              border-radius: 1em; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .picAndDetails .memberName {
+              font-weight: 500; }
+          .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .joinReqBtn {
+            background: #ffffff;
+            -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+            box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+            border: 0.1em solid #212529;
+            border-radius: 2em;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            outline: none;
+            height: 2.8em;
+            width: 12em;
+            margin: 0.5em;
+            color: #4d4d4d;
+            cursor: pointer;
+            -webkit-transition: 0.2s;
+            -o-transition: 0.2s;
+            transition: 0.2s;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            display: flex;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            border-color: #4d4d4d;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            color: #ffffff;
+            font-weight: 600;
+            background: #4d4d4d;
+            transition: 0.2s;
+            text-align: center;
+            padding: 1.5em;
+            line-height: 1em;
+            font-size: 0.8em;
+            padding: 0.1em 1em;
+            width: 90%;
+            background: #ffffff;
+            color: #4d4d4d; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .joinReqBtn:hover {
+              text-decoration: none; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .joinReqBtn:hover {
+              border-color: #FF94F3;
+              color: #FF94F3; }
