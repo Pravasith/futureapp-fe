@@ -156,19 +156,23 @@ class AnonymousOrNot extends React.Component{
         }
 
         else{
-            // decrypt data
-            // use cardsData inplace of encrypted data string
-            // Decodes Base-64 encoded string and returns Uint8Array of bytes.
-            let key = nacl.util.decodeBase64(crack)
-            let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.userDetails.cardsData), nacl.util.decodeBase64(this.props.userDetails.encryptedKey), key)
-            let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
+            if(this.props.createUser.cardsData){
+                // decrypt data
+                // use cardsData inplace of encrypted data string
+                // Decodes Base-64 encoded string and returns Uint8Array of bytes.
+                let key = nacl.util.decodeBase64(crack)
+                
+                let rawData = nacl.secretbox.open(nacl.util.decodeBase64(this.props.createUser.cardsData), nacl.util.decodeBase64(this.props.createUser.encryptedKey), key)
+                let decryptedData = JSON.parse(nacl.util.encodeUTF8(rawData))
 
-            if( Object.keys(decryptedData[0]).length === 0 && decryptedData[0].constructor === Object ){}
-            else
-            this.setState({
-                name : decryptedData[0].robotName,
-                profilePicture : null
-            })
+                if( Object.keys(decryptedData[0]).length === 0 && decryptedData[0].constructor === Object ){}
+                else
+                this.setState({
+                    name : decryptedData[0].robotName,
+                    profilePicture : null
+                })
+            }
+            
         }
     }
 
