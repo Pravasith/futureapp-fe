@@ -316,7 +316,10 @@
       justify-content: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
-      align-items: center; }
+      align-items: center;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: start; }
       .teamPanelWrapper .teamDetails .memberDetailWrap .teamInfo {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -551,6 +554,135 @@
         margin: 1em;
         margin-left: 0.5em;
         width: 38%; }
+        .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .allMembersWrapper {
+          height: 18.45em;
+          overflow-y: auto;
+          padding-right: 0.5em;
+          background: #F2F2F2; }
+          .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .allMembersWrapper .memberWrapper {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 1em;
+            min-height: 11em;
+            background: #ffffff;
+            border-bottom: 0.5em solid #F2F2F2; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .allMembersWrapper .memberWrapper .picAndDetails {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: horizontal;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: row;
+              flex-direction: row;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              -webkit-box-align: start;
+              -ms-flex-align: start;
+              align-items: start; }
+              .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .allMembersWrapper .memberWrapper .picAndDetails .picMember {
+                width: 4em;
+                height: 4em;
+                border-radius: 4em;
+                background: #e4e4e4;
+                margin: 0.5em; }
+              .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .allMembersWrapper .memberWrapper .picAndDetails .memberInfo {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-box-align: start;
+                -ms-flex-align: start;
+                align-items: start;
+                max-width: 8em;
+                margin-left: 0.5em;
+                margin-bottom: 0.5em; }
+                .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .allMembersWrapper .memberWrapper .picAndDetails .memberInfo .memberLine {
+                  height: 0.15em;
+                  width: 100%;
+                  background: #e4e4e4;
+                  margin: 0.3em 0;
+                  border-radius: 1em; }
+                .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .allMembersWrapper .memberWrapper .picAndDetails .memberInfo .memberName {
+                  font-weight: 500; }
+            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .allMembersWrapper .memberWrapper .joinReqBtn {
+              background: #ffffff;
+              -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+              box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
+              border: 0.1em solid #212529;
+              border-radius: 2em;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+              flex-direction: column;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              outline: none;
+              height: 2.8em;
+              width: 12em;
+              margin: 0.5em;
+              color: #4d4d4d;
+              cursor: pointer;
+              -webkit-transition: 0.2s;
+              -o-transition: 0.2s;
+              transition: 0.2s;
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+              display: flex;
+              -ms-flex-direction: row;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              padding: 1em;
+              border-color: #4d4d4d;
+              -webkit-box-shadow: none;
+              box-shadow: none;
+              color: #ffffff;
+              font-weight: 600;
+              background: #4d4d4d;
+              transition: 0.2s;
+              text-align: center;
+              padding: 1.5em;
+              line-height: 1em;
+              font-size: 0.8em;
+              padding: 0.1em 1em;
+              width: 90%;
+              background: #ffffff;
+              color: #4d4d4d; }
+              .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .allMembersWrapper .memberWrapper .joinReqBtn:hover {
+                text-decoration: none; }
+              .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .allMembersWrapper .memberWrapper .joinReqBtn:hover {
+                border-color: #FF94F3;
+                color: #FF94F3; }
         .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberIconSuggested {
           display: -webkit-box;
           display: -ms-flexbox;
@@ -568,100 +700,3 @@
           font-weight: 500;
           padding: 1em;
           border-bottom: 0.5em solid #F2F2F2; }
-        .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-          flex-direction: column;
-          -webkit-box-pack: center;
-          -ms-flex-pack: center;
-          justify-content: center;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
-          align-items: center;
-          padding: 1em; }
-          .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .picAndDetails {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: horizontal;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-            flex-direction: row;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center; }
-            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .picAndDetails .picMember {
-              width: 5em;
-              height: 4em;
-              border-radius: 4em;
-              background: #e4e4e4; }
-            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .picAndDetails .memberLine {
-              height: 0.15em;
-              width: 100%;
-              background: #e4e4e4;
-              margin: 0.3em 0;
-              border-radius: 1em; }
-            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .picAndDetails .memberName {
-              font-weight: 500; }
-          .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .joinReqBtn {
-            background: #ffffff;
-            -webkit-box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
-            box-shadow: rgba(74, 74, 74, 0.16) 0.2em 0.2em 0.5em 0.1em;
-            border: 0.1em solid #212529;
-            border-radius: 2em;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            outline: none;
-            height: 2.8em;
-            width: 12em;
-            margin: 0.5em;
-            color: #4d4d4d;
-            cursor: pointer;
-            -webkit-transition: 0.2s;
-            -o-transition: 0.2s;
-            transition: 0.2s;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            display: flex;
-            -ms-flex-direction: row;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 1em;
-            border-color: #4d4d4d;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-            color: #ffffff;
-            font-weight: 600;
-            background: #4d4d4d;
-            transition: 0.2s;
-            text-align: center;
-            padding: 1.5em;
-            line-height: 1em;
-            font-size: 0.8em;
-            padding: 0.1em 1em;
-            width: 90%;
-            background: #ffffff;
-            color: #4d4d4d; }
-            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .joinReqBtn:hover {
-              text-decoration: none; }
-            .teamPanelWrapper .teamDetails .memberDetailWrap .suggested .memberWrapper .joinReqBtn:hover {
-              border-color: #FF94F3;
-              color: #FF94F3; }

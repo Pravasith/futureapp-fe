@@ -163,6 +163,7 @@ class TeamPanel extends React.Component{
 
                                 <div className="memberDetailWrap">
                                     <div className="teamInfo">
+                                        <span></span>
                                         <div className="scheduleNewMeeting">Schedule new meeting</div>
 
                                         <div className="postLinkedin">
@@ -219,19 +220,37 @@ class TeamPanel extends React.Component{
                                             <p>Suggested members</p>
                                         </div>
 
-                                        <div className="memberWrapper">
-                                            <div className="picAndDetails">
-                                                <div className="picMember"></div>
-                                                <span></span>
-                                                <div className="memberInfo">
-                                                    <p className="memberName">Pravasith</p>
-                                                    <div className="memberLine"></div>
-                                                    <p className="memberName">Related by</p>
-                                                    <p className="relatedBy">augmented, reality, helmet, road, GPS</p>
+                                        <div className="allMembersWrapper">
+
+                                            <div className="memberWrapper">
+                                                <div className="picAndDetails">
+                                                    <div className="picMember"></div>
+                                                    <div className="memberInfo">
+                                                        <p className="memberName">Pravasith</p>
+                                                        <div className="memberLine"></div>
+                                                        <p className="memberName">Related by</p>
+                                                        <p className="relatedBy">augmented, reality, helmet, road, GPS</p>
+                                                    </div>
                                                 </div>
+                                                <div className="joinReqBtn">Send join-team request</div>
                                             </div>
-                                            <div className="joinReqBtn">Send join-team request</div>
+
+                                            <div className="memberWrapper">
+                                                <div className="picAndDetails">
+                                                    <div className="picMember"></div>
+                                                    <div className="memberInfo">
+                                                        <p className="memberName">Pravasith</p>
+                                                        <div className="memberLine"></div>
+                                                        <p className="memberName">Related by</p>
+                                                        <p className="relatedBy">augmented, reality, helmet, road, GPS</p>
+                                                    </div>
+                                                </div>
+                                                <div className="joinReqBtn">Send join-team request</div>
+                                            </div>
+                                        
                                         </div>
+
+                                        
                                     </div>
                                 </div>
                             </div>

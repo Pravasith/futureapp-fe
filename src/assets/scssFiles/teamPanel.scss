@@ -141,6 +141,7 @@
 
         .memberDetailWrap{
             @include flexCentreRow;
+            align-items: start;
             .teamInfo{
                 @include flexCentreCol;
                 background: $white;
@@ -247,50 +248,81 @@
                 margin: 1em;
                 margin-left: 0.5em;
                 width: 38%;
+                
+
+                .allMembersWrapper{
+                    
+                    height: 18.45em;
+                    overflow-y: auto;
+                    padding-right: 0.5em;
+                    background: $veryLightGrey;
+
+                    .memberWrapper{
+                        @include flexCentreCol;
+                        padding: 1em;
+                        min-height: 11em;
+                        background: $white;
+
+                        .picAndDetails{
+                            @include flexCentreRow;
+                            align-items: start;
+                            .picMember{
+                                width: 4em;
+                                height: 4em;
+                                border-radius: 4em;
+                                background: $lightGrey;
+                                margin: 0.5em;
+                            }
+    
+                            .memberInfo{
+
+                                @include flexCentreCol;
+                                align-items: start;
+                                max-width: 8em;
+                                margin-left: 0.5em;
+                                margin-bottom: 0.5em;
+                                .memberLine{
+                                    height: 0.15em;
+                                    width: 100%;
+                                    background: $lightGrey;
+                                    margin: 0.3em 0;
+                                    border-radius: 1em;
+                                }
+        
+                                .memberName{
+                                    font-weight: 500;
+                                }
+                            }
+    
+                            
+                        }
+    
+                        .joinReqBtn{
+                            @include darkGreyBtn;
+                            font-size: 0.8em;
+                            padding: 0.1em 1em;
+                            width: 90%;
+                            background: $white;
+                            color: $darkGrey;   
+                        }
+    
+                        border-bottom: 0.5em solid $veryLightGrey;
+                    }
+
+                }
 
                 .memberIconSuggested{
                     @include flexCentreRow;
                     font-weight: 500;
                     padding: 1em;
                     border-bottom: 0.5em solid $veryLightGrey;
+
+                    
+
+
                 }
 
-                .memberWrapper{
-                    @include flexCentreCol;
-                    padding: 1em;
-                    .picAndDetails{
-                        @include flexCentreRow;
-                        .picMember{
-                            width: 5em;
-                            height: 4em;
-                            border-radius: 4em;
-                            background: $lightGrey;
-                        }
-
-                        .memberLine{
-                            height: 0.15em;
-                            width: 100%;
-                            background: $lightGrey;
-                            margin: 0.3em 0;
-                            border-radius: 1em;
-                        }
-
-                        .memberName{
-                            font-weight: 500;
-                        }
-
-                        
-                    }
-
-                    .joinReqBtn{
-                        @include darkGreyBtn;
-                        font-size: 0.8em;
-                        padding: 0.1em 1em;
-                        width: 90%;
-                        background: $white;
-                        color: $darkGrey;   
-                    }
-                }
+                
             }
 
         }
